@@ -55,6 +55,8 @@ class QuizGame:
             shuffle(options)
             for i in range(4):
                 self.option_buttons[i].config(text=options[i])
+            else:
+                self.end_game()
 
     def check_answer(self, selected_option):
         question = self.questions[self.current_question]
