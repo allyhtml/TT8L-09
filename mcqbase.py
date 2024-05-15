@@ -69,7 +69,9 @@ class QuizGame:
 
         result_label = tk.Label(self.root, text=result_message)
         result_label.pack()
-        
+
+        self.current_question += 1
+        self.score_label.config(text="Score: {}".format(self.score))
  
 
 
