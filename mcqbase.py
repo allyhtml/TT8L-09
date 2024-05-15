@@ -22,7 +22,7 @@ class QuizGame:
             },
             {
                 "question": "3) What type of addition do the majority of adders handle?",
-                "options": ["Octal addition", "Decimal addition", "Hexadecimal addition", "Binary addition"],
+                "options": ["Octal addition", "Decimal addition", "Hexa addition", "Binary addition"],
                 "answer": "Binary addition"
             }
         ]
