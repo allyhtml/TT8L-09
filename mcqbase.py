@@ -72,6 +72,9 @@ class QuizGame:
 
         self.current_question += 1
         self.score_label.config(text="Score: {}".format(self.score))
+
+        self.root.after(3000, result_label.destroy)
+        self.next_question()
  
 
 
