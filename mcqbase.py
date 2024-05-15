@@ -45,6 +45,10 @@ class QuizGame:
         self.score_label = tk.Label(self.root, text="Score: 0", font=custom_font)
         self.score_label.pack(pady=10)
 
+        self.next_question()
+
+
+
         
 
 
