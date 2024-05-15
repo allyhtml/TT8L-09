@@ -27,6 +27,8 @@ class QuizGame:
             }
         ]
 
+
+
 root = tk.Tk()
 app = QuizGame(root)
 root.mainloop()
