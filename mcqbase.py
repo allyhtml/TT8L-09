@@ -56,6 +56,16 @@ class QuizGame:
             for i in range(4):
                 self.option_buttons[i].config(text=options[i])
 
+    def check_answer(self, selected_option):
+        question = self.questions[self.current_question]
+        selected_answer = question["options"][selected_option]
+        correct_answer = question["answer"]
+
+        if selected_answer == correct_answer:
+            self.score += 1
+            result_message = "You are correct!"
+        else:
+            result_message = f"Wrong! The correct answer is: {correct_answer}"
  
 
 
