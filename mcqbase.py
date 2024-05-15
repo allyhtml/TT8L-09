@@ -82,6 +82,12 @@ class QuizGame:
 
         for button in self.option_buttons:
             button.config(state=tk.DISABLED)
+
+    def play_again(self):
+        self.score = 0
+        self.current_question = 0
+        self.score_label.config(text="Score: 0")
+        self.next_question()
  
 
 
