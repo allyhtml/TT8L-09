@@ -47,9 +47,16 @@ class QuizGame:
 
         self.next_question()
 
-
-
-        
+    def next_question(self):
+        if self.current_question < len(self.questions):
+            question = self.questions[self.current_question]
+            self.question_label.config(text=question["question"])
+            options = question["options"]
+            shuffle(options)
+            for i in range(4):
+                self.option_buttons[i].config(text=options[i])
+        else:
+            self.end_game()
 
 
 root = tk.Tk()
