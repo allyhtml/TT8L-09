@@ -88,6 +88,9 @@ class QuizGame:
         self.current_question = 0
         self.score_label.config(text="Score: 0")
         self.next_question()
+
+        for button in self.option_buttons:
+            button.config(state=tk.NORMAL)
  
 
 
