@@ -75,6 +75,10 @@ class QuizGame:
 
         self.root.after(3000, result_label.destroy)
         self.next_question()
+
+    def end_game(self):
+        score_message = "Final Score: {}/{}".format(self.score, len(self.questions))
+        self.question_label.config(text=score_message)
  
 
 
