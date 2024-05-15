@@ -83,6 +83,9 @@ class QuizGame:
         for button in self.option_buttons:
             button.config(state=tk.DISABLED)
 
+        play_again_button = tk.Button(self.root, text="Play Again", font=("Arial", 12), command=self.play_again)
+        play_again_button.pack(pady=10)
+
     def play_again(self):
         self.score = 0
         self.current_question = 0
