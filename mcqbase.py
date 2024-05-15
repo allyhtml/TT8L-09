@@ -27,6 +27,29 @@ class QuizGame:
             }
         ]
 
+        self.score = 0
+        self.current_question = 0
+
+       
+        self.question_label = tk.Label(self.root, text="", font=custom_font, wraplength=600)
+        self.question_label.pack(pady=20)
+
+        
+        self.option_buttons = []
+        for i in range(4):
+            button = tk.Button(self.root, text="", font=custom_font, width=40, command=lambda i=i: self.check_answer(i))
+            button.pack(pady=5)
+            self.option_buttons.append(button)
+
+        
+        self.score_label = tk.Label(self.root, text="Score: 0", font=custom_font)
+        self.score_label.pack(pady=10)
+
+        self.next_question()
+
+ 
+
+
 root = tk.Tk()
 app = QuizGame(root)
 root.mainloop()
