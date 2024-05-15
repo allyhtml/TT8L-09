@@ -66,6 +66,10 @@ class QuizGame:
             result_message = "You are correct!"
         else:
             result_message = f"Wrong! The correct answer is: {correct_answer}"
+
+        result_label = tk.Label(self.root, text=result_message)
+        result_label.pack()
+        
  
 
 
