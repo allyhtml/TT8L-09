@@ -3,7 +3,7 @@ from tkinter import font
 from tkinter import messagebox
 from random import shuffle
 
-# Event handlers for placeholder text
+
 def on_enter(event):
     widget = event.widget
     if widget.get() == 'Username':
@@ -26,7 +26,7 @@ def on_leave_password(event):
         widget.config(show='')
         widget.insert(0, 'Password')
 
-# Initialize the main Tkinter window
+
 root = tk.Tk()
 root.title('Login')
 root.geometry('925x500+300+200')
@@ -45,15 +45,15 @@ def signin():
 
         tk.Label(screen, text='Hello Everyone!', bg='#fff', font=('Calibri(Body)', 50, 'bold')).pack(expand=True)
 
-# Create and place a frame for the login section
+
 frame = tk.Frame(root, width=350, height=350, bg='white')
 frame.place(x=480, y=70)
 
-# Add a heading to the frame
+
 heading = tk.Label(frame, text='Sign in', fg='#57a1f8', bg='white', font=('Microsoft YaHei UI Light', 23, 'bold'))
 heading.place(x=100, y=5)
 
-# Username entry
+
 user = tk.Entry(frame, width=25, fg='black', border=2, bg="white", font=('Microsoft YaHei UI Light', 11))
 user.place(x=30, y=80)
 user.insert(0, 'Username')
@@ -62,7 +62,7 @@ user.bind('<FocusOut>', on_leave)
 
 tk.Frame(frame, width=295, height=2, bg='black').place(x=25, y=107)
 
-# Password entry
+
 code = tk.Entry(frame, width=25, fg='black', border=0, bg="white", font=('Microsoft YaHei UI Light', 11))
 code.place(x=30, y=150)
 code.insert(0, 'Password')
@@ -71,7 +71,7 @@ code.bind('<FocusOut>', on_leave_password)
 
 tk.Frame(frame, width=295, height=2, bg='black').place(x=25, y=177)
 
-# Sign in button
+
 tk.Button(frame, width=39, pady=7, text='Sign in', bg='#57a1f8', fg='white', border=0, command=signin).place(x=35, y=204)
 label = tk.Label(frame, text="Don't have an account?", fg='black', bg='white', font=('Microsoft YaHei UI Light', 9))
 label.place(x=75, y=270)
@@ -184,20 +184,20 @@ class QuizGame:
         self.current_question += 1
         self.score_label.config(text="Score: {}".format(self.score))
 
-        # Destroy the result message label after 3 seconds
+        
         self.root.after(3000, result_label.destroy)
         self.next_question()
 
     def end_game(self):
-        # Display final score
+        
         score_message = "Final Score: {}/{}".format(self.score, len(self.questions))
         self.question_label.config(text=score_message)
 
-        # Disable option buttons
+        
         for button in self.option_buttons:
             button.config(state=tk.DISABLED)
 
-        # Play Again button
+        
         play_again_button = tk.Button(self.root, text="Play Again", font=("Arial", 12), command=self.play_again)
         play_again_button.pack(pady=10)
 
@@ -207,7 +207,7 @@ class QuizGame:
         self.score_label.config(text="Score: 0")
         self.next_question()
 
-        # Re-enable option buttons
+
         for button in self.option_buttons:
             button.config(state=tk.NORMAL)
 
