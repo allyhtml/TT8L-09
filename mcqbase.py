@@ -47,6 +47,7 @@ class QuizGame:
 
         self.next_question()
 
+ 
 
 
 root = tk.Tk()
