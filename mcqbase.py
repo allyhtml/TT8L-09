@@ -1,6 +1,12 @@
 import tkinter as tk
 from tkinter import font 
 from random import shuffle
+import pygame
+
+# load BG music
+pygame.mixer.music.load('background audio.mp3')
+pygame.mixer.music.play(loops=-1, start=0.0) #repeat and where to start playing 
+pygame.mixer.music.set_volume(.2) #volume
 
 class QuizGame:
     def __init__(self, root):
@@ -57,7 +63,7 @@ class QuizGame:
                 self.option_buttons[i].config(text=options[i])
         else:
             self.end_game()
-            
+
 root = tk.Tk()
 app = QuizGame(root)
 root.mainloop()
