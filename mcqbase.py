@@ -8,6 +8,11 @@ pygame.mixer.music.load('background audio.mp3')
 pygame.mixer.music.play(loops=-1, start=0.0) #repeat and where to start playing 
 pygame.mixer.music.set_volume(.2) #volume
 
+# Dellay BG
+pygame.time.delay(5000)
+pygame.mixer.music.stop()
+
+
 class QuizGame:
     def __init__(self, root):
         self.root = root
