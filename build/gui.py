@@ -53,7 +53,7 @@ button_1 = Button(
     relief="flat"
 )
 button_1.place(
-    x=268.0,
+    x=511.0,
     y=234.0,
     width=210.0,
     height=227.0
@@ -69,7 +69,7 @@ button_2 = Button(
     relief="flat"
 )
 button_2.place(
-    x=511.0,
+    x=268.0,
     y=234.0,
     width=210.0,
     height=227.0
@@ -91,13 +91,13 @@ button_3.place(
     height=227.0
 )
 
-canvas.create_rectangle(
-    15.0,
-    71.0,
-    743.0,
-    198.0,
-    fill="#FFD1CC",
-    outline="")
+image_image_1 = PhotoImage(
+    file=relative_to_assets("image_1.png"))
+image_1 = canvas.create_image(
+    379.0,
+    134.0,
+    image=image_image_1
+)
 
 canvas.create_text(
     70.0,
@@ -171,52 +171,52 @@ canvas.create_text(
     font=("MADEAwelierPERSONALUSE ExtraBold", 15 * -1)
 )
 
-canvas.create_rectangle(
-    395.0,
-    29.0,
-    689.0,
-    229.0,
-    fill="#FFFFFF",
-    outline="")
+image_image_2 = PhotoImage(
+    file=relative_to_assets("image_2.png"))
+image_2 = canvas.create_image(
+    542.0,
+    129.0,
+    image=image_image_2
+)
 
-canvas.create_rectangle(
-    81.0,
-    313.0,
-    226.98439025878906,
-    455.77650451660156,
-    fill="#000000",
-    outline="")
+image_image_3 = PhotoImage(
+    file=relative_to_assets("image_3.png"))
+image_3 = canvas.create_image(
+    153.0,
+    384.0,
+    image=image_image_3
+)
 
-canvas.create_rectangle(
-    305.205078125,
-    325.28546142578125,
-    464.8001251220703,
-    458.7191162109375,
-    fill="#000000",
-    outline="")
+image_image_4 = PhotoImage(
+    file=relative_to_assets("image_4.png"))
+image_4 = canvas.create_image(
+    384.205078125,
+    391.28546142578125,
+    image=image_image_4
+)
 
-canvas.create_rectangle(
-    545.74365234375,
-    298.17352294921875,
-    679.1914367675781,
-    456.91754150390625,
-    fill="#000000",
-    outline="")
+image_image_5 = PhotoImage(
+    file=relative_to_assets("image_5.png"))
+image_5 = canvas.create_image(
+    611.74365234375,
+    377.17352294921875,
+    image=image_image_5
+)
 
-canvas.create_rectangle(
-    699.0,
-    0.0,
-    744.0,
-    60.0,
-    fill="#FFFFFF",
-    outline="")
+image_image_6 = PhotoImage(
+    file=relative_to_assets("image_6.png"))
+image_6 = canvas.create_image(
+    721.0,
+    30.0,
+    image=image_image_6
+)
 
-canvas.create_rectangle(
-    9.0,
-    2.0,
-    69.90909194946289,
-    62.0,
-    fill="#FFFFFF",
-    outline="")
+image_image_7 = PhotoImage(
+    file=relative_to_assets("image_7.png"))
+image_7 = canvas.create_image(
+    39.0,
+    32.0,
+    image=image_image_7
+)
 window.resizable(False, False)
 window.mainloop()
