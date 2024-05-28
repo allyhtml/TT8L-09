@@ -54,9 +54,9 @@ button_1 = Button(
 )
 button_1.place(
     x=511.0,
-    y=234.0,
+    y=229.0,
     width=210.0,
-    height=227.0
+    height=244.0
 )
 
 button_image_2 = PhotoImage(
@@ -70,9 +70,9 @@ button_2 = Button(
 )
 button_2.place(
     x=268.0,
-    y=234.0,
+    y=229.0,
     width=210.0,
-    height=227.0
+    height=238.0
 )
 
 button_image_3 = PhotoImage(
@@ -86,9 +86,9 @@ button_3 = Button(
 )
 button_3.place(
     x=25.0,
-    y=234.0,
+    y=229.0,
     width=210.0,
-    height=227.0
+    height=244.0
 )
 
 image_image_1 = PhotoImage(
@@ -136,33 +136,6 @@ canvas.create_text(
 )
 
 canvas.create_text(
-    39.0,
-    251.0,
-    anchor="nw",
-    text="Revision Quiz ",
-    fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 32 * -1)
-)
-
-canvas.create_text(
-    532.0,
-    251.0,
-    anchor="nw",
-    text="Flashcards",
-    fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 32 * -1)
-)
-
-canvas.create_text(
-    289.0,
-    251.0,
-    anchor="nw",
-    text="Lecture Notes",
-    fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 32 * -1)
-)
-
-canvas.create_text(
     308.0,
     22.0,
     anchor="nw",
@@ -182,41 +155,17 @@ image_2 = canvas.create_image(
 image_image_3 = PhotoImage(
     file=relative_to_assets("image_3.png"))
 image_3 = canvas.create_image(
-    153.0,
-    384.0,
+    721.0,
+    30.0,
     image=image_image_3
 )
 
 image_image_4 = PhotoImage(
     file=relative_to_assets("image_4.png"))
 image_4 = canvas.create_image(
-    384.205078125,
-    391.28546142578125,
-    image=image_image_4
-)
-
-image_image_5 = PhotoImage(
-    file=relative_to_assets("image_5.png"))
-image_5 = canvas.create_image(
-    611.74365234375,
-    377.17352294921875,
-    image=image_image_5
-)
-
-image_image_6 = PhotoImage(
-    file=relative_to_assets("image_6.png"))
-image_6 = canvas.create_image(
-    721.0,
-    30.0,
-    image=image_image_6
-)
-
-image_image_7 = PhotoImage(
-    file=relative_to_assets("image_7.png"))
-image_7 = canvas.create_image(
     39.0,
     32.0,
-    image=image_image_7
+    image=image_image_4
 )
 window.resizable(False, False)
 window.mainloop()
