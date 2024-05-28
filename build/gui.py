@@ -99,33 +99,6 @@ image_1 = canvas.create_image(
     image=image_image_1
 )
 
-canvas.create_text(
-    70.0,
-    16.0,
-    anchor="nw",
-    text="QUEBIZ",
-    fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 24 * -1)
-)
-
-canvas.create_text(
-    620.0,
-    19.0,
-    anchor="nw",
-    text="Username",
-    fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 15 * -1)
-)
-
-canvas.create_text(
-    308.0,
-    22.0,
-    anchor="nw",
-    text="Day, DD/MM/YYYY",
-    fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 15 * -1)
-)
-
 image_image_2 = PhotoImage(
     file=relative_to_assets("image_2.png"))
 image_2 = canvas.create_image(
@@ -145,9 +118,27 @@ image_3 = canvas.create_image(
 image_image_4 = PhotoImage(
     file=relative_to_assets("image_4.png"))
 image_4 = canvas.create_image(
-    39.0,
+    130.0,
     32.0,
     image=image_image_4
+)
+
+canvas.create_text(
+    308.0,
+    22.0,
+    anchor="nw",
+    text="Day, DD/MM/YYYY",
+    fill="#000000",
+    font=("MADEAwelierPERSONALUSE ExtraBold", 15 * -1)
+)
+
+canvas.create_text(
+    620.0,
+    19.0,
+    anchor="nw",
+    text="Username",
+    fill="#000000",
+    font=("MADEAwelierPERSONALUSE ExtraBold", 15 * -1)
 )
 window.resizable(False, False)
 window.mainloop()
