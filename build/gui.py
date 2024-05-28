@@ -118,24 +118,6 @@ canvas.create_text(
 )
 
 canvas.create_text(
-    46.0,
-    92.0,
-    anchor="nw",
-    text="Hi, Username!",
-    fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 40 * -1)
-)
-
-canvas.create_text(
-    46.0,
-    148.0,
-    anchor="nw",
-    text="Are you ready for some revision today?",
-    fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 15 * -1)
-)
-
-canvas.create_text(
     308.0,
     22.0,
     anchor="nw",
