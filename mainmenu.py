@@ -3,5 +3,5 @@ import pytz
 
 dt = datetime.datetime.now(tz=pytz.UTC)
 
-print(dt)
-
+for tz in pytz.all_timezones:
+    print(tz)
