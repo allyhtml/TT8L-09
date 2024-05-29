@@ -1,8 +1,7 @@
 import datetime
+import pytz 
 
-tday = datetime.date.today()
-print(tday)
-print(tday.isoweekday())
+dt = datetime.datetime.now(tz=pytz.UTC)
 
-t = datetime.datetime.now()
-print(t)
+print(dt)
+
