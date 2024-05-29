@@ -20,10 +20,10 @@ class QuizGame:
             },
             {
                 "question": "2) Which component of the CPU extensively uses adders?",
-                "options": ["GPU", "ALU", "RAM", "Cache"],
+                "options": ["CPU", "ALU", "RAM", "Cache"],
                 "answer": "ALU"
             },
-            # Additional questions can be added here
+            
         ]
 
         random.shuffle(self.questions)
@@ -94,17 +94,4 @@ class QuizGame:
 root = tk.Tk()
 app = QuizGame(root)
 root.mainloop()
-
-
-
-
-
-
-
-
-
-
-
-
-
 
