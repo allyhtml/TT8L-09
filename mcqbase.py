@@ -23,14 +23,14 @@ class QuizGame:
                 "options": ["GPU", "ALU", "RAM", "Cache"],
                 "answer": "ALU"
             },
-            
+           
         ]
 
-      
+       
         random.shuffle(self.questions)
 
         self.score = 0
-        self.current_question_index = 0 
+        self.current_question_index = 0  
 
         self.question_label = tk.Label(self.root, text="", font=custom_font, wraplength=600, bg="#F1D1CC")
         self.question_label.pack(pady=20)
@@ -71,12 +71,16 @@ class QuizGame:
 
         self.score_label.config(text="Score: {}".format(self.score))
 
+      
         self.current_question_index += 1
         self.display_question()  
+
 
 root = tk.Tk()
 app = QuizGame(root)
 root.mainloop()
+
+
 
 
 
