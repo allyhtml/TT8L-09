@@ -11,7 +11,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\allys\TT8L-09\build\assets\frame0")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\allys\TT8L-09\build\assets\frame1")
 
 
 def relative_to_assets(path: str) -> Path:
@@ -21,12 +21,12 @@ def relative_to_assets(path: str) -> Path:
 window = Tk()
 
 window.geometry("1474x801")
-window.configure(bg = "#FFFFFF")
+window.configure(bg = "#D1EAF0")
 
 
 canvas = Canvas(
     window,
-    bg = "#FFFFFF",
+    bg = "#D1EAF0",
     height = 801,
     width = 1474,
     bd = 0,
@@ -35,13 +35,13 @@ canvas = Canvas(
 )
 
 canvas.place(x = 0, y = 0)
-canvas.create_rectangle(
-    0.0,
-    0.0,
-    1474.0,
-    801.0,
-    fill="#D1EAF0",
-    outline="")
+image_image_1 = PhotoImage(
+    file=relative_to_assets("image_1.png"))
+image_1 = canvas.create_image(
+    732.0,
+    131.0,
+    image=image_image_1
+)
 
 button_image_1 = PhotoImage(
     file=relative_to_assets("button_1.png"))
@@ -53,8 +53,8 @@ button_1 = Button(
     relief="flat"
 )
 button_1.place(
-    x=966.0,
-    y=275.0,
+    x=970.0,
+    y=249.0,
     width=435.0,
     height=472.0
 )
@@ -69,8 +69,8 @@ button_2 = Button(
     relief="flat"
 )
 button_2.place(
-    x=518.0,
-    y=284.0,
+    x=522.0,
+    y=258.0,
     width=438.0,
     height=473.0
 )
@@ -85,43 +85,34 @@ button_3 = Button(
     relief="flat"
 )
 button_3.place(
-    x=65.0,
-    y=284.0,
+    x=69.0,
+    y=258.0,
     width=440.0,
     height=473.0
-)
-
-image_image_1 = PhotoImage(
-    file=relative_to_assets("image_1.png"))
-image_1 = canvas.create_image(
-    732.0,
-    185.0,
-    image=image_image_1
 )
 
 image_image_2 = PhotoImage(
     file=relative_to_assets("image_2.png"))
 image_2 = canvas.create_image(
-    1018.0,
-    161.0,
+    44.0,
+    41.0,
     image=image_image_2
 )
 
-image_image_3 = PhotoImage(
-    file=relative_to_assets("image_3.png"))
-image_3 = canvas.create_image(
-    132.0,
-    50.0,
-    image=image_image_3
+button_image_4 = PhotoImage(
+    file=relative_to_assets("button_4.png"))
+button_4 = Button(
+    image=button_image_4,
+    borderwidth=0,
+    highlightthickness=0,
+    command=lambda: print("button_4 clicked"),
+    relief="flat"
 )
-
-canvas.create_text(
-    626.0,
-    31.0,
-    anchor="nw",
-    text="Day, DD/MM/YYYY",
-    fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 25 * -1)
+button_4.place(
+    x=667.0,
+    y=721.0,
+    width=153.0,
+    height=61.0
 )
 window.resizable(False, False)
 window.mainloop()
