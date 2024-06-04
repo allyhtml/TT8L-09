@@ -23,7 +23,7 @@ class QuizGame:
                 "options": ["GPU", "ALU", "RAM", "Cache"],
                 "answer": "ALU"
             },
-            # Additional questions can be added here
+            
         ]
 
         random.shuffle(self.questions)
