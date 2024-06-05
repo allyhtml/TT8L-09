@@ -55,7 +55,7 @@ canvas.create_rectangle(
     outline="")
 
 button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
+    file=relative_to_assets("button_flashcards.png"))
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
@@ -71,7 +71,7 @@ button_1.place(
 )
 
 button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
+    file=relative_to_assets("button_lnotes.png"))
 button_2 = Button(
     image=button_image_2,
     borderwidth=0,
@@ -87,7 +87,7 @@ button_2.place(
 )
 
 button_image_3 = PhotoImage(
-    file=relative_to_assets("button_3.png"))
+    file=relative_to_assets("button_revq.png"))
 button_3 = Button(
     image=button_image_3,
     borderwidth=0,
@@ -103,7 +103,7 @@ button_3.place(
 )
 
 image_image_1 = PhotoImage(
-    file=relative_to_assets("image_1.png"))
+    file=relative_to_assets("image_main.png"))
 image_1 = canvas.create_image(
     732.0,
     185.0,
@@ -111,7 +111,7 @@ image_1 = canvas.create_image(
 )
 
 image_image_2 = PhotoImage(
-    file=relative_to_assets("image_2.png"))
+    file=relative_to_assets("image_deco.png"))
 image_2 = canvas.create_image(
     1018.0,
     161.0,
