@@ -5,22 +5,16 @@ import os
 
 def open_ds_link():
     print("Opening Digital System page")
-    # Replace this print statement with the desired action
-
-
+    
 def open_math_link():
     print("Opening Mathematics page")
-    # Replace this print statement with the desired action
-
-
+    
 def open_physic_link():
     print("Opening Physics page")
-    # Replace this print statement with the desired action
-
-
+    
 def start_button_action():
     print("Button pressed!")
-    # Replace this print statement with the desired action
+   
 
 
 root = tk.Tk()
