@@ -22,6 +22,7 @@ window = Tk()
 
 window.geometry("1474x801")
 window.configure(bg = "#D1EAF0")
+window.title("Quebizz")
 
 
 canvas = Canvas(
@@ -115,5 +116,6 @@ image_1 = canvas.create_image(
     81.0,
     image=image_image_1
 )
+
 window.resizable(True, True)
 window.mainloop()
