@@ -19,19 +19,19 @@ DS_PATH = os.path.join(OUTPUT_PATH, "dsn.py")
 MATHS_PATH = os.path.join(OUTPUT_PATH, "mathsn.py")
 
 def back_mainmenu():
-    window.destroy()  # Close the current window
+    window.destroy()  
     subprocess.run(["python", BACK_PATH])
 
 def phys_notes():
-    window.destroy()  # Close the current window
+    window.destroy()  
     subprocess.run(["python", PHY_PATH])
 
 def ds_notes():
-    window.destroy()  # Close the current window
+    window.destroy() 
     subprocess.run(["python", DS_PATH])
 
 def maths_notes():
-    window.destroy()  # Close the current window
+    window.destroy() 
     subprocess.run(["python", MATHS_PATH])
 
 def relative_to_assets(path: str) -> Path:
