@@ -36,7 +36,7 @@ canvas = Canvas(
 
 canvas.place(x = 0, y = 0)
 image_image_1 = PhotoImage(
-    file=relative_to_assets("image_1.png"))
+    file=relative_to_assets("image_lectn.png"))
 image_1 = canvas.create_image(
     732.0,
     131.0,
@@ -44,7 +44,7 @@ image_1 = canvas.create_image(
 )
 
 button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
+    file=relative_to_assets("button_maths.png"))
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
@@ -60,7 +60,7 @@ button_1.place(
 )
 
 button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
+    file=relative_to_assets("button_ds.png"))
 button_2 = Button(
     image=button_image_2,
     borderwidth=0,
@@ -76,7 +76,7 @@ button_2.place(
 )
 
 button_image_3 = PhotoImage(
-    file=relative_to_assets("button_3.png"))
+    file=relative_to_assets("button_phy.png"))
 button_3 = Button(
     image=button_image_3,
     borderwidth=0,
@@ -92,7 +92,7 @@ button_3.place(
 )
 
 image_image_2 = PhotoImage(
-    file=relative_to_assets("image_2.png"))
+    file=relative_to_assets("image_logo.png"))
 image_2 = canvas.create_image(
     44.0,
     41.0,
@@ -100,7 +100,7 @@ image_2 = canvas.create_image(
 )
 
 button_image_4 = PhotoImage(
-    file=relative_to_assets("button_4.png"))
+    file=relative_to_assets("button_back.png"))
 button_4 = Button(
     image=button_image_4,
     borderwidth=0,
