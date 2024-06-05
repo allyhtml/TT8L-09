@@ -60,13 +60,13 @@ physic_label.place(x=1150, y=222)
 current_dir = os.path.dirname(os.path.abspath(__file__))
 
 saly_16_img = tk.PhotoImage(file=os.path.join(current_dir, "Saly-16.png"))
-saly_16_img = saly_16_img.subsample(2, 2)  
+saly_16_img = saly_16_img.subsample(1) 
 
 saly_10_img = tk.PhotoImage(file=os.path.join(current_dir, "Saly-10.png"))
 saly_19_img = tk.PhotoImage(file=os.path.join(current_dir, "Saly-19.png"))
 
 saly_16_label = tk.Label(main_frame, image=saly_16_img, bg="#FFC8C0")
-saly_16_label.place(x=1064, y=270) 
+saly_16_label.place(x=1064, y=260) 
 saly_16_label.image = saly_16_img 
 
 saly_10_label = tk.Label(main_frame, image=saly_10_img, bg="#FFC8C0")
@@ -85,6 +85,7 @@ button_physic = tk.Button(main_frame, text="START", font=zen_dots_font, bg="#d1e
 button_physic.place(x=1123, y=635, width=180, height=50)
 
 root.mainloop()
+
 
 
 
