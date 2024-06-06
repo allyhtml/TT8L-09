@@ -23,12 +23,6 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\allys\TT8L-09\build\assets\frame0")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-LN_PATH = os.path.join(OUTPUT_PATH, "lecturenotes.py")
-
-def lecture_notes():
-    window.destroy()  # Close the current window
-    subprocess.run(["python", LN_PATH])
-
 window = Tk()
 
 window.geometry("1474x801")
@@ -76,7 +70,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lecture_notes,
+    command=lambda: print("button_lnotes clicked"),
     relief="flat"
 )
 button_2.place(
