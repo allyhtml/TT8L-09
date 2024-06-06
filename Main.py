@@ -84,6 +84,7 @@ def register():
     register_button = Button(reg_window, text="Register", bg='#57a1f8', fg='white', command=save_registration)
     register_button.pack()
 
+
 # Second code: Quiz Game
 class QuizGame:
     def __init__(self, root, questions):
@@ -93,15 +94,15 @@ class QuizGame:
         random.shuffle(self.questions)
         self.score = 0
         self.current_question_index = 0
-        self.question_label = tk.Label(self.root, text="", font=custom_font, wraplength=600, bg="#F1D1CC")
+        self.question_label = tk.Label(self.root, text="", font=custom_font, wraplength=600, bg="#F8C6EF")
         self.question_label.pack(pady=20)
         self.option_buttons = []
         for i in range(4):
-            button = tk.Button(self.root, text="", font=custom_font, width=40, command=lambda i=i: self.check_answer(i), bg="#F1D1CC")
-            button.pack(pady=5)
+            button = tk.Button(self.root, text="", font=custom_font, width=50, height=3, command=lambda i=i: self.check_answer(i), bg="#F1D1CC")
+            button.pack(pady=10)
             self.option_buttons.append(button)
         self.score_label = tk.Label(self.root, text="Score: 0", font=custom_font, bg="#D1EAF0")
-        self.score_label.pack(pady=10)
+        self.score_label.pack(pady=20)
         self.display_question()
 
     def display_question(self):
@@ -139,6 +140,9 @@ class QuizGame:
         self.score = 0
         self.current_question_index = 0
         self.score_label.config(text="Score: 0")
+        random.shuffle(self.questions)
+        for button in self.option_buttons:
+            button.config(state=tk.NORMAL)
         self.display_question()
 
 def open_ds_quiz():
@@ -260,7 +264,7 @@ zen_dots_font = font.Font(family='Zen Dots', size=20)
 main_frame = tk.Frame(root, bg="#ffc0db")
 main_frame.place(relwidth=1, relheight=1)
 
-img = PhotoImage(file='Design/latest3.png')
+img = PhotoImage(file='Design/logo.png')
 Label(main_frame, image=img, bg='white').place(x=-100, y=60)
 
 frame = Frame(main_frame, width=350, height=350, bg="white")
