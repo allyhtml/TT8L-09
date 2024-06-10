@@ -3,31 +3,21 @@
 # https://github.com/ParthJadhav/Tkinter-Designer
 
 import datetime
-import pytz 
-import subprocess
-import os
-
+import pytz
 from pathlib import Path
 
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
-dt_mst = datetime.datetime.now(tz=pytz.timezone('MST'))
-formatted_date = dt_mst.strftime('%A, %B %d, %Y')
-
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\allys\TT8L-09\build\assets\frame0")
-
-
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
 
 window = Tk()
 
 window.geometry("1474x801")
 window.configure(bg = "#FFFFFF")
 
+dt_mst = datetime.datetime.now(tz=pytz.timezone('Asia/Kuala_Lumpur'))
+formatted_date = dt_mst.strftime('%A, %B %d, %Y')
 
 canvas = Canvas(
     window,
@@ -49,28 +39,28 @@ canvas.create_rectangle(
     outline="")
 
 button_image_1 = PhotoImage(
-    file=relative_to_assets("button_flashcards.png"))
+    file="./build/assets/frame0/button_fc.png")
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
+    command=lambda: print("button_fc clicked"),
     relief="flat"
 )
 button_1.place(
-    x=966.0,
-    y=275.0,
-    width=435.0,
-    height=472.0
+    x=974.0,
+    y=298.0,
+    width=425.0,
+    height=432.0
 )
 
 button_image_2 = PhotoImage(
-    file=relative_to_assets("button_lnotes.png"))
+    file="./build/assets/frame0/button_ln.png")
 button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_lnotes clicked"),
+    command=lambda: print("button_ln clicked"),
     relief="flat"
 )
 button_2.place(
@@ -81,12 +71,12 @@ button_2.place(
 )
 
 button_image_3 = PhotoImage(
-    file=relative_to_assets("button_revq.png"))
+    file="./build/assets/frame0/button_rq.png")
 button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_3 clicked"),
+    command=lambda: print("button_rq clicked"),
     relief="flat"
 )
 button_3.place(
@@ -97,27 +87,35 @@ button_3.place(
 )
 
 image_image_1 = PhotoImage(
-    file=relative_to_assets("image_main.png"))
+    file="./build/assets/frame0/image_hi.png")
 image_1 = canvas.create_image(
     732.0,
     185.0,
     image=image_image_1
 )
 
+button_image_4 = PhotoImage(
+    file="./build/assets/frame0/signout.png")
+button_4 = Button(
+    image=button_image_4,
+    borderwidth=0,
+    highlightthickness=0,
+    command=lambda: print("signout clicked"),
+    relief="flat"
+)
+button_4.place(
+    x=1243.0,
+    y=27.0,
+    width=210.0,
+    height=58.0
+)
+
 image_image_2 = PhotoImage(
-    file=relative_to_assets("image_deco.png"))
+    file="./build/assets/frame0/image_deco.png")
 image_2 = canvas.create_image(
     1018.0,
     161.0,
     image=image_image_2
-)
-
-image_image_3 = PhotoImage(
-    file=relative_to_assets("image_3.png"))
-image_3 = canvas.create_image(
-    132.0,
-    50.0,
-    image=image_image_3
 )
 
 canvas.create_text(
@@ -126,7 +124,15 @@ canvas.create_text(
     anchor="nw",
     text=formatted_date,
     fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 25 * -1)
+    font=("./build/assets/frame0/MADEAwelierPERSONALUSE-ExtraBold.otf", 25 * -1)
+)
+
+image_image_3 = PhotoImage(
+    file="./build/assets/frame0/image_3.png")
+image_3 = canvas.create_image(
+    132.0,
+    50.0,
+    image=image_image_3
 )
 window.resizable(False, False)
 window.mainloop()
