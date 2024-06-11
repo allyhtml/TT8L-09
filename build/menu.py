@@ -301,12 +301,12 @@ def show_frame4():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_1.png", lambda: print("c_6 clicked"), 957, 409, 439, 125),
-        ("button_2.png", lambda: print("c_5 clicked"), 518, 407, 439, 125),
-        ("button_3.png", lambda: print("c_4 clicked"), 47, 405, 471, 125),
-        ("button_4.png", lambda: print("c_3 clicked"), 957, 280, 439, 125),
-        ("button_5.png", lambda: print("c_2 clicked"), 518, 278, 439, 125),
-        ("button_6.png", lambda: print("c_1 clicked"), 47, 276, 471, 125),
+        ("button_1.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 957, 409, 439, 125),
+        ("button_2.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 518, 407, 439, 125),
+        ("button_3.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 47, 405, 471, 125),
+        ("button_4.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 957, 280, 439, 125),
+        ("button_5.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 518, 278, 439, 125),
+        ("button_6.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 47, 276, 471, 125),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
