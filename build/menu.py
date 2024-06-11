@@ -2,6 +2,30 @@
 import datetime
 import pytz
 from tkinter import Tk, Canvas, Button, PhotoImage, Label
+import sys
+import os
+import subprocess
+
+def open_pdf(file_path):
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        abs_path = os.path.join(script_dir, file_path)
+        print(f"Attempting to open PDF at: {abs_path}")  # Print the constructed path for debugging
+        
+        if os.path.isfile(abs_path):
+            print(f"File exists: {abs_path}")
+            if sys.platform == 'win32':  # For Windows
+                os.startfile(abs_path)
+            elif sys.platform == 'darwin':  # For macOS
+                subprocess.run(['open', abs_path])
+            elif sys.platform == 'linux':  # For Linux
+                subprocess.run(['xdg-open', abs_path])
+        else:
+            print(f"File does not exist: {abs_path}")
+    except Exception as e:
+        print(f"Failed to open {file_path}: {e}")
+
+
 
 # Global Tkinter window
 window = Tk()
@@ -176,13 +200,13 @@ def show_frame2():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_1.png", lambda: print("button_1 clicked"), 72, 291, 446, 112),
-        ("button_2.png", lambda: print("button_2 clicked"), 518, 278, 439, 125),
-        ("button_3.png", lambda: print("button_3 clicked"), 957, 280, 439, 125),
-        ("button_4.png", lambda: print("button_4 clicked"), 518, 546, 439, 125),
-        ("button_5.png", lambda: print("button_5 clicked"), 80, 405, 427, 125),
-        ("button_6.png", lambda: print("button_6 clicked"), 518, 407, 439, 125),
-        ("button_7.png", lambda: print("button_7 clicked"), 957, 409, 439, 125),
+        ("button_1.png", lambda: open_pdf("assets\physics\phyn_1.pdf"), 72, 291, 446, 112),
+        ("button_2.png", lambda: open_pdf("assets\physics\phyn_2.pdf"), 518, 278, 439, 125),
+        ("button_3.png", lambda: open_pdf("assets\physics\phyn_3.pdf"), 957, 280, 439, 125),
+        ("button_4.png", lambda: open_pdf("assets\physics\phyn_4.pdf"), 518, 546, 439, 125),
+        ("button_5.png", lambda: open_pdf("assets\physics\phyn_5.pdf"), 80, 405, 427, 125),
+        ("button_6.png", lambda: open_pdf("assets\physics\phyn_6.pdf"), 518, 407, 439, 125),
+        ("button_7.png", lambda: open_pdf("assets\physics\phyn_7.pdf"), 957, 409, 439, 125),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
