@@ -13,19 +13,19 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 OUTPUT_PATH = Path(__file__).parent
 ASSETS_PATH = OUTPUT_PATH / Path(r"C:\TT8L-09\build\assets\frame2")
 
+gui2_window = Tk()
 
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-
-window = Tk()
-
-window.geometry("1474x801")
-window.configure(bg = "#ECD5E3")
-
+def launch_gui2():
+    gui2_window = Tk()
+    gui2_window.geometry("1474x801")
+    gui2_window.configure(bg = "#ECD5E3")
+    
 
 canvas = Canvas(
-    window,
+    gui2_window,
     bg = "#ECD5E3",
     height = 801,
     width = 1474,
@@ -125,5 +125,6 @@ button_3.place(
     width=153.0,
     height=61.0
 )
-window.resizable(True, True)
-window.mainloop()
+gui2_window.resizable(True, True)
+gui2_window.mainloop()
+

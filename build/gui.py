@@ -8,6 +8,7 @@ from pathlib import Path
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+from gui2 import launch_gui2  # Import the function
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -17,13 +18,17 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C:\TT8L-09\build\assets\frame0")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+def switch_to_gui2():
+    window = Tk()
+    window.withdraw()  # Hide the current GUI
+    launch_gui2()  # Call the function to launch the second GUI
 
 window = Tk()
 
 window.geometry("1474x801")
 window.configure(bg = "#D1EAF0")
 window.title("Quebizz")
-
+    
 
 canvas = Canvas(
     window,
@@ -90,7 +95,7 @@ button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_4 clicked"),
+    command=switch_to_gui2,
     relief="flat"
 )
 button_4.place(
