@@ -78,7 +78,7 @@ image_1 = canvas.create_image(
 )
 
 canvas.create_text(
-    506.0,
+    630.0,
     16.0,
     anchor="nw",
     text="Biology",

@@ -117,5 +117,11 @@ image_1 = canvas.create_image(
     image=image_image_1
 )
 
+def resize_label(event):# Retrieve the new size of the window
+    width = window.winfo_width()
+    height = window.winfo_height()
+
+window.bind("<Configure>", resize_label)
+
 window.resizable(True, True)
 window.mainloop()
