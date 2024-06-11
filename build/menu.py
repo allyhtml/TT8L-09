@@ -2,6 +2,30 @@
 import datetime
 import pytz
 from tkinter import Tk, Canvas, Button, PhotoImage, Label
+import sys
+import os
+import subprocess
+
+def open_pdf(file_path):
+    try:
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        abs_path = os.path.join(script_dir, file_path)
+        print(f"Attempting to open PDF at: {abs_path}")  # Print the constructed path for debugging
+        
+        if os.path.isfile(abs_path):
+            print(f"File exists: {abs_path}")
+            if sys.platform == 'win32':  # For Windows
+                os.startfile(abs_path)
+            elif sys.platform == 'darwin':  # For macOS
+                subprocess.run(['open', abs_path])
+            elif sys.platform == 'linux':  # For Linux
+                subprocess.run(['xdg-open', abs_path])
+        else:
+            print(f"File does not exist: {abs_path}")
+    except Exception as e:
+        print(f"Failed to open {file_path}: {e}")
+
+
 
 # Global Tkinter window
 window = Tk()
@@ -176,13 +200,13 @@ def show_frame2():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_1.png", lambda: print("button_1 clicked"), 72, 291, 446, 112),
-        ("button_2.png", lambda: print("button_2 clicked"), 518, 278, 439, 125),
-        ("button_3.png", lambda: print("button_3 clicked"), 957, 280, 439, 125),
-        ("button_4.png", lambda: print("button_4 clicked"), 518, 546, 439, 125),
-        ("button_5.png", lambda: print("button_5 clicked"), 80, 405, 427, 125),
-        ("button_6.png", lambda: print("button_6 clicked"), 518, 407, 439, 125),
-        ("button_7.png", lambda: print("button_7 clicked"), 957, 409, 439, 125),
+        ("button_1.png", lambda: open_pdf("assets\physics\phyn_1.pdf"), 72, 291, 446, 112),
+        ("button_2.png", lambda: open_pdf("assets\physics\phyn_2.pdf"), 518, 278, 439, 125),
+        ("button_3.png", lambda: open_pdf("assets\physics\phyn_3.pdf"), 957, 280, 439, 125),
+        ("button_4.png", lambda: open_pdf("assets\physics\phyn_4.pdf"), 518, 546, 439, 125),
+        ("button_5.png", lambda: open_pdf("assets\physics\phyn_5.pdf"), 80, 405, 427, 125),
+        ("button_6.png", lambda: open_pdf("assets\physics\phyn_6.pdf"), 518, 407, 439, 125),
+        ("button_7.png", lambda: open_pdf("assets\physics\phyn_7.pdf"), 957, 409, 439, 125),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
@@ -224,18 +248,18 @@ def show_frame3():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_12.png", lambda: print("c_1 clicked"), 75, 276, 332, 121),
-        ("button_11.png", lambda: print("c_2 clicked"), 397, 276, 332, 130),
-        ("button_10.png", lambda: print("c_3 clicked"), 719, 276, 332, 121),
-        ("button_9.png", lambda: print("c_4 clicked"), 1051, 276, 322, 121),
-        ("button_8.png", lambda: print("c_5 clicked"), 75, 406, 332, 105),
-        ("button_7.png", lambda: print("c_6 clicked"), 407, 406, 322, 105),
-        ("button_6.png", lambda: print("c_7 clicked"), 729, 406, 312, 105),
-        ("button_5.png", lambda: print("c_8 clicked"), 1051, 406, 314, 105),
-        ("button_4.png", lambda: print("c_9 clicked"), 75, 521, 332, 97),
-        ("button_3.png", lambda: print("c_10 clicked"), 407, 511, 312, 111),
-        ("button_2.png", lambda: print("c_11 clicked"), 719, 511, 332, 111),
-        ("button_1.png", lambda: print("c_12 clicked"), 1051, 521, 312, 104),
+        ("button_12.png", lambda: open_pdf("assets\ds\ds_1.pdf"), 75, 276, 332, 121),
+        ("button_11.png", lambda: open_pdf("assets\ds\ds_2.pdf"), 397, 276, 332, 130),
+        ("button_10.png", lambda: open_pdf("assets\ds\ds_3.pdf"), 719, 276, 332, 121),
+        ("button_9.png", lambda: open_pdf("assets\ds\ds_4.pdf"), 1051, 276, 322, 121),
+        ("button_8.png", lambda: open_pdf("assets\ds\ds_5.pdf"), 75, 406, 332, 105),
+        ("button_7.png", lambda: open_pdf("assets\ds\ds_6.pdf"), 407, 406, 322, 105),
+        ("button_6.png", lambda: open_pdf("assets\ds\ds_7.pdf"), 729, 406, 312, 105),
+        ("button_5.png", lambda: open_pdf("assets\ds\ds_8.pdf"), 1051, 406, 314, 105),
+        ("button_4.png", lambda: open_pdf("assets\ds\ds_9.pdf"), 75, 521, 332, 97),
+        ("button_3.png", lambda: open_pdf("assets\ds\ds_10.pdf"), 407, 511, 312, 111),
+        ("button_2.png", lambda: open_pdf("assets\ds\ds_11.pdf"), 719, 511, 332, 111),
+        ("button_1.png", lambda: open_pdf("assets\ds\ds_12.pdf"), 1051, 521, 312, 104),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
@@ -277,12 +301,12 @@ def show_frame4():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_1.png", lambda: print("c_6 clicked"), 957, 409, 439, 125),
-        ("button_2.png", lambda: print("c_5 clicked"), 518, 407, 439, 125),
-        ("button_3.png", lambda: print("c_4 clicked"), 47, 405, 471, 125),
-        ("button_4.png", lambda: print("c_3 clicked"), 957, 280, 439, 125),
-        ("button_5.png", lambda: print("c_2 clicked"), 518, 278, 439, 125),
-        ("button_6.png", lambda: print("c_1 clicked"), 47, 276, 471, 125),
+        ("button_1.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 957, 409, 439, 125),
+        ("button_2.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 518, 407, 439, 125),
+        ("button_3.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 47, 405, 471, 125),
+        ("button_4.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 957, 280, 439, 125),
+        ("button_5.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 518, 278, 439, 125),
+        ("button_6.png", lambda: open_pdf("assets\maths\mt_1.pdf"), 47, 276, 471, 125),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
@@ -343,8 +367,7 @@ def show_frame5():
 def quit_app():
     window.destroy()
 
-# Initial call to show the main frame
-show_frame0()
+show_frame0
 
 # Run the Tkinter main loop
 window.mainloop()
