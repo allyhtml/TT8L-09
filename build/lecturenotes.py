@@ -3,8 +3,6 @@
 # https://github.com/ParthJadhav/Tkinter-Designer
 
 
-from pathlib import Path
-
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage

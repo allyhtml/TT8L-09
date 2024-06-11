@@ -1,4 +1,3 @@
-
 import datetime
 import pytz
 from tkinter import Tk, Canvas, Button, PhotoImage, Label
@@ -95,7 +94,7 @@ def show_frame0():
     )
     button_rq.place(x=65.0, y=284.0, width=440.0, height=473.0)
 
-# Frame 1 (Lecture Notes)
+# Frame 1 (Learning Navigation)
 def show_frame1():
     clear_canvas()
     canvas = Canvas(
@@ -203,7 +202,7 @@ def show_frame2():
     images['image_4'] = load_image("./build/assets/frame2/image_4.png")
     canvas.create_image(1200.0, 650.0, image=images['image_4'])
 
-# Frame 3 (Digital System)
+# Frame 3 (Data Structures)
 def show_frame3():
     clear_canvas()
     canvas = Canvas(
@@ -348,3 +347,4 @@ show_frame0()
 
 # Run the Tkinter main loop
 window.mainloop()
+

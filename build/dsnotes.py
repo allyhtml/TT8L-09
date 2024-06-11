@@ -10,14 +10,6 @@ from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 
 
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\Users\allys\TT8L-09\build\assets\frame3")
-
-
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
-
-
 window = Tk()
 
 window.geometry("1474x801")
@@ -36,7 +28,7 @@ canvas = Canvas(
 
 canvas.place(x = 0, y = 0)
 image_image_1 = PhotoImage(
-    file=relative_to_assets("image_1.png"))
+    file="./build/assets/frame3/image_ds.png")
 image_1 = canvas.create_image(
     738.0,
     161.0,
@@ -44,7 +36,7 @@ image_1 = canvas.create_image(
 )
 
 image_image_2 = PhotoImage(
-    file=relative_to_assets("image_2.png"))
+    file="./build/assets/frame3/image_logo.png")
 image_2 = canvas.create_image(
     47.0,
     42.0,
@@ -52,12 +44,12 @@ image_2 = canvas.create_image(
 )
 
 button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
+    file="./build/assets/frame3/button_1.png")
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
+    command=lambda: print("c_12 clicked"),
     relief="flat"
 )
 button_1.place(
@@ -68,12 +60,12 @@ button_1.place(
 )
 
 button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
+    file="./build/assets/frame3/button_2.png")
 button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
+    command=lambda: print("c_11 clicked"),
     relief="flat"
 )
 button_2.place(
@@ -84,12 +76,12 @@ button_2.place(
 )
 
 button_image_3 = PhotoImage(
-    file=relative_to_assets("button_3.png"))
+    file="./build/assets/frame3/button_3.png")
 button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_3 clicked"),
+    command=lambda: print("c_10 clicked"),
     relief="flat"
 )
 button_3.place(
@@ -100,12 +92,12 @@ button_3.place(
 )
 
 button_image_4 = PhotoImage(
-    file=relative_to_assets("button_4.png"))
+    file="./build/assets/frame3/button_4.png")
 button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_4 clicked"),
+    command=lambda: print("c_9 clicked"),
     relief="flat"
 )
 button_4.place(
@@ -116,12 +108,12 @@ button_4.place(
 )
 
 button_image_5 = PhotoImage(
-    file=relative_to_assets("button_5.png"))
+    file="./build/assets/frame3/button_5.png")
 button_5 = Button(
     image=button_image_5,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_5 clicked"),
+    command=lambda: print("c_8 clicked"),
     relief="flat"
 )
 button_5.place(
@@ -132,12 +124,12 @@ button_5.place(
 )
 
 button_image_6 = PhotoImage(
-    file=relative_to_assets("button_6.png"))
+    file="./build/assets/frame3/button_6.png")
 button_6 = Button(
     image=button_image_6,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_6 clicked"),
+    command=lambda: print("c_7 clicked"),
     relief="flat"
 )
 button_6.place(
@@ -148,12 +140,12 @@ button_6.place(
 )
 
 button_image_7 = PhotoImage(
-    file=relative_to_assets("button_7.png"))
+    file="./build/assets/frame3/button_7.png")
 button_7 = Button(
     image=button_image_7,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_7 clicked"),
+    command=lambda: print("c_6 clicked"),
     relief="flat"
 )
 button_7.place(
@@ -164,12 +156,12 @@ button_7.place(
 )
 
 button_image_8 = PhotoImage(
-    file=relative_to_assets("button_8.png"))
+    file="./build/assets/frame3/button_8.png")
 button_8 = Button(
     image=button_image_8,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_8 clicked"),
+    command=lambda: print("c_5 clicked"),
     relief="flat"
 )
 button_8.place(
@@ -180,12 +172,12 @@ button_8.place(
 )
 
 button_image_9 = PhotoImage(
-    file=relative_to_assets("button_9.png"))
+    file="./build/assets/frame3/button_9.png")
 button_9 = Button(
     image=button_image_9,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_9 clicked"),
+    command=lambda: print("c_4 clicked"),
     relief="flat"
 )
 button_9.place(
@@ -196,12 +188,12 @@ button_9.place(
 )
 
 button_image_10 = PhotoImage(
-    file=relative_to_assets("button_10.png"))
+    file="./build/assets/frame3/button_10.png")
 button_10 = Button(
     image=button_image_10,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_10 clicked"),
+    command=lambda: print("c_3 clicked"),
     relief="flat"
 )
 button_10.place(
@@ -212,12 +204,12 @@ button_10.place(
 )
 
 button_image_11 = PhotoImage(
-    file=relative_to_assets("button_11.png"))
+    file="./build/assets/frame3/button_11.png")
 button_11 = Button(
     image=button_image_11,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_11 clicked"),
+    command=lambda: print("c_2 clicked"),
     relief="flat"
 )
 button_11.place(
@@ -228,12 +220,12 @@ button_11.place(
 )
 
 button_image_12 = PhotoImage(
-    file=relative_to_assets("button_12.png"))
+    file="./build/assets/frame3/button_12.png")
 button_12 = Button(
     image=button_image_12,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_12 clicked"),
+    command=lambda: print("c_1 clicked"),
     relief="flat"
 )
 button_12.place(
@@ -244,12 +236,12 @@ button_12.place(
 )
 
 button_image_13 = PhotoImage(
-    file=relative_to_assets("button_13.png"))
+    file="./build/assets/frame3/button_back.png")
 button_13 = Button(
     image=button_image_13,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_13 clicked"),
+    command=lambda: print("button_back clicked"),
     relief="flat"
 )
 button_13.place(
@@ -260,7 +252,7 @@ button_13.place(
 )
 
 image_image_3 = PhotoImage(
-    file=relative_to_assets("image_3.png"))
+    file="./build/assets/frame3/image_3.png")
 image_3 = canvas.create_image(
     156.0,
     714.0,
@@ -268,7 +260,7 @@ image_3 = canvas.create_image(
 )
 
 image_image_4 = PhotoImage(
-    file=relative_to_assets("image_4.png"))
+    file="./build/assets/frame3/image_4.png")
 image_4 = canvas.create_image(
     1362.0,
     710.0,
