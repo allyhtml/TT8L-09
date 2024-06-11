@@ -248,18 +248,18 @@ def show_frame3():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_12.png", lambda: print("c_1 clicked"), 75, 276, 332, 121),
-        ("button_11.png", lambda: print("c_2 clicked"), 397, 276, 332, 130),
-        ("button_10.png", lambda: print("c_3 clicked"), 719, 276, 332, 121),
-        ("button_9.png", lambda: print("c_4 clicked"), 1051, 276, 322, 121),
-        ("button_8.png", lambda: print("c_5 clicked"), 75, 406, 332, 105),
-        ("button_7.png", lambda: print("c_6 clicked"), 407, 406, 322, 105),
-        ("button_6.png", lambda: print("c_7 clicked"), 729, 406, 312, 105),
-        ("button_5.png", lambda: print("c_8 clicked"), 1051, 406, 314, 105),
-        ("button_4.png", lambda: print("c_9 clicked"), 75, 521, 332, 97),
-        ("button_3.png", lambda: print("c_10 clicked"), 407, 511, 312, 111),
-        ("button_2.png", lambda: print("c_11 clicked"), 719, 511, 332, 111),
-        ("button_1.png", lambda: print("c_12 clicked"), 1051, 521, 312, 104),
+        ("button_12.png", lambda: open_pdf("assets\ds\ds_1.pdf"), 75, 276, 332, 121),
+        ("button_11.png", lambda: open_pdf("assets\ds\ds_2.pdf"), 397, 276, 332, 130),
+        ("button_10.png", lambda: open_pdf("assets\ds\ds_3.pdf"), 719, 276, 332, 121),
+        ("button_9.png", lambda: open_pdf("assets\ds\ds_4.pdf"), 1051, 276, 322, 121),
+        ("button_8.png", lambda: open_pdf("assets\ds\ds_5.pdf"), 75, 406, 332, 105),
+        ("button_7.png", lambda: open_pdf("assets\ds\ds_6.pdf"), 407, 406, 322, 105),
+        ("button_6.png", lambda: open_pdf("assets\ds\ds_7.pdf"), 729, 406, 312, 105),
+        ("button_5.png", lambda: open_pdf("assets\ds\ds_8.pdf"), 1051, 406, 314, 105),
+        ("button_4.png", lambda: open_pdf("assets\ds\ds_9.pdf"), 75, 521, 332, 97),
+        ("button_3.png", lambda: open_pdf("assets\ds\ds_10.pdf"), 407, 511, 312, 111),
+        ("button_2.png", lambda: open_pdf("assets\ds\ds_11.pdf"), 719, 511, 332, 111),
+        ("button_1.png", lambda: open_pdf("assets\ds\ds_12.pdf"), 1051, 521, 312, 104),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
