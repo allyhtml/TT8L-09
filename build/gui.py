@@ -29,6 +29,14 @@ window.geometry("1474x801")
 window.configure(bg = "#D1EAF0")
 window.title("Quebizz")
     
+def switch_to_gui2():
+    print("Switching to GUI 2...")
+    window.withdraw()  # Hide the current GUI
+    launch_gui2()  # Call the function to launch the second GUI
+    print("Returned from GUI 2")
+
+def button_click(event):
+    print("Button clicked!")
 
 canvas = Canvas(
     window,
@@ -95,9 +103,10 @@ button_4 = Button(
     image=button_image_4,
     borderwidth=0,
     highlightthickness=0,
-    command=switch_to_gui2,
+    command=switch_to_gui2, #button bound to gui2
     relief="flat"
 )
+button_4.bind("button_4", button_click)
 button_4.place(
     x=1004.912353515625,
     y=179.0,
