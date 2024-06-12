@@ -19,12 +19,11 @@ def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
 def launch_gui2():
+    global canvas
+    global gui2_window
     print ("Launching GUI2")
-    gui2_window = Tk()
-    gui2_window.geometry("1474x801")
-    gui2_window.configure(bg = "#ECD5E3")
-       
-
+    canvas = Canvas 
+    gui2_window =Tk()
 
 canvas = Canvas(
     gui2_window,

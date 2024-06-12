@@ -11,6 +11,7 @@ from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from gui2 import launch_gui2  # Import the function
 from gui1 import launch_gui1 
 from gui3 import launch_gui3  
+from utils import launch_gui2, launch_gui1, launch_gui3
 
 
 OUTPUT_PATH = Path(__file__).parent
