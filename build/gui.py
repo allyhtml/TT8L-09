@@ -81,7 +81,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=switch_to_gui3,
+    command=switch_to_gui3, #button bound to gui3
     relief="flat"
 )
 button_2.place(
@@ -97,7 +97,7 @@ button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=switch_to_gui1,
+    command=switch_to_gui1, #button bound to gui1
     relief="flat"
 )
 button_3.place(
