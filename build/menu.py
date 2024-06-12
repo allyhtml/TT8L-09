@@ -9,15 +9,15 @@ def open_pdf(file_path):
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
         abs_path = os.path.join(script_dir, file_path)
-        print(f"Attempting to open PDF at: {abs_path}")  # Print the constructed path for debugging
+        print(f"Attempting to open PDF at: {abs_path}") 
         
         if os.path.isfile(abs_path):
             print(f"File exists: {abs_path}")
-            if sys.platform == 'win32':  # For Windows
+            if sys.platform == 'win32': 
                 os.startfile(abs_path)
-            elif sys.platform == 'darwin':  # For macOS
+            elif sys.platform == 'darwin':  
                 subprocess.run(['open', abs_path])
-            elif sys.platform == 'linux':  # For Linux
+            elif sys.platform == 'linux':  
                 subprocess.run(['xdg-open', abs_path])
         else:
             print(f"File does not exist: {abs_path}")
@@ -42,10 +42,12 @@ images = {}
 
 def load_image(image_path):
     try:
-        image = PhotoImage(file=image_path)
+        # Convert to absolute path
+        abs_path = os.path.abspath(image_path)
+        image = PhotoImage(file=abs_path)
         return image
     except Exception as e:
-        print(f"Failed to load image at {image_path}: {e}")
+        print(f"Failed to load image at {abs_path}: {e}")
         return None
 
 # Frame 0 (Main menu)
