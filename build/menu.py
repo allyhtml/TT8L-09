@@ -1,6 +1,5 @@
 
 import datetime
-import pytz
 from tkinter import Tk, Canvas, Button, PhotoImage, Label
 import sys
 import os
@@ -68,7 +67,8 @@ def show_frame0():
     images['image_logo'] = load_image("./build/assets/frame0/image_3.png")
     canvas.create_image(132.0, 50.0, image=images['image_logo'])
 
-    dt_mst = datetime.datetime.now(tz=pytz.timezone('Asia/Kuala_Lumpur'))
+    kl_timezone = datetime.timezone(datetime.timedelta(hours=8)) 
+    dt_mst = datetime.datetime.now(kl_timezone)
     formatted_date = dt_mst.strftime('%A, %B %d, %Y')
     date_label = Label(window, text=formatted_date, bg="#D1EAF0", font=("Arial", 16))
     date_label.place(x=626, y=31)
@@ -367,7 +367,8 @@ def show_frame5():
 def quit_app():
     window.destroy()
 
-show_frame0
+# Initial call to show the main frame
+show_frame0()
 
 # Run the Tkinter main loop
 window.mainloop()
