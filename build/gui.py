@@ -9,6 +9,8 @@ from pathlib import Path
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
 from gui2 import launch_gui2  # Import the function
+from gui1 import launch_gui1 
+from gui3 import launch_gui3  
 
 
 OUTPUT_PATH = Path(__file__).parent
@@ -18,10 +20,6 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C:\TT8L-09\build\assets\frame0")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def switch_to_gui2():
-    window = Tk()
-    window.withdraw()  # Hide the current GUI
-    launch_gui2()  # Call the function to launch the second GUI
 
 window = Tk()
 
@@ -30,10 +28,22 @@ window.configure(bg = "#D1EAF0")
 window.title("Quebizz")
     
 def switch_to_gui2():
-    print("Switching to GUI 2...")
+    print("Switching to Maths..")
     window.withdraw()  # Hide the current GUI
     launch_gui2()  # Call the function to launch the second GUI
-    print("Returned from GUI 2")
+    print("Returned from maths")
+
+def switch_to_gui1():
+    print("Switching to physics...")
+    window.withdraw()  # Hide the current GUI
+    launch_gui1()  # Call the function to launch the second GUI
+    print("Returned from phy")
+
+def switch_to_gui3():
+    print("Switching to digital system...")
+    window.withdraw()  # Hide the current GUI
+    launch_gui3()  # Call the function to launch the second GUI
+    print("Returned from figital system")
 
 def button_click(event):
     print("Button clicked!")
@@ -71,7 +81,7 @@ button_2 = Button(
     image=button_image_2,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
+    command=switch_to_gui3,
     relief="flat"
 )
 button_2.place(
@@ -87,7 +97,7 @@ button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_3 clicked"),
+    command=switch_to_gui1,
     relief="flat"
 )
 button_3.place(

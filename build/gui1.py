@@ -17,15 +17,20 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C:\TT8L-09\build\assets\frame1")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
+def launch_gui1():
+    print ("Launching GUI2")
+    gui1_window = Tk()
+    gui1_window.geometry("1474x801")
+    gui1_window.configure(bg = "#F7F1AF")
 
-window = Tk()
+gui1_window = Tk()
 
-window.geometry("1474x801")
-window.configure(bg = "#F7F1AF")
+gui1_window.geometry("1474x801")
+gui1_window.configure(bg = "#F7F1AF")
 
 
 canvas = Canvas(
-    window,
+    gui1_window,
     bg = "#F7F1AF",
     height = 801,
     width = 1474,
@@ -109,5 +114,5 @@ image_2 = canvas.create_image(
     81.0,
     image=image_image_2
 )
-window.resizable(True, True)
-window.mainloop()
+gui1_window.resizable(True, True)
+gui1_window.mainloop()
