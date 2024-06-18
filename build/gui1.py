@@ -56,6 +56,158 @@ button_1.place(
     height=59.218284606933594
 )
 
+questions_physic = [
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 2",
+            "answer": "Option 2"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 1",
+            "answer": "Option 1"
+        },  
+    ]
+
+current_question_index = 0  # Initialize index to 0
+
+def next_question():
+    global current_question_index
+    if current_question_index < len(questions_physic) - 1:
+       current_question_index += 1
+       update_question()  # Disable editing after update
+
+# Create a Text widget inside button_1 to display questions
+text_widget = Text(
+    button_1,
+    wrap="word",  # Wrap text at word boundaries
+    relief="flat",  # Remove any border or relief
+    bd=0,  # No border
+    highlightthickness=0,  # No highlight
+    font=("Inter Regular", 16),  # Adjust font as needed
+    spacing1=5,  # Additional spacing between lines
+    spacing2=2  # Additional spacing between paragraphs
+)
+text_widget.pack(expand=True, fill="both")
+text_widget.insert("end", questions_physic[current_question_index])
+text_widget.config(state="disabled")  # Disable editing
+
+# Insert questions into the Text widget
+for question in questions_physic :
+    text_widget.insert("end", f"{question}\n\n")  # Insert each question followed by new lines
+
+
+
 button_image_2 = PhotoImage(
     file=relative_to_assets("button_2.png"))
 button_2 = Button(

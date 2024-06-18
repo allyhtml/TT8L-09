@@ -27,7 +27,24 @@ window = Tk()
 window.geometry("1474x801")
 window.configure(bg = "#D1EAF0")
 window.title("Quebizz")
+
+
+def launch_gui():
+    print ("Launching GUIMAin")
+    gui_window = Tk()
+    gui_window.geometry("1474x801")
+    gui_window.title("Main Menu")
+    gui_window.configure(bg = "#F7F1AF")
+
+if __name__ == "__main__":
+    launch_gui()
     
+def switch_to_guimain():
+    print("Switching to Main..")
+    window.withdraw()  # Hide the current GUI
+    launch_guimain()  # Call the function to launch the second GUI
+    print("Returned from maths")
+
 def switch_to_gui2():
     print("Switching to Maths..")
     window.withdraw()  # Hide the current GUI
@@ -136,11 +153,141 @@ canvas.create_text(
 
 image_image_1 = PhotoImage(
     file=relative_to_assets("image_1.png"))
-image_1 = canvas.create_image(
+image_1 =canvas.create_image(
     91.0,
     81.0,
     image=image_image_1
 )
+
+
+def open_math_quiz():
+    questions_math = [
+        {
+            "question": "If a1=3a_1 = 3a1 =3 and an=2an−1+5a_n = 2a_{n-1} + 5an =2an−1 +5 for n≥2n \geq 2n≥2, what is a3a_3a3 ?",
+            "answer": "21"
+        },
+        {
+            "question": "What is 5! (5 factorial)?",
+            "answer": "120"
+        },
+        {
+            "question": "Expand and evaluate the sum ∑i=13 (2i−1)",
+            "answer": "9"
+        },
+        {
+            "question": "Find the ninth term of the arithmetic sequence whose first term is 6 and whose common difference is -5",
+            "answer": "-34"
+        },
+        {
+            "question": "Find the sum of the first 3 terms of the geometric sequence: 2, -6, 18",
+            "answer": "14"
+        },
+        {
+            "question": "Which of the following is a system of linear equations?",
+            "answer": "3x+2y=6 and x-y=4"
+        },
+        {
+            "question": "Which method is used to eliminate one variable by adding or subtracting equations?",
+            "answer": "Elimination Method"
+        },
+        {
+            "question": "What is the solution to the system x+y=5 and 2x-y=1 using the substitution method?",
+            "answer": "(2,3)"
+        },
+        {
+            "question": "How many solutions does a system of linear equations have if the lines are parallel?",
+            "answer": "No solution"
+        },
+        {
+            "question": "What is the determinant of the matrix",
+            "answer": "10"
+        },
+        {
+            "question": "Which of the following quantities is a vector?",
+            "answer": "Velocity"
+        },
+        {
+            "question": "What is the magnitude of the vector v=(3,4)v = (3, 4)v=(3,4) in 2-dimensional space?",
+            "answer": "5"
+        },
+        {
+            "question": "Two vectors are considered equal if they have:",
+            "answer": "The same magnitude and direction, regardless of their initial points"
+        },
+        {
+            "question": "If u=(1,2,3) and v=(4,5,6), what is their dot product u.v?",
+            "answer": "32"
+        },
+        {
+            "question": "Which of the following best describes statistics?",
+            "answer": " A branch of mathematics concerned with collecting, organizing, summarizing, and analyzing information"
+        },
+        {
+            "question": "What is the main focus of inferential statistics?",
+            "answer": "Making decisions about a population based on sample data." 
+        },
+        {
+            "question": "Which of the following is an example of a population?",
+            "answer": "The prices of all houses sold by a developer"
+        },
+        {
+            "question": "Identify the type of variable: The weight of engineering students",
+            "answer": "Continuous Variable"
+        },
+        {
+            "question": "Which of the following is an example of a quantitative variable?",
+            "answer": "Height of policemen in a physical test"
+        },
+        {
+            "question": "What is the cross product of vectors u=(1,0,0) and v=(0,1,0) in 3-dimensional space?",
+            "answer": "(0,0,1)"
+        },
+        {
+            "question": "What is a set?",
+            "answer": "A collection whose members are specified by a list or a rule"
+        },
+        {
+            "question": "Which symbol represents x is an element of a set X?",
+            "answer": "x ∈ X "
+        },
+        {
+            "question": "What does the union of two sets A and B represent?",
+            "answer": "The set of elements that are in either set A or set B or both."
+        },
+        {
+            "question": "If A = {2, 4, 6} and B = {3, 6, 9}, what is A ∩ B?",
+            "answer": "{6}"
+        },
+        {
+            "question": "What is the complement of set A, denoted as A'?",
+            "answer": "The set of all elements not in set A."
+        },
+        {
+            "question": "For a binomial distribution with parameters n=10 and p=0.5p = 0.5p=0.5, what is the mean (μ) of the distribution?",
+            "answer": "5"
+        },
+        {
+            "question": "For a standard normal distribution, what is the Z-score corresponding to the 95th percentile?",
+            "answer": "1.96"
+        },
+        {
+            "question": "In a binomial distribution with n=5 and p=0.2, what is the standard deviation (σ)?",
+            "answer": "0.8"
+        },
+        {
+            "question": "Which of the following is true for a normal distribution curve?",
+            "answer": "The mean, median, and mode are all equal."
+        },
+        {
+            "question": "In a normal distribution with mean μ=50 and standard deviation σ=5, what is the z-score corresponding to X=60?",
+            "answer": "2"
+        },    
+    ]
+    quiz_frame.pack_forget()
+    quiz_frame.pack(fill="both", expand=True)
+    clear_frame(quiz_frame)
+    app_math = QuizGame(quiz_frame, questions_math)
+
 
 def resize_label(event):# Retrieve the new size of the window
     width = window.winfo_width()
@@ -150,3 +297,7 @@ window.bind("<Configure>", resize_label)
 
 window.resizable(True, True)
 window.mainloop()
+
+# Check if this file is being run directly
+if __name__ == "__main__":
+    launch_gui()
