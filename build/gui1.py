@@ -16,20 +16,15 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C:\TT8L-09\build\assets\frame3")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def launch_gui2():
-    print ("Launching GUI2")
-    gui2_window = Tk()
-    gui2_window.geometry("1474x801")
-    gui2_window.configure(bg = "#F7F1AF")
 
-gui2_window = Tk()
+gui1_window = Tk()
 
-gui2_window.geometry("1474x801")
-gui2_window.configure(bg = "#F7F1AF")
+gui1_window.geometry("1474x801")
+gui1_window.configure(bg = "#F7F1AF")
 
 
 canvas = Canvas(
-    gui2_window,
+    gui1_window,
     bg = "#F7F1AF",
     height = 801,
     width = 1474,
@@ -98,7 +93,11 @@ questions_physic = [
             "answer": "Option 1"
         },
         {
-            "question": "Physics Question 1",
+            "question": "Physics Question 11",
+            "answer": "Option 1"
+        },
+        {
+            "question": "Physics Question 12",
             "answer": "Option 1"
         },
         {
@@ -142,11 +141,7 @@ questions_physic = [
             "answer": "Option 1"
         },
         {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
+            "question": "Physics Question 15",
             "answer": "Option 1"
         },
         {
@@ -300,9 +295,10 @@ button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command=next_question,
+    command="next_question,back_to_gui1",
     relief="flat"
 )
+
 button_3.place(
     x=805.0,
     y=688.0,
@@ -311,7 +307,6 @@ button_3.place(
 )
 
 
-gui2_window.resizable(True, True)
-gui2_window.mainloop()
+gui1_window.resizable(True, True)
+gui1_window.mainloop()
 
-launch_gui2()

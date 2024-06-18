@@ -17,17 +17,15 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C:\TT8L-09\build\assets\frame3")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def launch_gui3():
-    print ("Launching GUI2")
-    gui3_window = Tk()
-    gui3_window.geometry("1474x801")
-    gui3_window.configure(bg = "#D0F0C0")
 
 gui3_window = Tk()
 
 gui3_window.geometry("1474x801")
 gui3_window.configure(bg = "#D0F0C0")
 
+def return_to_main_gui():
+    gui3_window.destroy()  # Close current window
+    import gui
 
 canvas = Canvas(
     gui3_window,
@@ -190,6 +188,8 @@ def next_question():
        current_question_index += 1
        update_question()  # Disable editing after update
     
+
+
            
 
 # Create a Text widget inside button_1 to display questions
@@ -206,6 +206,8 @@ text_widget = Text(
 text_widget.pack(expand=True, fill="both")
 text_widget.insert("end", questions_ds[current_question_index])
 text_widget.config(state="disabled")  # Disable editing
+# Place the Text widget inside button_1
+
 
 # Insert questions into the Text widget
 for question in questions_ds :
@@ -239,7 +241,7 @@ image_1 = canvas.create_image(
 )
 
 canvas.create_text(
-    630.0,
+    580.0,
     16.0,
     anchor="nw",
     text="Digital System",
@@ -265,7 +267,7 @@ def update_question():
         text_widget.delete(1.0, "end")  # Clear current content
         text_widget.insert("end", questions_ds[current_question_index]["question"])  # Insert current question
         text_widget.config(state="disabled")  # Disable editing after update
-
+        
 
         # Enable/disable next and back buttons based on current index
         if current_question_index == 0:
@@ -317,4 +319,3 @@ button_3.place(
 gui3_window.resizable(True, True)
 gui3_window.mainloop()
 
-launch_gui3()

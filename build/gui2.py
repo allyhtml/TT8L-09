@@ -16,11 +16,7 @@ ASSETS_PATH = OUTPUT_PATH / Path(r"C:\TT8L-09\build\assets\frame3")
 def relative_to_assets(path: str) -> Path:
     return ASSETS_PATH / Path(path)
 
-def launch_gui2():
-    print ("Launching GUI2")
-    gui2_window = Tk()
-    gui2_window.geometry("1474x801")
-    gui2_window.configure(bg = "#ECD5E3")
+
 
 gui2_window = Tk()
 
@@ -343,5 +339,3 @@ button_3.place(
 
 gui2_window.resizable(True, True)
 gui2_window.mainloop()
-
-launch_gui2()
