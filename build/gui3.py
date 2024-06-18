@@ -257,13 +257,13 @@ image_2 = canvas.create_image(
 
 def previous_question():
         global current_question_index
-        current_question_index = (current_question_index - 1) % len(questions)
+        current_question_index = (current_question_index - 1) % len(questions_ds)
         update_question()
 
 def update_question():
         text_widget.config(state="normal")  # Enable editing to update content
         text_widget.delete(1.0, "end")  # Clear current content
-        text_widget.insert("end", questions[current_question_index]["question"])  # Insert current question
+        text_widget.insert("end", questions_ds[current_question_index]["question"])  # Insert current question
         text_widget.config(state="disabled")  # Disable editing after update
 
 
@@ -273,7 +273,7 @@ def update_question():
         else:
             button_2.config(state="normal")
 
-        if current_question_index == len(questions) - 1:
+        if current_question_index == len(questions_ds) - 1:
             button_3.config(state="disabled")  # Disable next button on last question
             
         else:

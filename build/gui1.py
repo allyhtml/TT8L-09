@@ -7,11 +7,11 @@ from pathlib import Path
 
 # from tkinter import *
 # Explicit imports to satisfy Flake8
-from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage
+from tkinter import Tk, Canvas, Entry, Text, Button,Scrollbar, PhotoImage
 
 
 OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\TT8L-09\build\assets\frame1")
+ASSETS_PATH = OUTPUT_PATH / Path(r"C:\TT8L-09\build\assets\frame3")
 
 
 def relative_to_assets(path: str) -> Path:
@@ -42,6 +42,7 @@ canvas = Canvas(
 canvas.place(x = 0, y = 0)
 button_image_1 = PhotoImage(
     file=relative_to_assets("button_1.png"))
+
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
@@ -50,12 +51,13 @@ button_1 = Button(
     relief="flat"
 )
 button_1.place(
-    x=517.1318359375,
-    y=682.78173828125,
-    width=144.36184692382812,
-    height=59.218284606933594
+    x=260.0,
+    y=111.0,
+    width=931.9299926757812,
+    height=532.2999877929688
 )
 
+#Initialize Question
 questions_physic = [
         {
             "question": "Physics Question 1",
@@ -186,6 +188,8 @@ def next_question():
     if current_question_index < len(questions_physic) - 1:
        current_question_index += 1
        update_question()  # Disable editing after update
+    
+           
 
 # Create a Text widget inside button_1 to display questions
 text_widget = Text(
@@ -208,25 +212,11 @@ for question in questions_physic :
 
 
 
-button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
-button_2 = Button(
-    image=button_image_2,
-    borderwidth=0,
-    highlightthickness=0,
-    command=lambda: print("button_2 clicked"),
-    relief="flat"
-)
-button_2.place(
-    x=254.0,
-    y=135.0,
-    width=931.9299926757812,
-    height=532.2999877929688
-)
+
 
 canvas.create_text(
-    644.0,
-    345.0,
+    660.0,
+    358.0,
     anchor="nw",
     text="Questions ",
     fill="#000000",
@@ -234,8 +224,8 @@ canvas.create_text(
 )
 
 canvas.create_text(
-    1207.0,
-    50.0,
+    1208.0,
+    49.0,
     anchor="nw",
     text="Username",
     fill="#000000",
@@ -245,16 +235,16 @@ canvas.create_text(
 image_image_1 = PhotoImage(
     file=relative_to_assets("image_1.png"))
 image_1 = canvas.create_image(
-    1352.0,
-    62.0,
+    1367.0,
+    74.0,
     image=image_image_1
 )
 
 canvas.create_text(
-    548.0,
-    40.0,
+    600.0,
+    16.0,
     anchor="nw",
-    text="Physics",
+    text="Physic",
     fill="#000000",
     font=("Inter Bold", 64 * -1)
 )
@@ -262,9 +252,71 @@ canvas.create_text(
 image_image_2 = PhotoImage(
     file=relative_to_assets("image_2.png"))
 image_2 = canvas.create_image(
-    91.0,
+    81.0,
     81.0,
     image=image_image_2
 )
+
+def previous_question():
+        global current_question_index
+        current_question_index = (current_question_index - 1) % len(questions_physic)
+        update_question()
+
+def update_question():
+        text_widget.config(state="normal")  # Enable editing to update content
+        text_widget.delete(1.0, "end")  # Clear current content
+        text_widget.insert("end", questions_physic[current_question_index]["question"])  # Insert current question
+        text_widget.config(state="disabled")  # Disable editing after update
+
+
+        # Enable/disable next and back buttons based on current index
+        if current_question_index == 0:
+            button_2.config(state="disabled")  # Disable back button on first question
+        else:
+            button_2.config(state="normal")
+
+        if current_question_index == len(questions_physic) - 1:
+            button_3.config(state="disabled")  # Disable next button on last question
+            
+        else:
+            button_3.config(state="normal")
+            
+
+
+button_image_2 = PhotoImage(
+    file=relative_to_assets("button_2.png"))
+button_2 = Button(
+    image=button_image_2,
+    borderwidth=0,
+    highlightthickness=0,
+    command=previous_question,
+    relief="flat"
+)
+button_2.place(
+    x=516.0,
+    y=688.0,
+    width=153.0,
+    height=61.0
+)
+
+button_image_3 = PhotoImage(
+    file=relative_to_assets("button_3.png"))
+button_3 = Button(
+    image=button_image_3,
+    borderwidth=0,
+    highlightthickness=0,
+    command=next_question,
+    relief="flat"
+)
+button_3.place(
+    x=805.0,
+    y=688.0,
+    width=153.0,
+    height=61.0
+)
+
+
 gui1_window.resizable(True, True)
 gui1_window.mainloop()
+
+launch_gui1()

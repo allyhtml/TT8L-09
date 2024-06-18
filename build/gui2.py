@@ -57,7 +57,7 @@ canvas.create_text(
     517.0,
     19.0,
     anchor="nw",
-    text="Mathematicsics",
+    text="Mathematics",
     fill="#000000",
     font=("Inter Bold", 64 * -1)
 )
