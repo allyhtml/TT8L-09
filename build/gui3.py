@@ -25,7 +25,8 @@ gui3_window.configure(bg = "#D0F0C0")
 
 def return_to_main_gui():
     gui3_window.destroy()  # Close current window
-    import gui
+    import gui  # Import the main GUI module to return to it
+
 
 canvas = Canvas(
     gui3_window,
@@ -188,6 +189,8 @@ def next_question():
        current_question_index += 1
        update_question()  # Disable editing after update
     
+    else:
+        return_to_main_gui()  # Return to the main GUI when all questions are finished   
 
 
            

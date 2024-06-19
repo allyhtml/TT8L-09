@@ -13,7 +13,16 @@ from pathlib import Path
 # from tkinter import *
 # Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Toplevel
+import pygame
 
+# load BG music
+pygame.mixer.init()
+pygame.mixer.music.load('background audio.mp3')
+pygame.mixer.music.play(-1) #repeat and where to start playing 
+pygame.mixer.music.set_volume(2) #volume
+
+# Dellay BG
+pygame.time.delay(5000)
 
 
 
