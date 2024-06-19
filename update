@@ -1,36 +1,12 @@
 import tkinter as tk
-from tkinter import font, messagebox, PhotoImage, Label, Frame, Entry, Button, Toplevel, Canvas
+from tkinter import font, messagebox, PhotoImage, Label, Frame, Entry, Button, Toplevel
 import random
 import os
-import datetime
 import sys
 import subprocess
+import datetime
 
-# Global Tkinter window
-window = tk.Tk()
-window.geometry("1474x801")
-window.configure(bg="#D1EAF0")
-window.resizable(False, False)
-
-# Function to clear the current canvas
-def clear_canvas():
-    for widget in window.winfo_children():
-        widget.destroy()
-
-# Dictionary to hold references to images to prevent garbage collection
-images = {}
-
-def load_image(image_path):
-    try:
-        # Convert to absolute path
-        abs_path = os.path.abspath(image_path)
-        image = PhotoImage(file=abs_path)
-        return image
-    except Exception as e:
-        print(f"Failed to load image at {abs_path}: {e}")
-        return None
-
-# First code: Sign-in and Registration System
+# Function to handle the sign-in process
 def signin():
     email = user.get()
     password = code.get()
@@ -90,7 +66,7 @@ def save_registration():
 
 def register():
     global user_entry, password_entry
-    reg_window = Toplevel(window)
+    reg_window = Toplevel(root)
     reg_window.title("Registration")
     reg_window.geometry('400x250+500+300')
     reg_window.config(bg="white")
@@ -111,8 +87,7 @@ def register():
     register_button = Button(reg_window, text="Register", bg='#57a1f8', fg='white', command=save_registration)
     register_button.pack()
 
-
-# Second code: Quiz Game
+# Class for the Quiz Game
 class QuizGame:
     def __init__(self, root, questions):
         self.root = root
@@ -128,7 +103,7 @@ class QuizGame:
             button = tk.Button(self.root, text="", font=custom_font, width=50, height=3, command=lambda i=i: self.check_answer(i), bg="#F1D1CC")
             button.pack(pady=10)
             self.option_buttons.append(button)
-        self.score_label = tk.Label(self.root, text="Score:0", font=custom_font, bg="#D1EAF0")
+        self.score_label = tk.Label(self.root, text="Score: 0", font=custom_font, bg="#D1EAF0")
         self.score_label.pack(pady=20)
         self.display_question()
 
@@ -190,7 +165,7 @@ def open_ds_quiz():
 def open_math_quiz():
     questions_math = [
         {
-            "question": "If a1=3a_1 = 3a1 =3 and an=2an−1+5a_n = 2a_{n-1} + 5an =2an−1 +5 for n≥2n \geq 2n≥2, what is a3a_3a3 ?",
+            "question": "If a1=3 and an=2an-1+5 for n>=2, what is a3?",
             "options": ["17", "21", "19", "23"],
             "answer": "21"
         },
@@ -217,59 +192,94 @@ def clear_frame(frame):
     for widget in frame.winfo_children():
         widget.destroy()
 
+def quiz_selection_screen():
+    global quiz_frame, saly_16_img, saly_10_img, saly_19_img
+    main_frame.pack_forget()
+    quiz_frame = tk.Frame(root, bg="#d1eaf0")
+    quiz_frame.pack(fill="both", expand=True)
+    
+    quebiz_section = tk.Label(quiz_frame, text="QUEBIZ SECTION", font=comic_sans_font, bg="#d1eaf0")
+    quebiz_section.place(x=500, y=51)
+    
+    physic1 = tk.Frame(quiz_frame, bg="#ffc8c0", width=378, height=532)
+    physic1.place(x=94, y=203)
+    physic2 = tk.Frame(quiz_frame, bg="#ffc8c0", width=378, height=532)
+    physic2.place(x=558, y=203)
+    physic3 = tk.Frame(quiz_frame, bg="#ffc8c0", width=378, height=532)
+    physic3.place(x=1022, y=203)
+    
+    digital_system_label = tk.Label(quiz_frame, text="DIGITAL SYSTEM", font=stylish_font, bg="#ffc8c0", fg="#000")
+    digital_system_label.place(x=144, y=222)
+    mathematics_label = tk.Label(quiz_frame, text="MATHEMATICS", font=stylish_font, bg="#ffc8c0", fg="#000")
+    mathematics_label.place(x=624, y=222)
+    physic_label = tk.Label(quiz_frame, text="PHYSIC", font=stylish_font, bg="#ffc8c0", fg="#000")
+    physic_label.place(x=1154, y=222)
+    
+    saly_16_img = PhotoImage(file="assets/Saly-16.png")
+    saly_16_label = Label(quiz_frame, image=saly_16_img, bg="#ffc8c0")
+    saly_16_label.place(x=124, y=281)
+    saly_10_img = PhotoImage(file="assets/Saly-10.png")
+    saly_10_label = Label(quiz_frame, image=saly_10_img, bg="#ffc8c0")
+    saly_10_label.place(x=626, y=281)
+    saly_19_img = PhotoImage(file="assets/Saly-19.png")
+    saly_19_label = Label(quiz_frame, image=saly_19_img, bg="#ffc8c0")
+    saly_19_label.place(x=1074, y=281)
+    
+    start_quiz_button1 = tk.Button(quiz_frame, text="Start Quiz", font=("Arial", 12), command=open_ds_quiz)
+    start_quiz_button1.place(x=224, y=700)
+    start_quiz_button2 = tk.Button(quiz_frame, text="Start Quiz", font=("Arial", 12), command=open_math_quiz)
+    start_quiz_button2.place(x=696, y=700)
+    start_quiz_button3 = tk.Button(quiz_frame, text="Start Quiz", font=("Arial", 12), command=open_physic_quiz)
+    start_quiz_button3.place(x=1164, y=700)
+
 def go_back_to_selection():
     quiz_frame.pack_forget()
     quiz_selection_screen()
 
-def quiz_selection_screen():
-    global quiz_frame
-    quiz_frame = Frame(window, bg="#D1EAF0")
-    quiz_frame.pack(fill="both", expand=True)
+# Initialize the main application window
+root = tk.Tk()
+root.title("Login")
+root.geometry("1366x768")
 
-    title = Label(quiz_frame, text="Select a Quiz Category", font=("Arial", 24, "bold"), bg="#D1EAF0", padx=20, pady=20)
-    title.pack()
-
-    ds_button = Button(quiz_frame, text="Data Structures", font=("Arial", 16), width=20, bg="#F1D1CC", pady=10, command=open_ds_quiz)
-    ds_button.pack(pady=10)
-
-    math_button = Button(quiz_frame, text="Mathematics", font=("Arial", 16), width=20, bg="#F1D1CC", pady=10, command=open_math_quiz)
-    math_button.pack(pady=10)
-
-    physic_button = Button(quiz_frame, text="Physics", font=("Arial", 16), width=20, bg="#F1D1CC", pady=10, command=open_physic_quiz)
-    physic_button.pack(pady=10)
-
-# Initial screen (Sign-in and Registration)
-main_frame = Frame(window, bg="#D1EAF0")
+# Main frame for the login screen
+main_frame = tk.Frame(root, bg="#d1eaf0")
 main_frame.pack(fill="both", expand=True)
 
-canvas = Canvas(main_frame, width=200, height=200, bg="#D1EAF0", highlightthickness=0)
-canvas.pack()
+# Fonts
+comic_sans_font = font.Font(family="Comic Sans MS", size=50, weight="bold")
+stylish_font = font.Font(family="Arial", size=25, weight="bold")
 
+# Widgets for the main frame
+label1 = tk.Label(main_frame, text="Welcome to", bg="#d1eaf0", font=comic_sans_font)
+label1.place(x=80, y=50)
+label2 = tk.Label(main_frame, text="My Edu Quiz", bg="#d1eaf0", font=comic_sans_font)
+label2.place(x=80, y=130)
 
-user = Entry(main_frame, width=45, fg='black', bg="#F1D1CC", font=('Microsoft YaHei UI Light', 13))
-user.pack(ipady=10, padx=40, pady=80)
+# Create a frame for user entry
+entry_frame = Frame(main_frame, width=300, height=300, bg="white")
+entry_frame.place(x=100, y=200)
 
-code = Entry(main_frame, width=45, fg='black', bg="#F1D1CC", font=('Microsoft YaHei UI Light', 13), show='')
-code.pack(ipady=10, padx=40, pady=40)
-
-
-f = Frame(main_frame, width=400, height=350, bg="#D1EAF0")
-f.pack(pady=50)
-
-a = Button(main_frame, text="LOG-IN", width=50, fg="white", bg="#57a1f8", command=signin)
-a.pack(pady=20)
-
-register_button = Button(main_frame, text="REGISTER", width=50, fg="white", bg="#57a1f8", command=register)
-register_button.pack(pady=20)
-
+user = Entry(entry_frame, width=25, fg='black', border=0, bg="white", font=('Microsoft YaHei UI Light', 11))
+user.place(x=30, y=60)
 user.insert(0, 'Email')
+user.bind('<FocusIn>', on_enter_email)
+user.bind('<FocusOut>', on_leave_email)
+Frame(entry_frame, width=295, height=2, bg='black').place(x=25, y=87)
+
+code = Entry(entry_frame, width=25, fg='black', border=0, bg="white", font=('Microsoft YaHei UI Light', 11))
+code.place(x=30, y=130)
 code.insert(0, 'Password')
+code.bind('<FocusIn>', on_enter_password)
+code.bind('<FocusOut>', on_leave_password)
+Frame(entry_frame, width=295, height=2, bg='black').place(x=25, y=157)
 
-user.bind("<Enter>", on_enter_email)
-user.bind("<Leave>", on_leave_email)
-code.bind("<Enter>", on_enter_password)
-code.bind("<Leave>", on_leave_password)
+signin_button = Button(entry_frame, width=39, pady=7, text='Sign In', bg='#57a1f8', fg='white', border=0, command=signin)
+signin_button.place(x=35, y=204)
+label = Label(entry_frame, text="Don't have an account?", fg='black', bg='white', font=('Microsoft YaHei UI Light', 9))
+label.place(x=75, y=270)
 
+register_button = Button(entry_frame, width=6, text='Sign Up', border=0, bg='white', cursor='hand2', fg='#57a1f8', command=register)
+register_button.place(x=215, y=270)
 
-window.mainloop()
-
+# Main event loop
+root.mainloop()

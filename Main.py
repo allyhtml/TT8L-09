@@ -7,7 +7,7 @@ import os
 def signin():
     email = user.get()
     password = code.get()
-
+    
     try:
         with open("user_data.txt", "r") as file:
             for line in file:
@@ -308,7 +308,7 @@ def open_ds_quiz():
 def open_math_quiz():
     questions_math = [
         {
-            "question": "If a1=3a_1 = 3a1 =3 and an=2an−1+5a_n = 2a_{n-1} + 5an =2an−1 +5 for n≥2n \geq 2n≥2, what is a3a_3a3 ?",
+            "question": "If a1 = 3 and an = 2an-1 + 5 for n ≥ 2, what is a3?",
             "options": ["17", "21", "19", "23"],
             "answer": "21"
         },
@@ -466,154 +466,154 @@ def open_math_quiz():
 def open_physic_quiz():
     questions_physic = [
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "Which of the following is not a type of motion?",
+            "options": ["Translational", "Rotatinal", "Oscillatory", "Vibrational"],
+            "answer": "Vibrational"
         },
         {
-            "question": "Physics Question 2",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 2"
+            "question": "Motion occurring along a straight line can be classified as:",
+            "options": ["Vertical, horizontal, or slanting", "Rectangular, circular, or elliptical", "Rotational or translational", "Static or dynamic"],
+            "answer": "Vertical, horizontal, or slanting"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What is the difference between distance and displacement?",
+            "options": ["Distance is a scalar quantity; displacement is a vector quantity", "Distance is always positive; displacement can be negative", "Distance depends on the path taken; displacement depends on the initial and final positions", "Distance is measured in meters; displacement is measured in meters per second"],
+            "answer": "Distance depends on the path taken; displacement depends on the initial and final positions"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "Which statement accurately describes velocity?",
+            "options": ["Velocity has the same magnitude as speed.", "Velocity is a scalar quantity.", "Velocity is the rate of change of speed.", "Velocity depends only on the initial position of an object."],
+            "answer": "Velocity has the same magnitude as speed."
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What is the SI unit of speed?",
+            "options": ["m", "m/s", "m/s^2", "N"],
+            "answer": "m/s"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "When does velocity equal zero?",
+            "options": ["When speed is zero", "When acceleration is zero", "When displacement is zero", "When the initial and final positions are the same"],
+            "answer": "When the initial and final positions are the same"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "Acceleration is defined as:",
+            "options": ["The rate of change of displacement", "The rate of change of velocity", "The rate of change of speed", "The rate of change of distance"],
+            "answer": "The rate of change of velocity"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What is the SI unit of acceleration?",
+            "options": ["m", "m/s", "m/s^2", "N"],
+            "answer": "m/s^2"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "Which of the following is true about force?",
+            "options": ["Force is a scalar quantity", "Force is defined as a push, pull, kick, or shove", "Force depends on the path taken by the object", "Force does not affect acceleration"],
+            "answer": "Force is defined as a push, pull, kick, or shove"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "Why is force considered a vector quantity?",
+            "options": ["Because force has only magnitude", "Because force has both magnitude and direction", "Because force is always positive", "Because force depends on the mass of the object"],
+            "answer": "Because force has both magnitude and direction"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "When does an object accelerate according to Newton's Second Law?",
+            "options": ["When the net force is zero", "When the net force is greater than zero", "When the net force is negative", "When the net force is not equal to zero"],
+            "answer": "When the net force is not equal to zero"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What is the definition of net force?",
+            "options": ["The average of all the forces acting on an object", "The sum of all the forces acting on an object", "The gravitational force acting on an object", "The force applied by the object itself"],
+            "answer": "The sum of all the forces acting on an object"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What happens to an object in translational equilibrium?",
+            "options": ["It accelerates", "It moves with constant velocity", "It has zero velocity", "It moves in a circular path"],
+            "answer": "It moves with constant velocity"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What does Newton's First Law describe about objects at rest?",
+            "options": ["They have zero velocity", "They have constant acceleration", "They have non-zero net force", "They resist changes in motion"],
+            "answer": "They have zero velocity"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "According to Newton's Second Law, what does the acceleration of an object depend on?",
+            "options": ["Net force and gravitational force", "Velocity and mass", "Net force and mass", "Gravitational force and velocity"],
+            "answer": "Net force and mass"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What is the relationship between force and acceleration according to Newton's Second Law?",
+            "options": ["Directly proportional", "Inversely proportional", "Not related", "Independent"],
+            "answer": "Directly proportional"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "Which statement about friction is correct?",
+            "options": ["Static friction is greater than kinetic friction", "Kinetic friction is always zero", "Friction depends on the object's weight", "Friction increases with velocity"],
+            "answer": "Static friction is greater than kinetic friction"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "Which property of light does reflection from a mirror illustrate?",
+            "options": ["Refraction", "Diffraction", "Dispersion", "Reflection"],
+            "answer": "Reflection"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "According to the law of reflection, what relationship exists between the incident ray and the reflected ray?",
+            "options": ["They diverge from each other", "They are perpendicular to each other", "They lie in the same plane", "They have different wavelengths"],
+            "answer": "They lie in the same plane"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What geometric arrangement is always true for the incident ray, the reflected ray, and the normal to the surface?",
+            "options": ["They are at right angles to each other", "They form a triangle", "They are always collinear", "They are in the same plane"],
+            "answer": "They are in the same plane"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What defines a wavefront?",
+            "options": ["A line of constant phase", "A point source of light", "A single frequency of light", "A line perpendicular to the mirror"],
+            "answer": "A line of constant phase"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "In which case does light travel more slowly?",
+            "options": ["In vacuum", "In air", "In water", "In glass"],
+            "answer": "In water"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What is the relationship between incident and refracted angles described by?",
+            "options": ["Fermat’s principle", "Newton’s laws", "Hooke’s law", "Snell’s law"],
+            "answer": "Snell’s law"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "When does total internal reflection occur?",
+            "options": ["When light travels from a medium of lower to higher refractive index", "When light travels from air to water", "When the incident angle is greater than the critical angle", "When light travels from vacuum to glass"],
+            "answer": "When the incident angle is greater than the critical angle"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What is an application of total internal reflection?",
+            "options": ["Fiber optics", "Reflection in mirrors", "Diffraction in water waves", "Dispersion in glass"],
+            "answer": "Fiber optics"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "According to Huygens' principle, what are secondary waves called?",
+            "options": ["Spherical waves", "Point sources", "Wavelets", "Refracted waves"],
+            "answer": "Wavelets"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What pattern is observed in single-slit diffraction?",
+            "options": ["Bright and dark fringes", "Multiple color spectra", "Circular interference patterns", "Parallel wavefront"],
+            "answer": "Bright and dark fringes"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What phenomenon arises from the interference of light waves?",
+            "options": ["Diffraction", "Polarization", "Dispersion", "Interference"],
+            "answer": "Interference"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What experiment demonstrates the interference of light waves?",
+            "options": ["Huygens' experiment", "Newton's experiment", "Young's double-slit experiment", "Snell's experiment"],
+            "answer": "Young's double-slit experiment"
         },
         {
-            "question": "Physics Question 1",
-            "options": ["Option 1", "Option 2", "Option 3", "Option 4"],
-            "answer": "Option 1"
+            "question": "What device uses many parallel slits to diffract light?",
+            "options": ["Single slit", "Prism", "Diffraction grating", "Lens"],
+            "answer": "Diffraction grating"
         },  
     ]
     quiz_frame.pack_forget()
