@@ -5,7 +5,7 @@ class QuizGame:
         self.root = root
         self.root.title("MCQ Quiz Game")
 
-        custom_font = font.Font(family="Helvetica", size=14)
+        custom_font =font.Font(family="Helvetica", size=14)
 
         self.question = [
             {
