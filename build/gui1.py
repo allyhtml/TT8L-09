@@ -258,6 +258,17 @@ def previous_question():
         current_question_index = (current_question_index - 1) % len(questions_physic)
         update_question()
 
+         # Enable/disable next and back buttons based on current index
+        if current_question_index == 0:
+            button_2.config(state="disabled")  # Disable back button on first question
+        else:
+            button_2.config(state="normal")
+
+        if current_question_index == len(questions_physic) - 1:
+           button_3.place_forget()  # Hide the next button on the last question
+        else:
+            button_3.place(x=928.0, y=688.0)  # Ensure button is placed back if not on last question
+
 def update_question():
         text_widget.config(state="normal")  # Enable editing to update content
         text_widget.delete(1.0, "end")  # Clear current content
@@ -274,11 +285,10 @@ def update_question():
             button_2.config(state="normal")
 
         if current_question_index == len(questions_physic) - 1:
-            button_3.config(state="disabled")  # Disable next button on last question
-        
-            
+           button_3.place_forget()  # Hide the next button on the last question
         else:
-            button_3.config(state="normal")
+            button_3.place(x=928.0, y=688.0)  # Ensure button is placed back if not on last question
+            
             
 
 
@@ -304,7 +314,7 @@ button_3 = Button(
     image=button_image_3,
     borderwidth=0,
     highlightthickness=0,
-    command="next_question,back_to_gui1",
+    command=next_question,
     relief="flat"
 )
 

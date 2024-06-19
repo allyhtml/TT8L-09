@@ -306,10 +306,10 @@ def update_question():
             button_2.config(state="normal")
 
         if current_question_index == len(questions_math) - 1:
-            button_3.config(state="disabled")  # Disable next button on last question
-            
+           button_3.place_forget()  # Hide the next button on the last question
         else:
-            button_3.config(state="normal")
+            button_3.place(x=928.0, y=688.0)  # Ensure button is placed back if not on last question
+            
             
 
 
