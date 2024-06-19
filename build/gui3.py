@@ -226,22 +226,7 @@ canvas.create_text(
     font=("Inter SemiBold", 30 * -1)
 )
 
-canvas.create_text(
-    1208.0,
-    49.0,
-    anchor="nw",
-    text="Username",
-    fill="#000000",
-    font=("MADEAwelierPERSONALUSE ExtraBold", 15 * -1)
-)
 
-image_image_1 = PhotoImage(
-    file=relative_to_assets("image_1.png"))
-image_1 = canvas.create_image(
-    1367.0,
-    74.0,
-    image=image_image_1
-)
 
 canvas.create_text(
     580.0,
