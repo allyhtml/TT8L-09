@@ -286,8 +286,11 @@ def previous_question():
 def update_question():
         text_widget.config(state="normal")  # Enable editing to update content
         text_widget.delete(1.0, "end")  # Clear current content
-        text_widget.insert("end", questions_math[current_question_index]["question"])  # Insert current question
+        question = questions_math[current_question_index]["question"]
+        answer = questions_math[current_question_index]["answer"]
+        text_widget.insert("end", f" {question}\n\n {answer}\n\n")  # Insert question and answer
         text_widget.config(state="disabled")  # Disable editing after update
+        
 
 
         # Enable/disable next and back buttons based on current index
