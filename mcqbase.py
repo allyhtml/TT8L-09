@@ -1,6 +1,4 @@
 import tkinter as tk
-from tkinter import font, messagebox
-import random
 
 class QuizGame:
     def __init__(self, root):
@@ -67,29 +65,6 @@ class QuizGame:
             messagebox.showinfo("Correct", "Your answer is correct!")
         else:
             messagebox.showerror("Incorrect", f"Your answer is incorrect! The correct answer is: {correct_answer}")
-
-        self.score_label.config(text="Score: {}".format(self.score))
-        self.current_question_index += 1
-        self.display_question()
-
-    def end_game(self):
-        score_message = "Final Score: {}/{}".format(self.score, len(self.questions))
-        self.question_label.config(text=score_message)
-
-        for button in self.option_buttons:
-            button.config(state=tk.DISABLED)
-
-        play_again_button = tk.Button(self.root, text="Play Again", font=("Arial", 12), command=self.play_again)
-        play_again_button.pack(pady=10)
-
-    def play_again(self):
-        self.score = 0
-        self.current_question_index = 0
-        self.score_label.config(text="Score: 0")
-        self.display_question()
-
-        for button in self.option_buttons:
-            button.config(state=tk.NORMAL)
 
 root = tk.Tk()
 app = QuizGame(root)
