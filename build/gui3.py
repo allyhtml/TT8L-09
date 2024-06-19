@@ -23,10 +23,13 @@ gui3_window = Tk()
 gui3_window.geometry("1474x801")
 gui3_window.configure(bg = "#D0F0C0")
 
-def return_to_main_gui():
-    gui3_window.destroy()  # Close current window
-    import gui  # Import the main GUI module to return to it
 
+
+def return_gui():
+    # Code to hide or destroy current window and open gui2
+    gui3_window.destroy()
+    import gui
+    gui.window.mainloop()
 
 canvas = Canvas(
     gui3_window,
@@ -189,10 +192,7 @@ def next_question():
        current_question_index += 1
        update_question()  # Disable editing after update
     
-    else:
-        return_to_main_gui()  # Return to the main GUI when all questions are finished   
-
-
+    
            
 
 # Create a Text widget inside button_1 to display questions
@@ -298,7 +298,7 @@ button_2 = Button(
     relief="flat"
 )
 button_2.place(
-    x=516.0,
+    x=416.0,
     y=688.0,
     width=153.0,
     height=61.0
@@ -314,12 +314,28 @@ button_3 = Button(
     relief="flat"
 )
 button_3.place(
-    x=805.0,
+    x=928.0,
     y=688.0,
     width=153.0,
     height=61.0
 )
 
+
+button_image_5 = PhotoImage(
+    file=relative_to_assets("button_5.png"))
+button_5 = Button(
+    image=button_image_5,
+    borderwidth=0,
+    highlightthickness=0,
+    command=return_gui,
+    relief="flat"
+)
+button_5.place(
+    x=622.0,
+    y=688.0,
+    width=243.0,
+    height=61.0
+)
 
 gui3_window.resizable(True, True)
 gui3_window.mainloop()

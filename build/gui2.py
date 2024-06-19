@@ -23,6 +23,12 @@ gui2_window = Tk()
 gui2_window.geometry("1474x801")
 gui2_window.configure(bg = "#ECD5E3")
 
+def return_gui():
+    # Code to hide or destroy current window and open gui2
+    gui2_window.destroy()
+    import gui
+    gui.window.mainloop()
+
 
 canvas = Canvas(
     gui2_window,
@@ -317,7 +323,7 @@ button_2 = Button(
     relief="flat"
 )
 button_2.place(
-    x=516.0,
+    x=416.0,
     y=688.0,
     width=153.0,
     height=61.0
@@ -333,11 +339,28 @@ button_3 = Button(
     relief="flat"
 )
 button_3.place(
-    x=805.0,
+    x=928.0,
     y=688.0,
     width=153.0,
     height=61.0
 )
+
+button_image_5 = PhotoImage(
+    file=relative_to_assets("button_5.png"))
+button_5 = Button(
+    image=button_image_5,
+    borderwidth=0,
+    highlightthickness=0,
+    command=return_gui,
+    relief="flat"
+)
+button_5.place(
+    x=622.0,
+    y=688.0,
+    width=243.0,
+    height=61.0
+)
+
 
 
 gui2_window.resizable(True, True)

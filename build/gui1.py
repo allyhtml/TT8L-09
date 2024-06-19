@@ -22,6 +22,12 @@ gui1_window = Tk()
 gui1_window.geometry("1474x801")
 gui1_window.configure(bg = "#F7F1AF")
 
+def return_gui():
+    # Code to hide or destroy current window and open gui2
+    gui1_window.destroy()
+    import gui
+    gui.window.mainloop()
+
 
 canvas = Canvas(
     gui1_window,
@@ -269,6 +275,7 @@ def update_question():
 
         if current_question_index == len(questions_physic) - 1:
             button_3.config(state="disabled")  # Disable next button on last question
+        
             
         else:
             button_3.config(state="normal")
@@ -285,7 +292,7 @@ button_2 = Button(
     relief="flat"
 )
 button_2.place(
-    x=516.0,
+    x=416.0,
     y=688.0,
     width=153.0,
     height=61.0
@@ -302,9 +309,25 @@ button_3 = Button(
 )
 
 button_3.place(
-    x=805.0,
+    x=928.0,
     y=688.0,
     width=153.0,
+    height=61.0
+)
+
+button_image_5 = PhotoImage(
+    file=relative_to_assets("button_5.png"))
+button_5 = Button(
+    image=button_image_5,
+    borderwidth=0,
+    highlightthickness=0,
+    command=return_gui,
+    relief="flat"
+)
+button_5.place(
+    x=622.0,
+    y=688.0,
+    width=243.0,
     height=61.0
 )
 
