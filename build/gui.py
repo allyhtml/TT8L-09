@@ -7,7 +7,7 @@
 #gui1.py button_3.png
 #gui2.py button_4.png
 
-
+import os
 from pathlib import Path
 
 # from tkinter import *
@@ -25,13 +25,15 @@ pygame.mixer.music.set_volume(2) #volume
 pygame.time.delay(5000)
 
 
-
-OUTPUT_PATH = Path(__file__).parent
-ASSETS_PATH = OUTPUT_PATH / Path(r"C:\TT8L-09\build\assets\frame0")
-
-
-def relative_to_assets(path: str) -> Path:
-    return ASSETS_PATH / Path(path)
+def load_image(image_path):
+    try:
+        # Convert to absolute path
+        abs_path = os.path.abspath(image_path)
+        image = PhotoImage(file=abs_path)
+        return image
+    except Exception as e:
+        print(f"Failed to load image at {abs_path}: {e}")
+        return None
 
 
 window = Tk()
@@ -70,8 +72,7 @@ canvas = Canvas(
 )
 
 canvas.place(x = 0, y = 0)
-button_image_1 = PhotoImage(
-    file=relative_to_assets("button_1.png"))
+button_image_1 =load_image("./build/assets/nqa1/button_1.png")
 button_1 = Button(
     image=button_image_1,
     borderwidth=0,
@@ -86,8 +87,7 @@ button_1.place(
     height=61.0
 )
 
-button_image_2 = PhotoImage(
-    file=relative_to_assets("button_2.png"))
+button_image_2 =load_image("./build/assets/nqa1/button_2.png")
 button_2 = Button(
     image=button_image_2,
     borderwidth=0,
@@ -102,8 +102,7 @@ button_2.place(
     height=514.0
 )
 
-button_image_3 = PhotoImage(
-    file=relative_to_assets("button_3.png"))
+button_image_3 =load_image("./build/assets/nqa1/button_3.png")
 button_3 = Button(
     image=button_image_3,
     borderwidth=0,
@@ -118,8 +117,7 @@ button_3.place(
     height=522.0
 )
 
-button_image_4 = PhotoImage(
-    file=relative_to_assets("button_4.png"))
+button_image_4 =load_image("./build/assets/nqa1/button_4.png")
 button_4 = Button(
     image=button_image_4,
     borderwidth=0,
@@ -144,8 +142,7 @@ canvas.create_text(
     font=("Inter Bold", 64 * -1)
 )
 
-image_image_1 = PhotoImage(
-    file=relative_to_assets("image_1.png"))
+image_image_1 =load_image("./build/assets/nqa1/image_1.png")
 image_1 = canvas.create_image(
     91.0,
     81.0,
