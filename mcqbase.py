@@ -1,17 +1,4 @@
 import tkinter as tk
-from tkinter import font 
-from random import shuffle
-import pygame
-
-# load BG music
-pygame.mixer.music.load('background audio.mp3')
-pygame.mixer.music.play(loops=-1, start=0.0) #repeat and where to start playing 
-pygame.mixer.music.set_volume(.2) #volume
-
-# Dellay BG
-pygame.time.delay(5000)
-pygame.mixer.music.stop()
-
 
 class QuizGame:
     def __init__(self, root):
@@ -58,17 +45,7 @@ class QuizGame:
 
         self.next_question()
 
-    def next_question(self):
-        if self.current_question < len(self.questions):
-            question = self.questions[self.current_question]
-            self.question_label.config(text=question["question"])
-            options = question["options"]
-            shuffle(options)
-            for i in range(4):
-                self.option_buttons[i].config(text=options[i])
-        else:
-            self.end_game()
-
+    
 root = tk.Tk()
 app = QuizGame(root)
 root.mainloop()
