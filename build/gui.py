@@ -58,6 +58,11 @@ def open_gui3():
     window.destroy()
     import gui3
 
+def open_menu():
+    window.destroy()
+    import menu
+    menu.show_frame0()
+
 def button_click(event):
     print("Button clicked!")
 
@@ -77,7 +82,7 @@ button_1 = Button(
     image=button_image_1,
     borderwidth=0,
     highlightthickness=0,
-    command=lambda: print("button_1 clicked"),
+    command=open_menu,
     relief="flat"
 )
 button_1.place(
@@ -86,6 +91,7 @@ button_1.place(
     width=153.0,
     height=61.0
 )
+
 
 button_image_2 =load_image("./build/assets/nqa1/button_2.png")
 button_2 = Button(
@@ -148,7 +154,6 @@ image_1 = canvas.create_image(
     81.0,
     image= image_image_1
 )
-
 
 
 

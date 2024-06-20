@@ -48,7 +48,8 @@ button_1 = Button(
     borderwidth=0,
     highlightthickness=0,
     command=lambda: print("button_1 clicked"),
-    relief="flat"
+    relief="flat",
+    state="disabled"
 )
 button_1.place(
     x=260.0,
@@ -182,11 +183,18 @@ text_widget = Text(
     highlightthickness=0,  # No highlight
     font=("Inter Regular", 16),  # Adjust font as needed
     spacing1=5,  # Additional spacing between lines
-    spacing2=2  # Additional spacing between paragraphs
+    spacing2=2,
+    padx=55,  # Adjust padding around text horizontally
+    pady=200   
 )
 text_widget.pack(expand=True, fill="both")
 text_widget.insert("end", questions_physic[current_question_index])
 text_widget.config(state="disabled")  # Disable editing
+# Place the Text widget inside button_1
+
+
+# Adjusting placement within the button_1
+text_widget.place(relx=0.53, rely=1, anchor="center")
 
 # Insert questions into the Text widget
 for question in questions_physic :
@@ -234,29 +242,7 @@ def previous_question():
            button_3.place_forget()  # Hide the next button on the last question
         else:
             button_3.place(x=928.0, y=688.0)  # Ensure button is placed back if not on last question
-
-def update_question():
-        text_widget.config(state="normal")  # Enable editing to update content
-        text_widget.delete(1.0, "end")  # Clear current content
-        question = questions_physic[current_question_index]["question"]
-        answer = questions_physic[current_question_index]["answer"]
-        text_widget.insert("end", f" {question}\n\n {answer}\n\n")  # Insert question and answer
-        text_widget.config(state="disabled")  # Disable editing after update
-        
-
-        # Enable/disable next and back buttons based on current index
-        if current_question_index == 0:
-            button_2.config(state="disabled")  # Disable back button on first question
-        else:
-            button_2.config(state="normal")
-
-        if current_question_index == len(questions_physic) - 1:
-           button_3.place_forget()  # Hide the next button on the last question
-        else:
-            button_3.place(x=928.0, y=688.0)  # Ensure button is placed back if not on last question
-            
-            
-
+          
 
 button_image_2 = load_image("./build/assets/nqa3/button_2.png")
 button_2 = Button(
@@ -272,6 +258,33 @@ button_2.place(
     width=153.0,
     height=61.0
 )
+
+
+
+
+def update_question():
+        text_widget.config(state="normal")  # Enable editing to update content
+        text_widget.delete(1.0, "end")  # Clear current content
+        question = questions_physic[current_question_index]["question"]
+        answer = questions_physic[current_question_index]["answer"]
+        text_widget.insert("end", f" {question}\n\n {answer}\n\n")  # Insert question and answer
+        text_widget.config(state="disabled")  # Disable editing after update
+        
+
+        # Enable/disable next and back buttons based on current index
+        if current_question_index == 0:
+            button_2.place_forget() 
+            
+        else:
+            button_2.place(x=416.0, y=688.0)
+
+        if current_question_index == len(questions_physic) - 1:
+           button_3.place_forget()  # Hide the next button on the last question
+        else:
+            button_3.place(x=928.0, y=688.0)  # Ensure button is placed back if not on last question
+
+if current_question_index == 0:
+    button_2.place_forget()
 
 button_image_3 =load_image("./build/assets/nqa3/button_3.png")
 button_3 = Button(
@@ -289,7 +302,7 @@ button_3.place(
     height=61.0
 )
 
-button_image_5 =load_image("./build/assets/nqa3/button_5.png")
+button_image_5 =load_image("./build/assets/nqa3/button_6.png")
 button_5 = Button(
     image=button_image_5,
     borderwidth=0,
@@ -298,9 +311,9 @@ button_5 = Button(
     relief="flat"
 )
 button_5.place(
-    x=622.0,
+    x=600.0,
     y=688.0,
-    width=243.0,
+    width=297.0,
     height=61.0
 )
 

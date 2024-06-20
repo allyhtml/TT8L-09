@@ -8,7 +8,7 @@ class QuizGame:
         self.root.config(bg="#D1EAF0")
         self.root.resizable(False, False)
 
-        custom_font =font.Font(family="Helvetica", size=14)
+       
 
         self.questions = [
             {

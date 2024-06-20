@@ -682,6 +682,7 @@ def go_back_to_selection():
     quiz_selection_screen()
 
 def open_menu():
+    root.destroy()
     from menu import show_frame0
     show_frame0()
 
