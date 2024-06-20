@@ -5,6 +5,10 @@ import sys
 import os
 import subprocess
 
+def open_gui():
+    window.destroy()
+    import gui
+
 def open_pdf(file_path):
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -96,7 +100,7 @@ def show_frame0():
         image=images['button_fc'],
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_fc clicked"),
+        command=open_gui,
         relief="flat"
     )
     button_fc.place(x=974.0, y=298.0, width=425.0, height=432.0)
