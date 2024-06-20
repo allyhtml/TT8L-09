@@ -1,8 +1,11 @@
 import tkinter as tk
-from tkinter import font, messagebox, PhotoImage, Label, Frame, Entry, Button, Toplevel
+from tkinter import Menu, font, messagebox, PhotoImage, Label, Frame, Entry, Button, Toplevel
 import random
 import os
 
+
+
+ 
 # First code: Sign-in and Registration System
 def signin():
     email = user.get()
@@ -17,11 +20,14 @@ def signin():
                     if email == saved_email and password == saved_password:
                         messagebox.showinfo("Success", "Login successful!")
                         main_frame.pack_forget()
-                        quiz_selection_screen()
+                        root.destroy()
+                        open_menu()
                         return
         messagebox.showerror("Error", "Invalid email or password")
     except FileNotFoundError:
         messagebox.showerror("Error", "No registered users found. Please register first.")
+
+
 
 def on_enter_email(e):
     if user.get() == 'Email':
@@ -58,8 +64,9 @@ def save_registration():
             file.write(f"{email_val},{password_val}\n")
         messagebox.showinfo("Success", "Registration successful!")
     except Exception as e:
-        print("Error:", e)
-        messagebox.showerror("Error", "Failed to register. Please try again later.")
+            print("Error:", e)
+            messagebox.showerror("Error", "Failed to register. Please try again later.")
+
 
 def register():
     global user_entry, password_entry
@@ -649,10 +656,10 @@ def quiz_selection_screen():
     physic_label.place(x=1150, y=222)
     
     current_dir = os.path.dirname(os.path.abspath(__file__))
-    saly_16_img = tk.PhotoImage(file=os.path.join(current_dir, "Design/Saly-16.png"))
+    saly_16_img = tk.PhotoImage(file=os.path.join(current_dir, "build/Design/Saly-16.png"))
     saly_16_img = saly_16_img.subsample(1)
-    saly_10_img = tk.PhotoImage(file=os.path.join(current_dir, "Design/Saly-10.png"))
-    saly_19_img = tk.PhotoImage(file=os.path.join(current_dir, "Design/Saly-19.png"))
+    saly_10_img = tk.PhotoImage(file=os.path.join(current_dir, "build/Design/Saly-10.png"))
+    saly_19_img = tk.PhotoImage(file=os.path.join(current_dir, "build/Design/Saly-19.png"))
     
     saly_16_label = tk.Label(quiz_frame, image=saly_16_img, bg="#FFC8C0")
     saly_16_label.place(x=1064, y=260)
@@ -669,9 +676,14 @@ def quiz_selection_screen():
     button_physic = tk.Button(quiz_frame, text="START", font=zen_dots_font, bg="#d1eaf0", command=open_physic_quiz)
     button_physic.place(x=1123, y=635, width=180, height=50)
 
+
 def go_back_to_selection():
     quiz_frame.pack_forget()
     quiz_selection_screen()
+
+def open_menu():
+    from menu import show_frame0
+    show_frame0()
 
 # Main application setup
 root = tk.Tk()
@@ -687,7 +699,7 @@ zen_dots_font = font.Font(family='Zen Dots', size=20)
 main_frame = tk.Frame(root, bg="#ffc0db")
 main_frame.place(relwidth=1, relheight=1)
 
-img = PhotoImage(file='Design/logo.png')
+img = PhotoImage(file='build/Design/logo.png')
 Label(main_frame, image=img, bg='white').place(x=-100, y=60)
 
 frame = Frame(main_frame, width=350, height=350, bg="white")

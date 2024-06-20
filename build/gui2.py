@@ -253,7 +253,7 @@ canvas.create_text(
 )
 
 canvas.create_text(
-    630.0,
+    580.0,
     16.0,
     anchor="nw",
     text="Mathematics",
@@ -285,9 +285,12 @@ def update_question():
 
         # Enable/disable next and back buttons based on current index
         if current_question_index == 0:
-            button_2.config(state="disabled")  # Disable back button on first question
+           button_2.grid_remove()  # Hide back button on first question
+           button_2.config(state="disabled")  # Disable back button on first question
         else:
+            button_2.place(x=416.0, y=688.0)
             button_2.config(state="normal")
+
 
         if current_question_index == len(questions_math) - 1:
            button_3.place_forget()  # Hide the next button on the last question
@@ -303,7 +306,8 @@ button_2 = Button(
     borderwidth=0,
     highlightthickness=0,
     command=previous_question,
-    relief="flat"
+    relief="flat",
+    state="normal"
 )
 button_2.place(
     x=416.0,

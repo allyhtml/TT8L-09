@@ -59,128 +59,110 @@ button_1.place(
 
 #Initialize Question
 questions_physic = [
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 2",
-            "answer": "Option 2"
-        },
-        {
-            "question": "Physics Question 3",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 4",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 5",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 11",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 12",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 15",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 1",
-            "answer": "Option 1"
-        },
-        {
-            "question": "Physics Question 20",
-            "answer": "Option 1"
-        },  
-    ]
+    {
+        "question": "Which of the following statements best describes the importance of understanding physics in the field of information technology?",
+        "answer": "Understanding physics is crucial for improving and operating electronic devices in IT."
+    },
+    {
+        "question": "What is an example of an application where physics knowledge is crucial in IT?",
+        "answer": "Applying relativistic corrections in GPS receivers."
+    },
+    {
+        "question": "Which SI base unit is correctly matched with its quantity?",
+        "answer": "Time - second (s)"
+    },
+    {
+        "question": "Which of the following is a derived unit?",
+        "answer": "Newton (N)"
+    },
+    {
+        "question": "How would you express 2.9 x 10^-6 Hz using a standard prefix?",
+        "answer": "2.9 µHz"
+    },
+    {
+        "question": "Which of the following types of motion involves an object moving in a straight line?",
+        "answer": "Translational motion"
+    },
+    {
+        "question": "What is the primary difference between distance and displacement?",
+        "answer": "Distance is a scalar quantity, while displacement is a vector quantity."
+    },
+    {
+        "question": "What is the SI unit for speed?",
+        "answer": "m/s"
+    },
+    {
+        "question": "How is acceleration defined in physics?",
+        "answer": "The rate at which an object changes its velocity."
+    },
+    {
+        "question": "What does the slope of a position versus time graph represent?",
+        "answer": "Velocity"
+    },
+    {
+        "question": "Which of the following statements about force is correct?",
+        "answer": "Force is the cause of acceleration and is a vector quantity because it has both magnitude and direction."
+    },
+    {
+        "question": "What condition must be met for an object to accelerate?",
+        "answer": "The net force acting on the object must be greater than zero."
+    },
+    {
+        "question": "According to Newton's first law, if the net force on an object is zero, which of the following statements is true?",
+        "answer": "The object's velocity will remain constant, and its acceleration will be zero."
+    },
+    {
+        "question": "Which equation represents Newton's second law of motion?",
+        "answer": "F=ma"
+    },
+    {
+        "question": "What does Newton's third law of motion state?",
+        "answer": "For every action, there is an equal and opposite reaction."
+    },
+    {
+        "question": "Which of the following statements about periodic motion is true?",
+        "answer": "The amount of time it takes for one complete cycle to occur is called the period T of the motion."
+    },
+    {
+        "question": "In simple harmonic motion, what is the restoring force proportional to?",
+        "answer": "Displacement"
+    },
+    {
+        "question": "What is the relationship between the period and frequency of an oscillating system? a. They are directly proportional.",
+        "answer": "They are inversely proportional."
+    },
+    {
+        "question": "What factor does the period of a simple pendulum depend on?",
+        "answer": "Length of the string and value of gravity"
+    },
+    {
+        "question": "What type of oscillations occur when the damping is so large that the motion no longer resembles simple harmonic motion?",
+        "answer": "Over-damped"
+    },
+    {
+        "question": "What type of wave requires a material medium for propagation?",
+        "answer": "Mechanical wave"
+    },
+    {
+        "question": "Which principle states that the total displacement at any point due to two or more travelling waves is equal to the vector sum of their individual displacements at that point?",
+        "answer": "Superposition principle"
+    },
+    {
+        "question": "What principle accurately describes the particle motion in a transverse wave?",
+        "answer": "Motion perpendicular to the direction of wave velocity"
+    },
+    {
+        "question": "What is the wave function for a sinusoidal wave given by equation (8)?",
+        "answer": "Y = A Sin (kx - ωt)"
+    },
+    {
+        "question": "What are the positions of zero amplitude and maximum amplitude called, respectively, in standing waves?",
+        "answer": "Nodes and antinodes"
+    }
+]
 
+
+            
 current_question_index = 0  # Initialize index to 0
 
 def next_question():

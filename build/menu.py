@@ -5,6 +5,7 @@ import sys
 import os
 import subprocess
 
+
 def open_gui():
     window.destroy()
     import gui
@@ -36,6 +37,17 @@ window.geometry("1474x801")
 window.configure(bg="#D1EAF0")
 window.resizable(False, False)
 
+canvas = Canvas(
+            window,
+            bg="#D1EAF0",
+            height=801,
+            width=1474,
+            bd=0,
+            highlightthickness=0,
+            relief="ridge"
+        )
+canvas.place(x=0, y=0)
+
 # Function to clear the current canvas
 def clear_canvas():
     for widget in window.winfo_children():
@@ -54,18 +66,32 @@ def load_image(image_path):
         print(f"Failed to load image at {abs_path}: {e}")
         return None
 
+def clear_canvas():
+    global canvas
+    if canvas:
+        canvas.delete("all")
+
+def initialize_canvas():
+    global canvas
+    if not canvas:
+        canvas = Canvas(
+            window,
+            bg="#D1EAF0",
+            height=801,
+            width=1474,
+            bd=0,
+            highlightthickness=0,
+            relief="ridge"
+        )
+        canvas.place(x=0, y=0)
+
+
+
 # Frame 0 (Main menu)
 def show_frame0():
     clear_canvas()
-    canvas = Canvas(
-        window,
-        bg="#D1EAF0",
-        height=801,
-        width=1474,
-        bd=0,
-        highlightthickness=0,
-        relief="ridge"
-    )
+    initialize_canvas()
+
     canvas.place(x=0, y=0)
     images['image_deco'] = load_image("./build/assets/frame0/image_deco.png")
     canvas.create_image(1018.0, 161.0, image=images['image_deco'])
@@ -128,15 +154,6 @@ def show_frame0():
 # Frame 1 (Lecture Notes)
 def show_frame1():
     clear_canvas()
-    canvas = Canvas(
-        window,
-        bg="#D1EAF0",
-        height=801,
-        width=1474,
-        bd=0,
-        highlightthickness=0,
-        relief="ridge"
-    )
     canvas.place(x=0, y=0)
 
     images['image_lectn'] = load_image("./build/assets/frame1/image_lectn.png")
