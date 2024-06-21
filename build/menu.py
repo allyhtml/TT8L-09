@@ -4,7 +4,6 @@ from tkinter import Tk, Canvas, Button, PhotoImage, Label
 import sys
 import os
 import subprocess 
-from gui import flashcards_screen
 
 
 def open_pdf(file_path):
@@ -98,7 +97,7 @@ def show_frame0():
         image=images['button_fc'],
         borderwidth=0,
         highlightthickness=0,
-        command=flashcards_screen,
+        command=lambda: print("button_fc clicked"),
         relief="flat"
     )
     button_fc.place(x=974.0, y=298.0, width=425.0, height=432.0)
@@ -204,7 +203,7 @@ def show_frame2():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_1.png", lambda: open_pdf("assets\physics\phyn_1.pdf"), 72, 291, 446, 112),
+        ("button_1.png", lambda: open_pdf("assets\\physics\\phyn_1.pdf"), 72, 291, 446, 112),
         ("button_2.png", lambda: open_pdf("assets\physics\phyn_2.pdf"), 518, 278, 439, 125),
         ("button_3.png", lambda: open_pdf("assets\physics\phyn_3.pdf"), 957, 280, 439, 125),
         ("button_4.png", lambda: open_pdf("assets\physics\phyn_4.pdf"), 518, 546, 439, 125),
