@@ -3,8 +3,10 @@ import datetime
 from tkinter import Tk, Canvas, Button, PhotoImage, Label
 import sys
 import os
-import subprocess 
-from gui import flashcards_screen
+import subprocess
+import test2
+
+
 
 
 def open_pdf(file_path):
@@ -98,7 +100,7 @@ def show_frame0():
         image=images['button_fc'],
         borderwidth=0,
         highlightthickness=0,
-        command=flashcards_screen,
+        command=lambda: print("button_fc clicked"),
         relief="flat"
     )
     button_fc.place(x=974.0, y=298.0, width=425.0, height=432.0)
@@ -118,7 +120,7 @@ def show_frame0():
         image=images['button_rq'],
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_rq clicked"),
+        command=lambda: test2.quiz_selection_menu(),
         relief="flat"
     )
     button_rq.place(x=65.0, y=284.0, width=440.0, height=473.0)
