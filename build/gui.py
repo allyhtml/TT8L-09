@@ -7,10 +7,10 @@
 #gui1.py button_3.png
 #gui2.py button_4.png
 
+import pygame
 import os
 from pathlib import Path
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Toplevel
-import pygame
 
 # Initialize pygame for background music
 pygame.mixer.init()
@@ -153,5 +153,16 @@ def flashcards_screen():
 # import your_module_name
 # your_module_name.create_quiz_selection_window()
 
+<<<<<<< HEAD
+=======
+def resize_label(event):# Retrieve the new size of the window
+    width = window.winfo_width()
+    height = window.winfo_height()
+
+window.bind("<Configure>", resize_label)
+
+window.resizable(True, True)
+window.mainloop()
+>>>>>>> 95cc447fca6c07e0d86f8e923448b60c499bfc80
 
 
