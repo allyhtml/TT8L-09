@@ -7,13 +7,10 @@
 #gui1.py button_3.png
 #gui2.py button_4.png
 
+import pygame
 import os
 from pathlib import Path
-
-# from tkinter import *
-# Explicit imports to satisfy Flake8
 from tkinter import Tk, Canvas, Entry, Text, Button, PhotoImage, Toplevel
-import pygame
 
 # load BG music
 pygame.mixer.init()
@@ -148,10 +145,6 @@ image_1 = canvas.create_image(
     81.0,
     image= image_image_1
 )
-
-
-
-
 
 def resize_label(event):# Retrieve the new size of the window
     width = window.winfo_width()

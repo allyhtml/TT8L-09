@@ -1,10 +1,10 @@
-
 import datetime
 from tkinter import Tk, Canvas, Button, PhotoImage, Label
 import sys
 import os
 import subprocess
 
+#abs path
 def open_pdf(file_path):
     try:
         script_dir = os.path.dirname(os.path.abspath(__file__))
@@ -14,6 +14,7 @@ def open_pdf(file_path):
         if os.path.isfile(abs_path):
             print(f"File exists: {abs_path}")
             if sys.platform == 'win32': 
+                
                 os.startfile(abs_path)
             elif sys.platform == 'darwin':  
                 subprocess.run(['open', abs_path])
@@ -23,8 +24,6 @@ def open_pdf(file_path):
             print(f"File does not exist: {abs_path}")
     except Exception as e:
         print(f"Failed to open {file_path}: {e}")
-
-
 
 # Global Tkinter window
 window = Tk()
