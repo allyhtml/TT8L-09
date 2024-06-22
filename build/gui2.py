@@ -30,7 +30,7 @@ def return_gui():
     # Code to hide or destroy current window and open gui2
     gui2_window.destroy()
     import gui
-    gui.window.mainloop()
+    gui.window
 
 
 canvas = Canvas(

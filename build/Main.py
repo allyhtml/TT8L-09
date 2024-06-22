@@ -682,7 +682,7 @@ def go_back_to_selection():
     quiz_selection_screen()
 
 def open_menu():
-    from menu import show_frame0
+    from test2 import show_frame0
     show_frame0()
 
 # Main application setup

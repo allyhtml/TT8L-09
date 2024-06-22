@@ -47,16 +47,19 @@ def open_gui1():
     # Code to hide or destroy current window and open gui2
     window.destroy()
     import gui1
+    gui1.gui1_window()
 
 def open_gui2():
     # Code to hide or destroy current window and open gui2
     window.destroy()
     import gui2
+    gui2.gui2_window()
 
 def open_gui3():
     # Code to hide or destroy current window and open gui2
     window.destroy()
     import gui3
+    gui3.gui3_window()
 
 def open_menu():
     window.destroy()

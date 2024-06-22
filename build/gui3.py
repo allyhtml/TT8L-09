@@ -32,7 +32,7 @@ def return_gui():
     # Code to hide or destroy current window and open gui2
     gui3_window.destroy()
     import gui
-    gui.window.mainloop()
+    gui.create_gui_window()()
 
 canvas = Canvas(
     gui3_window,
@@ -52,7 +52,8 @@ button_1 = Button(
     borderwidth=0,
     highlightthickness=0,
     command=lambda: print("button_1 clicked"),
-    relief="flat"
+    relief="flat",
+    state="disabled"
 )
 button_1.place(
     x=260.0,
@@ -194,9 +195,7 @@ def next_question():
        current_question_index += 1
        update_question()  # Disable editing after update
     
-
-button_1.config(state="disabled")
-           
+         
 
 # Create a Text widget inside button_1 to display questions
 text_widget = Text(
@@ -273,14 +272,13 @@ button_2.place(
 )
 
 
-      
+
 def update_question():
         text_widget.config(state="normal")  # Enable editing to update content
         text_widget.delete(1.0, "end")  # Clear current content
         question = questions_ds[current_question_index]["question"]
         answer = questions_ds[current_question_index]["answer"]
-        text_widget.insert("end", f"{question}\n\n")
-        text_widget.insert("end", f"{answer}\n\n")  # Insert question and answer
+        text_widget.insert("end", f" {question}\n\n {answer}\n\n")  # Insert question and answer
         text_widget.config(state="disabled")  # Disable editing after update
         
 
@@ -297,7 +295,7 @@ def update_question():
             button_3.place(x=928.0, y=688.0)  # Ensure button is placed back if not on last question
 
 if current_question_index == 0:
-    button_2.place_forget() 
+    button_2.place_forget()
 
 button_image_3 = load_image("./build/assets/nqa3/button_3.png")
 button_3 = Button(
