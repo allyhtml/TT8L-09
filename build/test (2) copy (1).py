@@ -20,8 +20,8 @@ def signin():
                     if email == saved_email and password == saved_password:
                         messagebox.showinfo("Success", "Successfully signed in!")
                         root.destroy()  # Close the main window after successful sign-in
-                        quiz_selection_screen()
                         return
+
         messagebox.showerror("Error", "Invalid email or password")
     except FileNotFoundError:
         messagebox.showerror("Error", "No registered users found. Please register first.")
@@ -176,7 +176,11 @@ def load_image(image_path):
     except Exception as e:
         print(f"Failed to load image at {abs_path}: {e}")
         return None
-
+    
+def opens_gui():
+    window.destroy()
+    import gui
+    
 # Main Menu Frame (Frame 0)
 def show_frame0():
     clear_canvas()
@@ -221,7 +225,7 @@ def show_frame0():
         image=images['button_fc'],
         borderwidth=0,
         highlightthickness=0,
-        command=lambda: print("button_fc clicked"),
+        command=opens_gui,
         relief="flat"
     )
     button_fc.place(x=974.0, y=298.0, width=425.0, height=432.0)
@@ -492,7 +496,7 @@ def show_frame5():
 
 def quit_app():
     window.destroy()
-    
+
 # Quiz Selection Screen
 def quiz_selection_screen():
     clear_canvas()
@@ -1094,6 +1098,7 @@ class QuizGame:
         for button in self.option_buttons:
             button.config(state=tk.NORMAL)
         self.display_question()
+
 
 # Start the application
 show_frame0()
