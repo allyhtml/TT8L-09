@@ -176,10 +176,7 @@ def load_image(image_path):
     except Exception as e:
         print(f"Failed to load image at {abs_path}: {e}")
         return None
-    
-def opens_gui():
-    window.destroy()
-    import gui
+
     
 # Main Menu Frame (Frame 0)
 def show_frame0():
@@ -225,7 +222,7 @@ def show_frame0():
         image=images['button_fc'],
         borderwidth=0,
         highlightthickness=0,
-        command=opens_gui,
+        command=lambda: print("button_fc clicked"),
         relief="flat"
     )
     button_fc.place(x=974.0, y=298.0, width=425.0, height=432.0)
@@ -631,26 +628,6 @@ def open_ds_quiz():
             "options": ["To create complex boolean expressions", "To increase the number of required cells", "To identify adjacent 1s for grouping", "To visualize circuit waveforms"],
             "answer": "To identify adjacent 1s for grouping"
         },
-        {
-            "question": "What is the primary function of a half-adder?  ",
-            "options": ["Adds three binary inputs", "Adds two single-bit binary digits", "Detects specific bit patterns", "Converts BCD to decimal"],
-            "answer": "Adds two single-bit binary digits"
-        },
-        {
-            "question": "Which type of adder eliminates ripple delays by anticipating output carry at each stage?",
-            "options": ["Half-adder", "Full adder", "Ripple carry adder", "Look-ahead carry adder"],
-            "answer": "Look-ahead carry adder"
-        },
-        {
-            "question": "What is the main application of a decoder in digital circuits?",
-            "options": ["Addition of multiple-bit binary numbers", "Selecting specific bits in a binary number", "Communicating with external devices", "Detecting specific bit patterns on inputs"],
-            "answer": "Detecting specific bit patterns on inputs"
-        },
-        {
-            "question": "How does a full adder differ from a half-adder?  ",
-            "options": ["Full adder has three binary inputs and two binary outputs", "Full adder performs addition sequentially", "Full adder eliminates ripple delays", "Full adder has only one binary input and one binary output"],
-            "answer": "Full adder has three binary inputs and two binary outputs"
-        },
     ]
     clear_canvas()
     app_ds = QuizGame(window, questions_ds)
@@ -706,32 +683,7 @@ def open_math_quiz():
             "question": "What is the determinant of the matrix",
             "options": ["10", "11", "8", "14"],
             "answer": "10"
-        },
-        {
-            "question": "Which of the following quantities is a vector?",
-            "options": ["Speed", "Mass", "Temperature", "Velocity"],
-            "answer": "Velocity"
-        },
-        {
-            "question": "What is the magnitude of the vector v=(3,4)v = (3, 4)v=(3,4) in 2-dimensional space?",
-            "options": ["5", "7", "6", "8"],
-            "answer": "5"
-        },
-        {
-            "question": "Two vectors are considered equal if they have:",
-            "options": ["The same initial point", "The same magnitude and direction, regardless of their initial points ", "The same terminal point", "The same initial and terminal points"],
-            "answer": "The same magnitude and direction, regardless of their initial points"
-        },
-        {
-            "question": "If u=(1,2,3) and v=(4,5,6), what is their dot product u.v?",
-            "options": ["32", "38", "26", "42"],
-            "answer": "32"
-        },
-        {
-            "question": "Which of the following best describes statistics?",
-            "options": ["A branch of science that deals with the study of living organisms", " A branch of mathematics concerned with collecting, organizing, summarizing, and analyzing information", "A branch of literature that involves storytelling and poetry.", "A branch of history focusing on ancient civilizations."],
-            "answer": " A branch of mathematics concerned with collecting, organizing, summarizing, and analyzing information"
-        },  
+        }, 
     ]
     clear_canvas()
     app_math = QuizGame(window, questions_math)
@@ -787,31 +739,6 @@ def open_physic_quiz():
             "question": "What does the slope of a position versus time graph represent? ",
             "options": ["Acceleration", "Displacement", "Speed", "Velocity"],
             "answer": "Velocity"
-        },
-        {
-            "question": "Which of the following statements about force is correct? ",
-            "options": ["Force is a scalar quantity because it has only magnitude.", "Force is the cause of acceleration and is a vector quantity because it has both magnitude and direction.", "Force can be described as a state of rest or uniform motion in a straight line.", "Force is measured in kilograms (kg)."],
-            "answer": "Force is the cause of acceleration and is a vector quantity because it has both magnitude and direction."
-        },
-        {
-            "question": "What condition must be met for an object to accelerate? ",
-            "options": ["The net force acting on the object must be zero.", "The net force acting on the object must be greater than zero", "The object must be at rest.", " The object must be moving with constant velocity."],
-            "answer": "The net force acting on the object must be greater than zero"
-        },
-        {
-            "question": "According to Newton’s first law, if the net force on an object is zero, which of the following statements is true?",
-            "options": ["The object will move with a constant acceleration.", "The object will eventually come to rest.", "The object’s velocity will remain constant, and its acceleration will be zero.", "The object will experience a change in velocity."],
-            "answer": "The object’s velocity will remain constant, and its acceleration will be zero."
-        },
-        {
-            "question": "Which equation represents Newton's second law of motion? ",
-            "options": ["F=ma", "F=am ", "F=mv", "F=mv"],
-            "answer": "F=ma"
-        },
-        {
-            "question": "What does Newton's third law of motion state? ",
-            "options": ["An object in motion will remain in motion unless acted upon by a net force", "The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.", "For every action, there is an equal and opposite reaction.", "The total momentum of an isolated system remains constant. "],
-            "answer": "For every action, there is an equal and opposite reaction."
         },
     ]
     clear_canvas()
