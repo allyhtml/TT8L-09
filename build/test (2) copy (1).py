@@ -101,7 +101,7 @@ zen_dots_font = font.Font(family='Zen Dots', size=20)
 main_frame = tk.Frame(root, bg="#ffc0db")
 main_frame.place(relwidth=1, relheight=1)
 
-img = PhotoImage(file='Design/logo.png')
+img = PhotoImage(file='build/assets/Design/logo.png')
 Label(main_frame, image=img, bg='white').place(x=-100, y=60)
 
 frame = Frame(main_frame, width=350, height=350, bg="white")
@@ -190,8 +190,6 @@ def show_frame0():
         relief="ridge"
     )
     canvas.place(x=0, y=0)
-    images['image_deco'] = load_image("./build/assets/frame0/image_deco.png")
-    canvas.create_image(1018.0, 161.0, image=images['image_deco'])
 
     images['image_logo'] = load_image("./build/assets/frame0/image_3.png")
     canvas.create_image(132.0, 50.0, image=images['image_logo'])
@@ -214,6 +212,9 @@ def show_frame0():
 
     images['image_hi'] = load_image("./build/assets/frame0/image_hi.png")
     canvas.create_image(737.0, 200.0, image=images['image_hi'])
+
+    images['image_deco'] = load_image("./build/assets/frame0/image_deco.png")
+    canvas.create_image(1018.0, 161.0, image=images['image_deco'])
 
     images['button_fc'] = load_image("./build/assets/frame0/button_fc.png")
     button_fc = Button(
@@ -488,6 +489,9 @@ def show_frame5():
 
     images['image_4'] = load_image("./build/assets/frame5/image_4.png")
     canvas.create_image(245.0, 583.0, image=images['image_4'])
+
+def quit_app():
+    window.destroy()
     
 # Quiz Selection Screen
 def quiz_selection_screen():
@@ -650,7 +654,7 @@ def open_ds_quiz():
 def open_math_quiz():
     questions_math = [
         {
-            "question": "If a1=3a_1 = 3a1 =3 and an=2an−1+5a_n = 2a_{n-1} + 5an =2an−1 +5 for n≥2n \geq 2n≥2, what is a3a_3a3 ?",
+            "question": "If a1=3a_1 = 3a1 =3 and an=2an−1+5a_n = 2a_{n-1} + 5an =2an−1 +5 for n≥2n \\geq 2n≥2, what is a3a_3a3 ?",
             "options": ["17", "21", "19", "23"],
             "answer": "21"
         },
@@ -732,7 +736,7 @@ def open_physic_quiz():
     questions_physic = questions_physic = [
         {
             "question": "Which of the following statements best describes the importance of understanding physics in the field of information technology?",
-            "options": ["Physics is not relevant to information technology.", "Physics helps in understanding the economic aspects of IT. ", "Understanding physics is crucial for improving and operating electronic devices in IT.", " Physics only deals with theoretical concepts and not practical applications in IT."],
+            "options": ["Physics is not relevant to information technology.", "Physics helps in understanding the aspects of IT. ", "Understanding physics is crucial for improving and operating electronic devices in IT.", " Physics only deals with theoretical concepts and not practical applications in IT."],
             "answer": "Understanding physics is crucial for improving and operating electronic devices in IT."
         },
         {
