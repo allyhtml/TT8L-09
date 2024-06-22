@@ -14,6 +14,7 @@ def open_pdf(file_path):
         if os.path.isfile(abs_path):
             print(f"File exists: {abs_path}")
             if sys.platform == 'win32': 
+                
                 os.startfile(abs_path)
             elif sys.platform == 'darwin':  
                 subprocess.run(['open', abs_path])
