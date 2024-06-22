@@ -647,76 +647,6 @@ def open_ds_quiz():
             "options": ["Full adder has three binary inputs and two binary outputs", "Full adder performs addition sequentially", "Full adder eliminates ripple delays", "Full adder has only one binary input and one binary output"],
             "answer": "Full adder has three binary inputs and two binary outputs"
         },
-        {
-            "question": "What type of decoder is used for converting Binary Coded Decimal (BCD) to decimal?",
-            "options": ["4-line-to-16-line decoder", "1-of-10 decoder", "BCD-to-7-segment decoder", "4-bit decoder"],
-            "answer": "1-of-10 decoder"
-        },
-        {
-            "question": "What is the primary purpose of a clock signal in digital systems?",
-            "options": ["To trigger state changes based on clock transitions", "To generate a periodic rectangular pulse train", "To control the data input to flip-flops", "To prevent invalid states in flip-flops"],
-            "answer": "To generate a periodic rectangular pulse train"
-        },
-        {
-            "question": "How do edge-triggered flip-flops differ from latches?",
-            "options": ["Latches respond to clock edges, while flip-flops do not", "Latches are bistable devices, while flip-flops are not", "Flip-flops change states only at the clock edge", "Latches change states asynchronously"],
-            "answer": "Flip-flops change states only at the clock edge"
-        },
-        {
-            "question": "What determines the exact timing of state changes in synchronous digital systems?",
-            "options": ["The inputs to logic gates", "The presence of asynchronous inputs", "The clock signal", "The transitions of the clock pulse"],
-            "answer": "The clock signal"
-        },
-        {
-            "question": "How does the J-K flip-flop prevent invalid states?",
-            "options": ["By checking the clock input", "By using a D flip-flop instead", "By toggling outputs when both inputs are high", "By using an additional enable input"],
-            "answer": "By toggling outputs when both inputs are high"
-        },
-        {
-            "question": "What does the least significant bit (LSB) in a binary counter represent?",
-            "options": ["The first stage in the counter", "The second stage in the counter", "The most significant bit", "The carry bit"],
-            "answer": "The first stage in the counter"
-        },
-        {
-            "question": "What is another name for an asynchronous counter? ",
-            "options": ["Ripple counter", "Toggle counter", "Clock counter", "Sequential counter"],
-            "answer": "Ripple counter"
-        },
-        {
-            "question": "What is the main disadvantage of asynchronous counters? ",
-            "options": ["They require more flip-flops", "They have accumulated propagation delays", "They cannot be used for high clock rates", "They are not reliable"],
-            "answer": "They have accumulated propagation delays"
-        },
-        {
-            "question": "What is the modulus of a 4-bit counter? ",
-            "options": ["4", "8", "10", "16"],
-            "answer": "16"
-        },
-        {
-            "question": "What is the primary function of a shift register in digital systems? ",
-            "options": ["Perform arithmetic operations", "Store and transfer data", "Generate clock pulses", "Filter noise from signals"],
-            "answer": "Store and transfer data"
-        },
-        {
-            "question": "Which type of shift register allows data to be entered serially and read out in parallel? ",
-            "options": ["Serial-in Serial-out (SISO)", "Parallel-in Parallel-out (PIPO)", "Serial-in Parallel-out (SIPO)", "Parallel-in Serial-out (PISO)"],
-            "answer": "Serial-in Parallel-out (SIPO)"
-        },
-        {
-            "question": "How many states does a 4-bit Johnson counter have?",
-            "options": ["4", "8", "10", "16"],
-            "answer": "8"
-        },
-        {
-            "question": "In a ring counter, how is the output of the last flip-flop fed back?",
-            "options": ["To the clock input of the first flip-flop", "To the reset input of the first flip-flop", "To the data input of the first flip-flop", "To the Q' output of the first flip-flop"],
-            "answer": "To the data input of the first flip-flop"
-        },
-        {
-            "question": "Which shift register counter is sometimes referred to as a twisted-ring counter?",
-            "options": ["Ring counter", "Johnson counter", "Binary counter", "Decade counter "],
-            "answer": "Johnson counter"
-        }, 
     ]
     clear_canvas()
     app_ds = QuizGame(window, questions_ds)
@@ -797,82 +727,7 @@ def open_math_quiz():
             "question": "Which of the following best describes statistics?",
             "options": ["A branch of science that deals with the study of living organisms", " A branch of mathematics concerned with collecting, organizing, summarizing, and analyzing information", "A branch of literature that involves storytelling and poetry.", "A branch of history focusing on ancient civilizations."],
             "answer": " A branch of mathematics concerned with collecting, organizing, summarizing, and analyzing information"
-        },
-        {
-            "question": "What is the main focus of inferential statistics?",
-            "options": ["Organizing and summarizing data using tables and graphs", "Making decisions about a population based on sample data.", "Collecting data from all members of a population.", "Describing data using numerical techniques."],
-            "answer": "Making decisions about a population based on sample data." 
-        },
-        {
-            "question": "Which of the following is an example of a population?",
-            "options": ["The heights of 100 secondary students in Malaysia", "The income taxes collected from 50 companies in Malaysia", "The prices of all houses sold by a developer", "The weights of 14 policemen in a country"],
-            "answer": "The prices of all houses sold by a developer"
-        },
-        {
-            "question": "Identify the type of variable: The weight of engineering students",
-            "options": ["Qualitative Variable", "Discrete Variable", "Continuous Variable", "Categorical Variable"],
-            "answer": "Continuous Variable"
-        },
-        {
-            "question": "Which of the following is an example of a quantitative variable?",
-            "options": ["Hair colors", "Types of product produced in a factory", "Height of policemen in a physical test", "Religious affiliation"],
-            "answer": "Height of policemen in a physical test"
-        },
-        {
-            "question": "What is the cross product of vectors u=(1,0,0) and v=(0,1,0) in 3-dimensional space?",
-            "options": ["(0,0,1)", "(0,0,-1) ", "(1,1,0)", "(1,0,1)"],
-            "answer": "(0,0,1)"
-        },
-        {
-            "question": "What is a set?",
-            "options": ["A collection of elements arranged in a specific order", "A collection whose members are specified by a list or a rule.", "A single element with no other elements.", "A collection of numbers arranged in ascending order"],
-            "answer": "A collection whose members are specified by a list or a rule"
-        },
-        {
-            "question": "Which symbol represents x is an element of a set X?",
-            "options": [" x ⊆ X", "x ∈ X ", "x ∉ X", "x ⊂ X"],
-            "answer": "x ∈ X "
-        },
-        {
-            "question": "What does the union of two sets A and B represent?",
-            "options": ["The intersection of set A and set B", "The combination of all elements in set A and set B. ", "The set of elements common to both set A and set B.", "The set of elements that are in either set A or set B or both."],
-            "answer": "The set of elements that are in either set A or set B or both."
-        },
-        {
-            "question": "If A = {2, 4, 6} and B = {3, 6, 9}, what is A ∩ B?",
-            "options": ["{2, 3, 4, 6, 9}", "{ } (empty set)", "{6}", "{2, 4}"],
-            "answer": "{6}"
-        },
-        {
-            "question": "What is the complement of set A, denoted as A'?",
-            "options": ["The set of all elements in A.", "The set of all elements not in set A.", "The set of elements common to set A and its complement.", "The set of elements in set A and its complement"],
-            "answer": "The set of all elements not in set A."
-        },
-        {
-            "question": "For a binomial distribution with parameters n=10 and p=0.5p = 0.5p=0.5, what is the mean (μ) of the distribution?",
-            "options": ["2.5", "5", "7.5", "10"],
-            "answer": "5"
-        },
-        {
-            "question": "For a standard normal distribution, what is the Z-score corresponding to the 95th percentile?",
-            "options": ["1.28", "1.65", "1.96", "2.33"],
-            "answer": "1.96"
-        },
-        {
-            "question": "In a binomial distribution with n=5 and p=0.2, what is the standard deviation (σ)?",
-            "options": ["0.4", "0.8", "1", "1.2"],
-            "answer": "0.8"
-        },
-        {
-            "question": "Which of the following is true for a normal distribution curve?",
-            "options": ["The total area under the curve is less than 1.", "The curve is skewed to the right. ", "The mean, median, and mode are all equal.", "The curve has a single peak at x=σ."],
-            "answer": "The mean, median, and mode are all equal."
-        },
-        {
-            "question": "In a normal distribution with mean μ=50 and standard deviation σ=5, what is the z-score corresponding to X=60?",
-            "options": ["1", "2", "8", "10"],
-            "answer": "2"
-        },    
+        },  
     ]
     clear_canvas()
     app_math = QuizGame(window, questions_math)
@@ -881,7 +736,7 @@ def open_physic_quiz():
     questions_physic = questions_physic = [
         {
             "question": "Which of the following statements best describes the importance of understanding physics in the field of information technology?",
-            "options": ["Physics is not relevant to information technology.", "Physics helps in understanding the economic aspects of IT. ", "Understanding physics is crucial for improving and operating electronic devices in IT.", " Physics only deals with theoretical concepts and not practical applications in IT."],
+            "options": ["Physics is not relevant to information technology.", "Physics helps in understanding the aspects of IT. ", "Understanding physics is crucial for improving and operating electronic devices in IT.", " Physics only deals with theoretical concepts and not practical applications in IT."],
             "answer": "Understanding physics is crucial for improving and operating electronic devices in IT."
         },
         {
@@ -953,81 +808,6 @@ def open_physic_quiz():
             "question": "What does Newton's third law of motion state? ",
             "options": ["An object in motion will remain in motion unless acted upon by a net force", "The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.", "For every action, there is an equal and opposite reaction.", "The total momentum of an isolated system remains constant. "],
             "answer": "For every action, there is an equal and opposite reaction."
-        },
-        {
-            "question": "Which of the following statements about periodic motion is true?  ",
-            "options": ["An object's motion is referred to as periodic motion when it repeats itself repeatedly. ", "When the motion comes exactly back to its original state, we say that the object has gone through a complete cycle or complete oscillation.", "The amount of time it takes for one complete cycle to occur is called the period T of the motion. ", "While the period is one way to characterize the speed for the periodic motion, another way is through the frequency "],
-            "answer": "The amount of time it takes for one complete cycle to occur is called the period T of the motion. "
-        },
-        {
-            "question": "In simple harmonic motion, what is the restoring force proportional to?  ",
-            "options": ["Mass ", "Displacement", "Velocity", "Acceleration"],
-            "answer": "Displacement"
-        },
-        {
-            "question": "What is the relationship between the period and frequency of an oscillating system?",
-            "options": ["They are directly proportional.", "They are inversely proportional.", "They are equal", "They are not related."],
-            "answer": "They are inversely proportional."
-        },
-        {
-            "question": "What factor does the period of a simple pendulum depend on?  ",
-            "options": ["Mass of the pendulum", "Length of the string and value of gravity ", "Amplitude of the oscillation ", "Damping coefficient "],
-            "answer": "Length of the string and value of gravity "
-        },
-        {
-            "question": "What type of oscillations occur when the damping is so large that the motion no longer resembles simple harmonic motion?",
-            "options": ["Under-damped ", "Critically damped", "Over-damped ", "Driven oscillations"],
-            "answer": "Over-damped"
-        },
-        {
-            "question": "What type of wave requires a material medium for propagation?  ",
-            "options": ["Mechanical wave  ", "Electromagnetic wave ", "Longitudinal wave", "Transverse wave"],
-            "answer": "Mechanical wave  "
-        },
-        {
-            "question": "Which principle states that the total displacement at any point due to two or more travelling waves is equal to the vector sum of their individual displacements at that point?  ",
-            "options": ["Superposition principle ", " Interference principle", "Reflection principle", "Refraction principle"],
-            "answer": "Superposition principle "
-        },
-        {
-            "question": "What principle accurately describes the particle motion in a transverse wave?  ",
-            "options": ["Motion parallel to the direction of wave velocity", "Motion perpendicular to the direction of wave velocity ", "Motion in the same direction as the wave velocity ", "Motion in the opposite direction to the wave velocity "],
-            "answer": "Motion perpendicular to the direction of wave velocity "
-        },
-        {
-            "question": "What is the wave function for a sinusoidal wave given by equation (8)?",
-            "options": ["Y = A Sin (kx - ωt)", "Y = A Sin (kx + ωt) ", "Y = A Cos (kx - ωt) ", "Y = A Cos (kx + ωt)"],
-            "answer": "Y = A Sin (kx - ωt)"
-        },
-        {
-            "question": "What defines periodic motion in physics?",
-            "options": ["Motion that eventually comes to a stop", "Motion that occurs randomly", "Motion that repeats itself over and over again", "Motion that follows a linear path"],
-            "answer": "Motion that repeats itself over and over again"
-        },
-        {
-            "question": "What is the SI unit of frequency?",
-            "options": ["Seconds (s)", "Meters per second", "Inverse second", "Newton"],
-            "answer": "Inverse second"
-        },
-        {
-            "question": "According to Hooke's Law, what is the restoring force exerted by a spring when a mass is displaced by a distance x?",
-            "options": ["F=kx", "F=−kx", "F=k/x", "F=-k/x"],
-            "answer": "F=−kx"
-        },
-        {
-            "question": "For small angle oscillations, the period of a simple pendulum depends on which factors?",
-            "options": ["Mass of the pendulum bob and acceleration due to gravity", "Length of the string and mass of the pendulum bob", "Length of the string and acceleration due to gravity", "Angle of displacement and length of the string"],
-            "answer": "Length of the string and acceleration due to gravity"
-        },
-        {
-            "question": "What is the behavior of a critically damped oscillatory system?",
-            "options": ["The system oscillates with decreasing amplitude", "The system oscillates with increasing amplitude", "The system returns to equilibrium without oscillating", "The system returns to equilibrium without oscillating"],
-            "answer": "The system returns to equilibrium without oscillating"
-        },  
-        {
-            "question": "What type of motion does a mass attached to a spring exhibit when displaced from its equilibrium position and then released?",
-            "options": ["Uniform linear motion", "Circular motion", "Simple harmonic motion (SHM)", "Random motion"],
-            "answer": "Simple harmonic motion (SHM)"
         },
     ]
     clear_canvas()
