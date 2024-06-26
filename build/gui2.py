@@ -65,7 +65,57 @@ questions_math = [
             "question": "If a1=3a_1 = 3a1 =3 and an=2an−1+5a_n = 2a_{n-1} + 5an =2an−1 +5 for n≥2n \geq 2n≥2, what is a3a_3a3 ?",
             "options": ["17", "21", "19", "23"],
             "answer": "21"
+<<<<<<< HEAD
         }, 
+=======
+        },
+        {
+            "question": "What is 5! (5 factorial)?",
+            "options": ["60", "100", "120", "150"],
+            "answer": "120"
+        },
+        {
+            "question": "Expand and evaluate the sum ∑i=13 (2i−1)",
+            "options": ["6", "9", "12", "15"],
+            "answer": "9"
+        },
+        {
+            "question": "Find the ninth term of the arithmetic sequence whose first term is 6 and whose common difference is -5",
+            "options": ["-34", "-39", "-41", "-46"],
+            "answer": "-34"
+        },
+        {
+            "question": "Find the sum of the first 3 terms of the geometric sequence: 2, -6, 18",
+            "options": ["14", "-2", "10", "18"],
+            "answer": "14"
+        },
+        {
+            "question": "Which of the following is a system of linear equations?",
+            "options": ["x^2+y^2=1", "3x+2y=6 and x-y=4", "y=3x^2+4", "x^3+y=2"],
+            "answer": "3x+2y=6 and x-y=4"
+        },
+        {
+            "question": "Which method is used to eliminate one variable by adding or subtracting equations?",
+            "options": ["Substitution Method", "Elimination Method", "Graphical Method", "Matrix Method"],
+            "answer": "Elimination Method"
+        },
+        {
+            "question": "What is the solution to the system x+y=5 and 2x-y=1 using the substitution method?",
+            "options": ["(2,3)", "(3,2)", "(1,4)", "(4,1)"],
+            "answer": "(2,3)"
+        },
+        {
+            "question": "How many solutions does a system of linear equations have if the lines are parallel?",
+            "options": ["One solution", "Many solution", "Infinitely many solutions", "Cnnot be determined"],
+            "answer": "No solution"
+        },
+        {
+            "question": "What is the determinant of the matrix",
+            "options": ["10", "11", "8", "14"],
+            "answer": "10"
+        },
+   
+>>>>>>> 8cb6002f07d8808f34fe13710699619178c7ede5
     ]
 
 current_question_index = 0  # Initialize index to 0
