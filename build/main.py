@@ -1,5 +1,5 @@
 import datetime
-from tkinter import Tk, Canvas, Button, PhotoImage, Label, messagebox, font, Frame, Entry, Toplevel, Text
+from tkinter import Tk, Canvas, Button, PhotoImage, Label, messagebox, font, Frame, Entry, Toplevel
 import sys
 import os
 import subprocess
@@ -89,10 +89,10 @@ def register():
 
 # Main application setup
 root = tk.Tk()
-root.title('Quebiz')
+root.title('Login and Quiz Application')
 root.geometry('1474x801')  # Adjusted geometry to match second code
 root.configure(bg="#ffc0db")
-
+root.resizable(False, False)
 
 comic_sans_font = font.Font(family='Comic Sans MS', size=40)
 stylish_font = font.Font(family='Stylish', size=20)
@@ -135,15 +135,12 @@ sign_up.pack()
 
 root.mainloop()
 
-
-
-#CODE
-
+# Function to open PDF files
 def open_pdf(file_path):
     try:
-        abs_path = os.path.abspath(file_path)
+        script_dir = os.path.dirname(os.path.abspath(__file__))
+        abs_path = os.path.join(script_dir, file_path)
         print(f"Attempting to open PDF at: {abs_path}")
-
         if os.path.isfile(abs_path):
             print(f"File exists: {abs_path}")
             if sys.platform == 'win32':
@@ -154,14 +151,11 @@ def open_pdf(file_path):
                 subprocess.run(['xdg-open', abs_path])
         else:
             print(f"File does not exist: {abs_path}")
-            messagebox.showerror("Error", f"Failed to open {file_path}: File not found")
     except Exception as e:
         print(f"Failed to open {file_path}: {e}")
-        messagebox.showerror("Error", f"Failed to open {file_path}: {e}")
 
 # Global Tkinter window
 window = Tk()
-window.title('Quebiz')
 window.geometry("1474x801")
 window.configure(bg="#D1EAF0")
 window.resizable(False, False)
@@ -182,7 +176,7 @@ def load_image(image_path):
     except Exception as e:
         print(f"Failed to load image at {abs_path}: {e}")
         return None
-    
+
     
 # Main Menu Frame (Frame 0)
 def show_frame0():
@@ -225,14 +219,13 @@ def show_frame0():
 
     images['button_fc'] = load_image("./build/assets/frame0/button_fc.png")
     button_fc = Button(
-    image=images['button_fc'],
-    borderwidth=0,
-    highlightthickness=0,
-    relief="flat",
-    command=window.destroy  #destroy the window and go to new window (flashcard)
+        image=images['button_fc'],
+        borderwidth=0,
+        highlightthickness=0,
+        command=lambda: print("button_fc clicked"),
+        relief="flat"
     )
     button_fc.place(x=974.0, y=298.0, width=425.0, height=432.0)
-
 
     images['button_ln'] = load_image("./build/assets/frame0/button_ln.png")
     button_ln = Button(
@@ -335,13 +328,13 @@ def show_frame2():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_1.png", lambda: open_pdf("build/assets/physics/phyn_1.pdf"), 72, 291, 446, 112),
-        ("button_2.png", lambda: open_pdf("build/assets/physics/phyn_2.pdf"), 518, 278, 439, 125),
-        ("button_3.png", lambda: open_pdf("build/assets/physics/phyn_3.pdf"), 957, 280, 439, 125),
-        ("button_4.png", lambda: open_pdf("build/assets/physics/phyn_4.pdf"), 518, 546, 439, 125),
-        ("button_5.png", lambda: open_pdf("build/assets/physics/phyn_5.pdf"), 80, 405, 427, 125),
-        ("button_6.png", lambda: open_pdf("build/assets/physics/phyn_6.pdf"), 518, 407, 439, 125),
-        ("button_7.png", lambda: open_pdf("build/assets/physics/phyn_7.pdf"), 957, 409, 439, 125),
+        ("button_1.png", lambda: open_pdf("assets\\physics\\phyn_1.pdf"), 72, 291, 446, 112),
+        ("button_2.png", lambda: open_pdf("assets\\physics\\phyn_2.pdf"), 518, 278, 439, 125),
+        ("button_3.png", lambda: open_pdf("assets\\physics\\phyn_3.pdf"), 957, 280, 439, 125),
+        ("button_4.png", lambda: open_pdf("assets\\physics\\phyn_4.pdf"), 518, 546, 439, 125),
+        ("button_5.png", lambda: open_pdf("assets\\physics\\phyn_5.pdf"), 80, 405, 427, 125),
+        ("button_6.png", lambda: open_pdf("assets\\physics\\phyn_6.pdf"), 518, 407, 439, 125),
+        ("button_7.png", lambda: open_pdf("assets\\physics\\phyn_7.pdf"), 957, 409, 439, 125),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
@@ -383,18 +376,18 @@ def show_frame3():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_12.png", lambda: open_pdf("build/assets/ds/ds_1.pdf"), 75, 276, 332, 121),
-        ("button_11.png", lambda: open_pdf("build/assets/ds/ds_2.pdf"), 397, 276, 332, 130),
-        ("button_10.png", lambda: open_pdf("build/assets/ds/ds_3.pdf"), 719, 276, 332, 121),
-        ("button_9.png", lambda: open_pdf("build/assets/ds/ds_4.pdf"), 1051, 276, 322, 121),
-        ("button_8.png", lambda: open_pdf("build/assets/ds/ds_5.pdf"), 75, 406, 332, 105),
-        ("button_7.png", lambda: open_pdf("build/assets/ds/ds_6.pdf"), 407, 406, 322, 105),
-        ("button_6.png", lambda: open_pdf("build/assets/ds/ds_7.pdf"), 729, 406, 312, 105),
-        ("button_5.png", lambda: open_pdf("build/assets/ds/ds_8.pdf"), 1051, 406, 314, 105),
-        ("button_4.png", lambda: open_pdf("build/assets/ds/ds_9.pdf"), 75, 521, 332, 97),
-        ("button_3.png", lambda: open_pdf("build/assets/ds/ds_10.pdf"), 407, 511, 312, 111),
-        ("button_2.png", lambda: open_pdf("build/assets/ds/ds_11.pdf"), 719, 511, 332, 111),
-        ("button_1.png", lambda: open_pdf("build/assets/ds/ds_12.pdf"), 1051, 521, 312, 104),
+        ("button_12.png", lambda: open_pdf("assets\\ds\\ds_1.pdf"), 75, 276, 332, 121),
+        ("button_11.png", lambda: open_pdf("assets\\ds\\ds_2.pdf"), 397, 276, 332, 130),
+        ("button_10.png", lambda: open_pdf("assets\\ds\\ds_3.pdf"), 719, 276, 332, 121),
+        ("button_9.png", lambda: open_pdf("assets\\ds\\ds_4.pdf"), 1051, 276, 322, 121),
+        ("button_8.png", lambda: open_pdf("assets\\ds\\ds_5.pdf"), 75, 406, 332, 105),
+        ("button_7.png", lambda: open_pdf("assets\\ds\\ds_6.pdf"), 407, 406, 322, 105),
+        ("button_6.png", lambda: open_pdf("assets\\ds\\ds_7.pdf"), 729, 406, 312, 105),
+        ("button_5.png", lambda: open_pdf("assets\\ds\\ds_8.pdf"), 1051, 406, 314, 105),
+        ("button_4.png", lambda: open_pdf("assets\\ds\\ds_9.pdf"), 75, 521, 332, 97),
+        ("button_3.png", lambda: open_pdf("assets\\ds\\ds_10.pdf"), 407, 511, 312, 111),
+        ("button_2.png", lambda: open_pdf("assets\\ds\\ds_11.pdf"), 719, 511, 332, 111),
+        ("button_1.png", lambda: open_pdf("assets\\ds\\ds_12.pdf"), 1051, 521, 312, 104),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
@@ -436,12 +429,12 @@ def show_frame4():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_1.png", lambda: open_pdf("build/assets/maths/mt_1.pdf"), 957, 409, 439, 125),
-        ("button_2.png", lambda: open_pdf("build/assets/maths/mt_2.pdf"), 518, 407, 439, 125),
-        ("button_3.png", lambda: open_pdf("build/assets/maths/mt_3.pdf"), 47, 405, 471, 125),
-        ("button_4.png", lambda: open_pdf("build/assets/maths/mt_4.pdf"), 957, 280, 439, 125),
-        ("button_5.png", lambda: open_pdf("build/assets/maths/mt_5.pdf"), 518, 278, 439, 125),
-        ("button_6.png", lambda: open_pdf("build/assets/maths/mt_6.pdf"), 47, 276, 471, 125),
+        ("button_1.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 957, 409, 439, 125),
+        ("button_2.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 518, 407, 439, 125),
+        ("button_3.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 47, 405, 471, 125),
+        ("button_4.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 957, 280, 439, 125),
+        ("button_5.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 518, 278, 439, 125),
+        ("button_6.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 47, 276, 471, 125),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
@@ -625,10 +618,19 @@ def open_ds_quiz():
             "options": ["The number of AND gates in the circuit", "The number of OR gates in the circuit", "The number of input variables", "The number of output variables"],
             "answer": "The number of input variables"
         },
+        {
+            "question": "What is the significance of gray code labeling in Karnaugh maps?",
+            "options": ["It ensures adjacent cells differ by only one variable", "It represents the complement of the input variables", "It simplifies the process of mapping boolean expressions", "It reduces the number of required cells in the map"],
+            "answer": "It ensures adjacent cells differ by only one variable"
+        },
+        {
+            "question": "What is the purpose of looping in K-map simplification?  ",
+            "options": ["To create complex boolean expressions", "To increase the number of required cells", "To identify adjacent 1s for grouping", "To visualize circuit waveforms"],
+            "answer": "To identify adjacent 1s for grouping"
+        },
     ]
     clear_canvas()
     app_ds = QuizGame(window, questions_ds)
-
 
 def open_math_quiz():
     questions_math = [
@@ -681,17 +683,16 @@ def open_math_quiz():
             "question": "What is the determinant of the matrix",
             "options": ["10", "11", "8", "14"],
             "answer": "10"
-        },
+        }, 
     ]
     clear_canvas()
     app_math = QuizGame(window, questions_math)
 
-
 def open_physic_quiz():
-    questions_physic = [
+    questions_physic = questions_physic = [
         {
             "question": "Which of the following statements best describes the importance of understanding physics in the field of information technology?",
-            "options": ["Physics is not relevant to information technology.", "Physics helps in understanding the economic aspects of IT. ", "Understanding physics is crucial for improving and operating electronic devices in IT.", " Physics only deals with theoretical concepts and not practical applications in IT."],
+            "options": ["Physics is not relevant to information technology.", "Physics helps in understanding the aspects of IT. ", "Understanding physics is crucial for improving and operating electronic devices in IT.", " Physics only deals with theoretical concepts and not practical applications in IT."],
             "answer": "Understanding physics is crucial for improving and operating electronic devices in IT."
         },
         {
@@ -742,7 +743,6 @@ def open_physic_quiz():
     ]
     clear_canvas()
     app_physic = QuizGame(window, questions_physic)
-
 
 # Quiz Game Code
 class QuizGame:
@@ -807,254 +807,9 @@ class QuizGame:
         self.display_question()
 
 
-current_question_index = 0 
-
-
 # Start the application
 show_frame0()
-window.resizable(True, True)
 window.mainloop()
 
-import os
-from tkinter import Tk, Canvas, Button, Text, Frame, PhotoImage
-
-def load_image(image_path):
-    try:
-        abs_path = os.path.abspath(image_path)
-        image = PhotoImage(file=abs_path)
-        return image
-    except Exception as e:
-        print(f"Failed to load image at {abs_path}: {e}")
-        return None
-
-def switch_frame(to_frame):
-    for frame in frames:
-        frame.pack_forget()
-    to_frame.pack(fill="both", expand=True)
-
-def gui0():
-    # Clear previous widgets if any
-    for widget in main_menu_frame.winfo_children():
-        widget.destroy()
-
-    # Create GUI0 content
-    canvas_main = Canvas(main_menu_frame, bg="#D0F0C0", height=801, width=1474, bd=0, highlightthickness=0, relief="ridge")
-    canvas_main.place(x=0, y=0)
-
-    images = {}
-    images['button_fc'] = load_image("./build/assets/frame0/button_fc.png")
-    button_fc = Button(main_menu_frame, image=images['button_fc'], borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(gui0))
-    button_fc.place(x=974.0, y=298.0, width=425.0, height=432.0)
-
-    canvas_main.create_text(282.0, 71.0, anchor="nw", text="Your New GUI0", fill="#000000", font=("Inter Bold", 64 * -1))
-
-# Initialize the main window
-root = Tk()
-root.geometry("1474x801")
-root.configure(bg="#D0F0C0")
-
-# Initialize frames
-main_menu_frame = Frame(root, bg="#D0F0C0")
-gui1_frame = Frame(root, bg="#D1EAF0")
-gui2_frame = Frame(root, bg="#D0F0C0")
-gui3_frame = Frame(root, bg="#D0F0C0")
-frames = [main_menu_frame, gui1_frame, gui2_frame, gui3_frame]
-
-# Main menu content (GUI0)
-canvas_main = Canvas(main_menu_frame, bg="#D1EAF0", height=801, width=1474, bd=0, highlightthickness=0, relief="ridge")
-canvas_main.place(x=0, y=0)
-
-images = {}
-images['button_image_1'] = load_image("./build/assets/nqa1/button_1.png")
-button_main_1 = Button(main_menu_frame, image=images['button_image_1'], borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(show_frame0))
-button_main_1.place(x=687.0, y=701.0, width=153.0, height=61.0)
-
-images['button_image_2'] = load_image("./build/assets/nqa1/button_2.png")
-button_main_2 = Button(main_menu_frame, image=images['button_image_2'], borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(gui3_frame))
-button_main_2.place(x=541.797, y=181.0, width=416.202, height=514.0)
-
-images['button_image_3'] = load_image("./build/assets/nqa1/button_3.png")
-button_main_3 = Button(main_menu_frame, image=images['button_image_3'], borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(gui1_frame))
-button_main_3.place(x=84.816, y=179.0, width=416.183, height=522.0)
-
-images['button_image_4'] = load_image("./build/assets/nqa1/button_4.png")
-button_main_4 = Button(main_menu_frame, image=images['button_image_4'], borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(gui2_frame))
-button_main_4.place(x=1004.912, y=179.0, width=416.087, height=505.0)
-
-canvas_main.create_text(282.0, 71.0, anchor="nw", text="Choose your selective subject !", fill="#000000", font=("Inter Bold", 64 * -1))
-
-images['image_image_1'] = load_image("./build/assets/nqa1/image_1.png")
-canvas_main.create_image(91.0, 81.0, image=images['image_image_1'])
-
-# GUI3 content 
-canvas_gui3 = Canvas(gui3_frame, bg="#D0F0C0", height=801, width=1474, bd=0, highlightthickness=0, relief="ridge")
-canvas_gui3.place(x=0, y=0)
-
-button_image_gui3_1 = load_image("./build/assets/nqa3/button_1.png")
-button_gui3_1 = Button(gui3_frame, image=button_image_gui3_1, borderwidth=0, highlightthickness=0, relief="flat")
-button_gui3_1.place(x=260.0, y=111.0, width=931.929, height=532.299)
-
-questions_ds_gui3 = [
-    {"question": "Which of the following statements best describes the importance of understanding physics in the field of information technology?", "answer": "Understanding physics is crucial for improving and operating electronic devices in IT"},
-    {"question": "Which SI base unit is correctly matched with its quantity?", "answer": "Time - second (s)"},
-    {"question": "Which of the following is a derived unit?", "answer": "Newton (N)"},
-    {"question": "How would you express 2.9 × 10^-6 Hz using a standard prefix? ", "answer": "2.9 µHz"},
-    {"question": "Which of the following types of motion involves an object moving in a straight line?", "answer": "Translational motion"},
-    {"question": "What is the primary difference between distance and displacement?", "answer": "Distance is a scalar quantity, while displacement is a vector quantity"},
-    {"question": "What is the SI unit for speed?", "answer": "m/s"},
-    {"question": "How is acceleration defined in physics?", "answer": "The rate at which an object changes its velocity."},
-    {"question": "What does the slope of a position versus time graph represent?", "answer": "Velocity"},
-    {"question": "Which of the following statements about force is correct?", "answer": "Force is the cause of acceleration and is a vector quantity because it has both magnitude and direction."},
-]
-
-current_question_index_gui3 = 0
-
-text_widget_gui3 = Text(button_gui3_1, wrap="word", relief="flat", bd=0, highlightthickness=0, font=("Inter Regular", 16), spacing1=5, spacing2=2)
-text_widget_gui3.pack(expand=True, fill="both")
-text_widget_gui3.insert("end", questions_ds_gui3[current_question_index_gui3]["question"] + "\n" + questions_ds_gui3[current_question_index_gui3]["answer"])
-text_widget_gui3.config(state="disabled")
-
-def next_question_gui3():
-    global current_question_index_gui3
-    current_question_index_gui3 = (current_question_index_gui3 + 1) % len(questions_ds_gui3)
-    update_question_gui3()
-
-def update_question_gui3():
-    text_widget_gui3.config(state="normal")
-    text_widget_gui3.delete(1.0, "end")
-    question = questions_ds_gui3[current_question_index_gui3]["question"]
-    answer = questions_ds_gui3[current_question_index_gui3]["answer"]
-    text_widget_gui3.insert("end", f" {question}\n\n {answer}\n\n")
-    text_widget_gui3.config(state="disabled")
-
-button_image_gui3_2 = load_image("build/assets/nqa2/nqa3/button_3.png")
-button_gui3_2 = Button(gui3_frame, image=button_image_gui3_2, borderwidth=0, highlightthickness=0, relief="flat", command=next_question_gui3)
-button_gui3_2.place(x=928.0, y=688.0, width=153.0, height=61.0)
-
-button_image_gui3_3 = load_image("build/assets/nqa2/nqa3/button_5.png")
-button_gui3_3 = Button(gui3_frame, image=button_image_gui3_3, borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(main_menu_frame))
-button_gui3_3.place(x=622.0, y=688.0, width=243.0, height=61.0)
-
-canvas_gui3.create_text(660.0, 358.0, anchor="nw", text="Questions", fill="#000000", font=("Inter SemiBold", 30 * -1))
-canvas_gui3.create_text(580.0, 16.0, anchor="nw", text="Digital System", fill="#000000", font=("Inter Bold", 64 * -1))
-
-image_gui3_2 = load_image("./build/assets/nqa3/image_2.png")
-canvas_gui3.create_image(81.0, 81.0, image=image_gui3_2)
-
-# GUI2 content
-canvas_gui2 = Canvas(gui2_frame, bg="#D0F0C0", height=801, width=1474, bd=0, highlightthickness=0, relief="ridge")
-canvas_gui2.place(x=0, y=0)
-
-button_image_gui2_1 = load_image("./build/assets/nqa3/button_1.png")
-button_gui2_1 = Button(gui2_frame, image=button_image_gui2_1, borderwidth=0, highlightthickness=0, relief="flat")
-button_gui2_1.place(x=260.0, y=111.0, width=931.929, height=532.299)
-
-questions_ds_gui2 = [
-    {"question": "What is 5! (5 factorial)?", "answer": "120"},
-    {"question": "Expand and evaluate the sum ∑i=13 (2i−1)", "answer": "9"},
-    {"question": "Find the ninth term of the arithmetic sequence whose first term is 6 and whose common difference is -5", "answer": "-34"},
-    {"question": "Find the sum of the first 3 terms of the geometric sequence: 2, -6, 18", "answer": "14"},
-    {"question": "Which of the following is a system of linear equations?", "answer": "3x+2y=6 and x-y=4"},
-    {"question": "Which method is used to eliminate one variable by adding or subtracting equations?", "answer": "Elimination Method"},
-    {"question": "What is the solution to the system x+y=5 and 2x-y=1 using the substitution method?", "answer": "(2,3)"},
-    {"question": "How many solutions does a system of linear equations have if the lines are parallel?", "answer": "No solution"},
-    {"question": "What is the determinant of the matrix", "answer": "10"},
-    {"question": "Which of the following quantities is a vector?", "answer": "Velocity"},
-]
-
-current_question_index_gui2 = 0
-
-text_widget_gui2 = Text(button_gui2_1, wrap="word", relief="flat", bd=0, highlightthickness=0, font=("Inter Regular", 16), spacing1=5, spacing2=2)
-text_widget_gui2.pack(expand=True, fill="both")
-text_widget_gui2.insert("end", questions_ds_gui2[current_question_index_gui2]["question"] + "\n" + questions_ds_gui2[current_question_index_gui2]["answer"])
-text_widget_gui2.config(state="disabled")
-
-def next_question_gui2():
-    global current_question_index_gui2
-    current_question_index_gui2 = (current_question_index_gui2 + 1) % len(questions_ds_gui2)
-    update_question_gui2()
-
-def update_question_gui2():
-    text_widget_gui2.config(state="normal")
-    text_widget_gui2.delete(1.0, "end")
-    question = questions_ds_gui2[current_question_index_gui2]["question"]
-    answer = questions_ds_gui2[current_question_index_gui2]["answer"]
-    text_widget_gui2.insert("end", f" {question}\n\n {answer}\n\n")
-    text_widget_gui2.config(state="disabled")
-
-button_image_gui2_2 = load_image("build/assets/nqa2/nqa3/button_3.png")
-button_gui2_2 = Button(gui2_frame, image=button_image_gui2_2, borderwidth=0, highlightthickness=0, relief="flat", command=next_question_gui2)
-button_gui2_2.place(x=928.0, y=688.0, width=153.0, height=61.0)
-
-button_image_gui2_3 = load_image("build/assets/nqa2/nqa3/button_5.png")
-button_gui2_3 = Button(gui2_frame, image=button_image_gui2_3, borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(main_menu_frame))
-button_gui2_3.place(x=622.0, y=688.0, width=243.0, height=61.0)
-
-canvas_gui2.create_text(660.0, 358.0, anchor="nw", text="Questions", fill="#000000", font=("Inter SemiBold", 30 * -1))
-canvas_gui2.create_text(580.0, 16.0, anchor="nw", text="Digital System", fill="#000000", font=("Inter Bold", 64 * -1))
-
-image_gui2_2 = load_image("./build/assets/nqa3/image_2.png")
-canvas_gui2.create_image(81.0, 81.0, image=image_gui2_2)
-
-
-# GUI1 content
-canvas_gui1 = Canvas(gui1_frame, bg="#D0F0C0", height=801, width=1474, bd=0, highlightthickness=0, relief="ridge")
-canvas_gui1.place(x=0, y=0)
-
-button_image_gui1_1 = load_image("./build/assets/nqa3/button_1.png")    #screen putih question
-button_gui1_1 = Button(gui1_frame, image=button_image_gui1_1, borderwidth=0, highlightthickness=0, relief="flat")
-button_gui1_1.place(x=260.0, y=111.0, width=931.929, height=532.299)
-
-questions_ds_gui1 = [
-    {"question": "Which of the following is a fundamental building block of digital circuits?", "answer": "Transistor"},
-    {"question": "What is the binary representation of the decimal number 10?", "answer": "1010"},
-    {"question": "Which logic gate outputs true only when both inputs are true?", "answer": "AND Gate"},
-    {"question": "What type of signal is continuous and changes smoothly?", "answer": "Analog"},
-    {"question": "Which is an advantage of digital systems?", "answer": "More compact storage"},
-    {"question": "What is the result of the binary addition 110101102 +011110112 ?", "answer": "101000012"},
-    {"question": "What is the primary characteristic of combinational logic circuits?", "answer": "They produce outputs solely based on current input values"},
-    {"question": "What are the two standard forms of Boolean expressions used in combinational logic?", "answer": "SOP and POS"},
-    {"question": "What is the primary purpose of a Karnaugh map (K-map) in digital logic design?", "answer": "To simplify boolean expressions"},
-    {"question": "What determines the size of a K-map for a given boolean expression?", "answer": "The number of input variables"},
-]
-
-current_question_index_gui1 = 0
-
-text_widget_gui1 = Text(button_gui1_1, wrap="word", relief="flat", bd=0, highlightthickness=0, font=("Inter Regular", 16), spacing1=5, spacing2=2)
-text_widget_gui1.pack(expand=True, fill="both")
-text_widget_gui1.insert("end", questions_ds_gui1[current_question_index_gui1]["question"] + "\n" + questions_ds_gui1[current_question_index_gui1]["answer"])
-text_widget_gui1.config(state="disabled")
-
-def next_question_gui1():
-    global current_question_index_gui1
-    current_question_index_gui1 = (current_question_index_gui1 + 1) % len(questions_ds_gui1)
-    update_question_gui1()
-
-def update_question_gui1():
-    text_widget_gui1.config(state="normal")
-    text_widget_gui1.delete(1.0, "end")
-    question = questions_ds_gui1[current_question_index_gui1]["question"]
-    answer = questions_ds_gui1[current_question_index_gui1]["answer"]
-    text_widget_gui1.insert("end", f" {question}\n\n {answer}\n\n")
-    text_widget_gui1.config(state="disabled")
-
-button_image_gui1_2 = load_image("build/assets/nqa2/nqa3/button_3.png")   #button next
-button_gui1_2 = Button(gui1_frame, image=button_image_gui1_2, borderwidth=0, highlightthickness=0, relief="flat", command=next_question_gui1)
-button_gui1_2.place(x=928.0, y=688.0, width=153.0, height=61.0)
-
-button_image_gui1_3 = load_image("build/assets/nqa2/nqa3/button_5.png")   #button main menu
-button_gui1_3 = Button(gui1_frame, image=button_image_gui1_3, borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(main_menu_frame))
-button_gui1_3.place(x=422, y=688.0, width=243.0, height=61.0)
-
-canvas_gui1.create_text(660.0, 358.0, anchor="nw", text="Questions", fill="#000000", font=("Inter SemiBold", 30 * -1))
-canvas_gui1.create_text(580.0, 16.0, anchor="nw", text="Digital System", fill="#000000", font=("Inter Bold", 64 * -1))
-
-image_gui1_2 = load_image("./build/assets/nqa3/image_2.png")
-canvas_gui1.create_image(81.0, 81.0, image=image_gui1_2)
-
-# Switch to the main menu frame initially
-switch_frame(main_menu_frame)
-
-# Main loop
-root.mainloop()                                   
+                                  
 
