@@ -60,6 +60,19 @@ button_1.place(
 
 #Initialize Question
 questions_physic = [
+<<<<<<< HEAD
+    {"question": "Physics Question 10", "answer": "Option 1"},
+    {"question": "Physics Question 11", "answer": "Option 1"},
+    {"question": "Physics Question 12", "answer": "Option 1"},
+    {"question": "Physics Question 13", "answer": "Option 1"},
+    {"question": "Physics Question 14", "answer": "Option 1"},
+    {"question": "Physics Question 15", "answer": "Option 1"},
+    {"question": "Physics Question 16", "answer": "Option 1"},
+    {"question": "Physics Question 17", "answer": "Option 1"},
+    {"question": "Physics Question 18", "answer": "Option 1"},
+    {"question": "Physics Question 19", "answer": "Option 1"},
+    {"question": "Physics Question 20", "answer": "Option 1"}
+=======
     {
         "question": "Which of the following statements best describes the importance of understanding physics in the field of information technology?",
         "answer": "Understanding physics is crucial for improving and operating electronic devices in IT."
@@ -102,6 +115,7 @@ questions_physic = [
     },
 
 
+>>>>>>> 8cb6002f07d8808f34fe13710699619178c7ede5
 ]
 
 

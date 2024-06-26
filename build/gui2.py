@@ -65,6 +65,9 @@ questions_math = [
             "question": "If a1=3a_1 = 3a1 =3 and an=2an−1+5a_n = 2a_{n-1} + 5an =2an−1 +5 for n≥2n \geq 2n≥2, what is a3a_3a3 ?",
             "options": ["17", "21", "19", "23"],
             "answer": "21"
+<<<<<<< HEAD
+        }, 
+=======
         },
         {
             "question": "What is 5! (5 factorial)?",
@@ -112,6 +115,7 @@ questions_math = [
             "answer": "10"
         },
    
+>>>>>>> 8cb6002f07d8808f34fe13710699619178c7ede5
     ]
 
 current_question_index = 0  # Initialize index to 0
