@@ -69,15 +69,6 @@ button_1.place(
 )
 
 questions_physic = [
-    {"question": "Physics Question 1", "answer": "Option 1"},
-    {"question": "Physics Question 2", "answer": "Option 2"},
-    {"question": "Physics Question 3", "answer": "Option 1"},
-    {"question": "Physics Question 4", "answer": "Option 1"},
-    {"question": "Physics Question 5", "answer": "Option 1"},
-    {"question": "Physics Question 6", "answer": "Option 1"},
-    {"question": "Physics Question 7", "answer": "Option 1"},
-    {"question": "Physics Question 8", "answer": "Option 1"},
-    {"question": "Physics Question 9", "answer": "Option 1"},
     {"question": "Physics Question 10", "answer": "Option 1"},
     {"question": "Physics Question 11", "answer": "Option 1"},
     {"question": "Physics Question 12", "answer": "Option 1"},
