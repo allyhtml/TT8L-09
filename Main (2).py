@@ -89,10 +89,10 @@ def register():
 
 # Main application setup
 root = tk.Tk()
-root.title('Login and Quiz Application')
+root.title('Quebiz')
 root.geometry('1474x801')  # Adjusted geometry to match second code
 root.configure(bg="#ffc0db")
-root.resizable(False, False)
+
 
 comic_sans_font = font.Font(family='Comic Sans MS', size=40)
 stylish_font = font.Font(family='Stylish', size=20)
@@ -135,12 +135,15 @@ sign_up.pack()
 
 root.mainloop()
 
-# Function to open PDF files
+
+
+#CODE
+
 def open_pdf(file_path):
     try:
-        script_dir = os.path.dirname(os.path.abspath(__file__))
-        abs_path = os.path.join(script_dir, file_path)
+        abs_path = os.path.abspath(file_path)
         print(f"Attempting to open PDF at: {abs_path}")
+
         if os.path.isfile(abs_path):
             print(f"File exists: {abs_path}")
             if sys.platform == 'win32':
@@ -151,11 +154,14 @@ def open_pdf(file_path):
                 subprocess.run(['xdg-open', abs_path])
         else:
             print(f"File does not exist: {abs_path}")
+            messagebox.showerror("Error", f"Failed to open {file_path}: File not found")
     except Exception as e:
         print(f"Failed to open {file_path}: {e}")
+        messagebox.showerror("Error", f"Failed to open {file_path}: {e}")
 
 # Global Tkinter window
 window = Tk()
+window.title('Quebiz')
 window.geometry("1474x801")
 window.configure(bg="#D1EAF0")
 window.resizable(False, False)
@@ -219,13 +225,14 @@ def show_frame0():
 
     images['button_fc'] = load_image("./build/assets/frame0/button_fc.png")
     button_fc = Button(
-        image=images['button_fc'],
-        borderwidth=0,
-        highlightthickness=0,
-        command=gui0,
-        relief="flat"
+    image=images['button_fc'],
+    borderwidth=0,
+    highlightthickness=0,
+    relief="flat",
+    command=window.destroy  #destroy the window and go to new window (flashcard)
     )
     button_fc.place(x=974.0, y=298.0, width=425.0, height=432.0)
+
 
     images['button_ln'] = load_image("./build/assets/frame0/button_ln.png")
     button_ln = Button(
@@ -328,13 +335,13 @@ def show_frame2():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_1.png", lambda: open_pdf("assets\\physics\\phyn_1.pdf"), 72, 291, 446, 112),
-        ("button_2.png", lambda: open_pdf("assets\\physics\\phyn_2.pdf"), 518, 278, 439, 125),
-        ("button_3.png", lambda: open_pdf("assets\\physics\\phyn_3.pdf"), 957, 280, 439, 125),
-        ("button_4.png", lambda: open_pdf("assets\\physics\\phyn_4.pdf"), 518, 546, 439, 125),
-        ("button_5.png", lambda: open_pdf("assets\\physics\\phyn_5.pdf"), 80, 405, 427, 125),
-        ("button_6.png", lambda: open_pdf("assets\\physics\\phyn_6.pdf"), 518, 407, 439, 125),
-        ("button_7.png", lambda: open_pdf("assets\\physics\\phyn_7.pdf"), 957, 409, 439, 125),
+        ("button_1.png", lambda: open_pdf("build/assets/physics/phyn_1.pdf"), 72, 291, 446, 112),
+        ("button_2.png", lambda: open_pdf("build/assets/physics/phyn_2.pdf"), 518, 278, 439, 125),
+        ("button_3.png", lambda: open_pdf("build/assets/physics/phyn_3.pdf"), 957, 280, 439, 125),
+        ("button_4.png", lambda: open_pdf("build/assets/physics/phyn_4.pdf"), 518, 546, 439, 125),
+        ("button_5.png", lambda: open_pdf("build/assets/physics/phyn_5.pdf"), 80, 405, 427, 125),
+        ("button_6.png", lambda: open_pdf("build/assets/physics/phyn_6.pdf"), 518, 407, 439, 125),
+        ("button_7.png", lambda: open_pdf("build/assets/physics/phyn_7.pdf"), 957, 409, 439, 125),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
@@ -376,18 +383,18 @@ def show_frame3():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_12.png", lambda: open_pdf("assets\\ds\\ds_1.pdf"), 75, 276, 332, 121),
-        ("button_11.png", lambda: open_pdf("assets\\ds\\ds_2.pdf"), 397, 276, 332, 130),
-        ("button_10.png", lambda: open_pdf("assets\\ds\\ds_3.pdf"), 719, 276, 332, 121),
-        ("button_9.png", lambda: open_pdf("assets\\ds\\ds_4.pdf"), 1051, 276, 322, 121),
-        ("button_8.png", lambda: open_pdf("assets\\ds\\ds_5.pdf"), 75, 406, 332, 105),
-        ("button_7.png", lambda: open_pdf("assets\\ds\\ds_6.pdf"), 407, 406, 322, 105),
-        ("button_6.png", lambda: open_pdf("assets\\ds\\ds_7.pdf"), 729, 406, 312, 105),
-        ("button_5.png", lambda: open_pdf("assets\\ds\\ds_8.pdf"), 1051, 406, 314, 105),
-        ("button_4.png", lambda: open_pdf("assets\\ds\\ds_9.pdf"), 75, 521, 332, 97),
-        ("button_3.png", lambda: open_pdf("assets\\ds\\ds_10.pdf"), 407, 511, 312, 111),
-        ("button_2.png", lambda: open_pdf("assets\\ds\\ds_11.pdf"), 719, 511, 332, 111),
-        ("button_1.png", lambda: open_pdf("assets\\ds\\ds_12.pdf"), 1051, 521, 312, 104),
+        ("button_12.png", lambda: open_pdf("build/assets/ds/ds_1.pdf"), 75, 276, 332, 121),
+        ("button_11.png", lambda: open_pdf("build/assets/ds/ds_2.pdf"), 397, 276, 332, 130),
+        ("button_10.png", lambda: open_pdf("build/assets/ds/ds_3.pdf"), 719, 276, 332, 121),
+        ("button_9.png", lambda: open_pdf("build/assets/ds/ds_4.pdf"), 1051, 276, 322, 121),
+        ("button_8.png", lambda: open_pdf("build/assets/ds/ds_5.pdf"), 75, 406, 332, 105),
+        ("button_7.png", lambda: open_pdf("build/assets/ds/ds_6.pdf"), 407, 406, 322, 105),
+        ("button_6.png", lambda: open_pdf("build/assets/ds/ds_7.pdf"), 729, 406, 312, 105),
+        ("button_5.png", lambda: open_pdf("build/assets/ds/ds_8.pdf"), 1051, 406, 314, 105),
+        ("button_4.png", lambda: open_pdf("build/assets/ds/ds_9.pdf"), 75, 521, 332, 97),
+        ("button_3.png", lambda: open_pdf("build/assets/ds/ds_10.pdf"), 407, 511, 312, 111),
+        ("button_2.png", lambda: open_pdf("build/assets/ds/ds_11.pdf"), 719, 511, 332, 111),
+        ("button_1.png", lambda: open_pdf("build/assets/ds/ds_12.pdf"), 1051, 521, 312, 104),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
@@ -429,12 +436,12 @@ def show_frame4():
     canvas.create_image(47.0, 42.0, image=images['image_logo'])
 
     buttons = [
-        ("button_1.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 957, 409, 439, 125),
-        ("button_2.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 518, 407, 439, 125),
-        ("button_3.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 47, 405, 471, 125),
-        ("button_4.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 957, 280, 439, 125),
-        ("button_5.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 518, 278, 439, 125),
-        ("button_6.png", lambda: open_pdf("assets\\maths\\mt_1.pdf"), 47, 276, 471, 125),
+        ("button_1.png", lambda: open_pdf("build/assets/maths/mt_1.pdf"), 957, 409, 439, 125),
+        ("button_2.png", lambda: open_pdf("build/assets/maths/mt_2.pdf"), 518, 407, 439, 125),
+        ("button_3.png", lambda: open_pdf("build/assets/maths/mt_3.pdf"), 47, 405, 471, 125),
+        ("button_4.png", lambda: open_pdf("build/assets/maths/mt_4.pdf"), 957, 280, 439, 125),
+        ("button_5.png", lambda: open_pdf("build/assets/maths/mt_5.pdf"), 518, 278, 439, 125),
+        ("button_6.png", lambda: open_pdf("build/assets/maths/mt_6.pdf"), 47, 276, 471, 125),
         ("button_back.png", show_frame1, 651, 707, 153, 61)
     ]
 
@@ -618,106 +625,6 @@ def open_ds_quiz():
             "options": ["The number of AND gates in the circuit", "The number of OR gates in the circuit", "The number of input variables", "The number of output variables"],
             "answer": "The number of input variables"
         },
-        {
-            "question": "What is the significance of gray code labeling in Karnaugh maps?",
-            "options": ["It ensures adjacent cells differ by only one variable", "It represents the complement of the input variables", "It simplifies the process of mapping boolean expressions", "It reduces the number of required cells in the map"],
-            "answer": "It ensures adjacent cells differ by only one variable"
-        },
-        {
-            "question": "What is the purpose of looping in K-map simplification?  ",
-            "options": ["To create complex boolean expressions", "To increase the number of required cells", "To identify adjacent 1s for grouping", "To visualize circuit waveforms"],
-            "answer": "To identify adjacent 1s for grouping"
-        },
-        {
-            "question": "What is the primary function of a half-adder?  ",
-            "options": ["Adds three binary inputs", "Adds two single-bit binary digits", "Detects specific bit patterns", "Converts BCD to decimal"],
-            "answer": "Adds two single-bit binary digits"
-        },
-        {
-            "question": "Which type of adder eliminates ripple delays by anticipating output carry at each stage?",
-            "options": ["Half-adder", "Full adder", "Ripple carry adder", "Look-ahead carry adder"],
-            "answer": "Look-ahead carry adder"
-        },
-        {
-            "question": "What is the main application of a decoder in digital circuits?",
-            "options": ["Addition of multiple-bit binary numbers", "Selecting specific bits in a binary number", "Communicating with external devices", "Detecting specific bit patterns on inputs"],
-            "answer": "Detecting specific bit patterns on inputs"
-        },
-        {
-            "question": "How does a full adder differ from a half-adder?  ",
-            "options": ["Full adder has three binary inputs and two binary outputs", "Full adder performs addition sequentially", "Full adder eliminates ripple delays", "Full adder has only one binary input and one binary output"],
-            "answer": "Full adder has three binary inputs and two binary outputs"
-        },
-        {
-            "question": "What type of decoder is used for converting Binary Coded Decimal (BCD) to decimal?",
-            "options": ["4-line-to-16-line decoder", "1-of-10 decoder", "BCD-to-7-segment decoder", "4-bit decoder"],
-            "answer": "1-of-10 decoder"
-        },
-        {
-            "question": "What is the primary purpose of a clock signal in digital systems?",
-            "options": ["To trigger state changes based on clock transitions", "To generate a periodic rectangular pulse train", "To control the data input to flip-flops", "To prevent invalid states in flip-flops"],
-            "answer": "To generate a periodic rectangular pulse train"
-        },
-        {
-            "question": "How do edge-triggered flip-flops differ from latches?",
-            "options": ["Latches respond to clock edges, while flip-flops do not", "Latches are bistable devices, while flip-flops are not", "Flip-flops change states only at the clock edge", "Latches change states asynchronously"],
-            "answer": "Flip-flops change states only at the clock edge"
-        },
-        {
-            "question": "What determines the exact timing of state changes in synchronous digital systems?",
-            "options": ["The inputs to logic gates", "The presence of asynchronous inputs", "The clock signal", "The transitions of the clock pulse"],
-            "answer": "The clock signal"
-        },
-        {
-            "question": "How does the J-K flip-flop prevent invalid states?",
-            "options": ["By checking the clock input", "By using a D flip-flop instead", "By toggling outputs when both inputs are high", "By using an additional enable input"],
-            "answer": "By toggling outputs when both inputs are high"
-        },
-        {
-            "question": "What does the least significant bit (LSB) in a binary counter represent?",
-            "options": ["The first stage in the counter", "The second stage in the counter", "The most significant bit", "The carry bit"],
-            "answer": "The first stage in the counter"
-        },
-        {
-            "question": "What is another name for an asynchronous counter? ",
-            "options": ["Ripple counter", "Toggle counter", "Clock counter", "Sequential counter"],
-            "answer": "Ripple counter"
-        },
-        {
-            "question": "What is the main disadvantage of asynchronous counters? ",
-            "options": ["They require more flip-flops", "They have accumulated propagation delays", "They cannot be used for high clock rates", "They are not reliable"],
-            "answer": "They have accumulated propagation delays"
-        },
-        {
-            "question": "What is the modulus of a 4-bit counter? ",
-            "options": ["4", "8", "10", "16"],
-            "answer": "16"
-        },
-        {
-            "question": "What is the primary function of a shift register in digital systems? ",
-            "options": ["Perform arithmetic operations", "Store and transfer data", "Generate clock pulses", "Filter noise from signals"],
-            "answer": "Store and transfer data"
-        },
-        {
-            "question": "Which type of shift register allows data to be entered serially and read out in parallel? ",
-            "options": ["Serial-in Serial-out (SISO)", "Parallel-in Parallel-out (PIPO)", "Serial-in Parallel-out (SIPO)", "Parallel-in Serial-out (PISO)"],
-            "answer": "Serial-in Parallel-out (SIPO)"
-        },
-        {
-            "question": "How many states does a 4-bit Johnson counter have?",
-            "options": ["4", "8", "10", "16"],
-            "answer": "8"
-        },
-        {
-            "question": "In a ring counter, how is the output of the last flip-flop fed back?",
-            "options": ["To the clock input of the first flip-flop", "To the reset input of the first flip-flop", "To the data input of the first flip-flop", "To the Q' output of the first flip-flop"],
-            "answer": "To the data input of the first flip-flop"
-        },
-        {
-            "question": "Which shift register counter is sometimes referred to as a twisted-ring counter?",
-            "options": ["Ring counter", "Johnson counter", "Binary counter", "Decade counter "],
-            "answer": "Johnson counter"
-        }, 
     ]
     clear_canvas()
     app_ds = QuizGame(window, questions_ds)
@@ -775,106 +682,6 @@ def open_math_quiz():
             "options": ["10", "11", "8", "14"],
             "answer": "10"
         },
-        {
-            "question": "Which of the following quantities is a vector?",
-            "options": ["Speed", "Mass", "Temperature", "Velocity"],
-            "answer": "Velocity"
-        },
-        {
-            "question": "What is the magnitude of the vector v=(3,4)v = (3, 4)v=(3,4) in 2-dimensional space?",
-            "options": ["5", "7", "6", "8"],
-            "answer": "5"
-        },
-        {
-            "question": "Two vectors are considered equal if they have:",
-            "options": ["The same initial point", "The same magnitude and direction, regardless of their initial points ", "The same terminal point", "The same initial and terminal points"],
-            "answer": "The same magnitude and direction, regardless of their initial points"
-        },
-        {
-            "question": "If u=(1,2,3) and v=(4,5,6), what is their dot product u.v?",
-            "options": ["32", "38", "26", "42"],
-            "answer": "32"
-        },
-        {
-            "question": "Which of the following best describes statistics?",
-            "options": ["A branch of science that deals with the study of living organisms", " A branch of mathematics concerned with collecting, organizing, summarizing, and analyzing information", "A branch of literature that involves storytelling and poetry.", "A branch of history focusing on ancient civilizations."],
-            "answer": " A branch of mathematics concerned with collecting, organizing, summarizing, and analyzing information"
-        },
-        {
-            "question": "What is the main focus of inferential statistics?",
-            "options": ["Organizing and summarizing data using tables and graphs", "Making decisions about a population based on sample data.", "Collecting data from all members of a population.", "Describing data using numerical techniques."],
-            "answer": "Making decisions about a population based on sample data." 
-        },
-        {
-            "question": "Which of the following is an example of a population?",
-            "options": ["The heights of 100 secondary students in Malaysia", "The income taxes collected from 50 companies in Malaysia", "The prices of all houses sold by a developer", "The weights of 14 policemen in a country"],
-            "answer": "The prices of all houses sold by a developer"
-        },
-        {
-            "question": "Identify the type of variable: The weight of engineering students",
-            "options": ["Qualitative Variable", "Discrete Variable", "Continuous Variable", "Categorical Variable"],
-            "answer": "Continuous Variable"
-        },
-        {
-            "question": "Which of the following is an example of a quantitative variable?",
-            "options": ["Hair colors", "Types of product produced in a factory", "Height of policemen in a physical test", "Religious affiliation"],
-            "answer": "Height of policemen in a physical test"
-        },
-        {
-            "question": "What is the cross product of vectors u=(1,0,0) and v=(0,1,0) in 3-dimensional space?",
-            "options": ["(0,0,1)", "(0,0,-1) ", "(1,1,0)", "(1,0,1)"],
-            "answer": "(0,0,1)"
-        },
-        {
-            "question": "What is a set?",
-            "options": ["A collection of elements arranged in a specific order", "A collection whose members are specified by a list or a rule.", "A single element with no other elements.", "A collection of numbers arranged in ascending order"],
-            "answer": "A collection whose members are specified by a list or a rule"
-        },
-        {
-            "question": "Which symbol represents x is an element of a set X?",
-            "options": [" x ⊆ X", "x ∈ X ", "x ∉ X", "x ⊂ X"],
-            "answer": "x ∈ X "
-        },
-        {
-            "question": "What does the union of two sets A and B represent?",
-            "options": ["The intersection of set A and set B", "The combination of all elements in set A and set B. ", "The set of elements common to both set A and set B.", "The set of elements that are in either set A or set B or both."],
-            "answer": "The set of elements that are in either set A or set B or both."
-        },
-        {
-            "question": "If A = {2, 4, 6} and B = {3, 6, 9}, what is A ∩ B?",
-            "options": ["{2, 3, 4, 6, 9}", "{ } (empty set)", "{6}", "{2, 4}"],
-            "answer": "{6}"
-        },
-        {
-            "question": "What is the complement of set A, denoted as A'?",
-            "options": ["The set of all elements in A.", "The set of all elements not in set A.", "The set of elements common to set A and its complement.", "The set of elements in set A and its complement"],
-            "answer": "The set of all elements not in set A."
-        },
-        {
-            "question": "For a binomial distribution with parameters n=10 and p=0.5p = 0.5p=0.5, what is the mean (μ) of the distribution?",
-            "options": ["2.5", "5", "7.5", "10"],
-            "answer": "5"
-        },
-        {
-            "question": "For a standard normal distribution, what is the Z-score corresponding to the 95th percentile?",
-            "options": ["1.28", "1.65", "1.96", "2.33"],
-            "answer": "1.96"
-        },
-        {
-            "question": "In a binomial distribution with n=5 and p=0.2, what is the standard deviation (σ)?",
-            "options": ["0.4", "0.8", "1", "1.2"],
-            "answer": "0.8"
-        },
-        {
-            "question": "Which of the following is true for a normal distribution curve?",
-            "options": ["The total area under the curve is less than 1.", "The curve is skewed to the right. ", "The mean, median, and mode are all equal.", "The curve has a single peak at x=σ."],
-            "answer": "The mean, median, and mode are all equal."
-        },
-        {
-            "question": "In a normal distribution with mean μ=50 and standard deviation σ=5, what is the z-score corresponding to X=60?",
-            "options": ["1", "2", "8", "10"],
-            "answer": "2"
-        },    
     ]
     clear_canvas()
     app_math = QuizGame(window, questions_math)
@@ -931,106 +738,6 @@ def open_physic_quiz():
             "question": "What does the slope of a position versus time graph represent? ",
             "options": ["Acceleration", "Displacement", "Speed", "Velocity"],
             "answer": "Velocity"
-        },
-        {
-            "question": "Which of the following statements about force is correct? ",
-            "options": ["Force is a scalar quantity because it has only magnitude.", "Force is the cause of acceleration and is a vector quantity because it has both magnitude and direction.", "Force can be described as a state of rest or uniform motion in a straight line.", "Force is measured in kilograms (kg)."],
-            "answer": "Force is the cause of acceleration and is a vector quantity because it has both magnitude and direction."
-        },
-        {
-            "question": "What condition must be met for an object to accelerate? ",
-            "options": ["The net force acting on the object must be zero.", "The net force acting on the object must be greater than zero", "The object must be at rest.", " The object must be moving with constant velocity."],
-            "answer": "The net force acting on the object must be greater than zero"
-        },
-        {
-            "question": "According to Newton’s first law, if the net force on an object is zero, which of the following statements is true?",
-            "options": ["The object will move with a constant acceleration.", "The object will eventually come to rest.", "The object’s velocity will remain constant, and its acceleration will be zero.", "The object will experience a change in velocity."],
-            "answer": "The object’s velocity will remain constant, and its acceleration will be zero."
-        },
-        {
-            "question": "Which equation represents Newton's second law of motion? ",
-            "options": ["F=ma", "F=am ", "F=mv", "F=mv"],
-            "answer": "F=ma"
-        },
-        {
-            "question": "What does Newton's third law of motion state? ",
-            "options": ["An object in motion will remain in motion unless acted upon by a net force", "The acceleration of an object is directly proportional to the net force acting on it and inversely proportional to its mass.", "For every action, there is an equal and opposite reaction.", "The total momentum of an isolated system remains constant. "],
-            "answer": "For every action, there is an equal and opposite reaction."
-        },
-        {
-            "question": "Which of the following statements about periodic motion is true?  ",
-            "options": ["An object's motion is referred to as periodic motion when it repeats itself repeatedly. ", "When the motion comes exactly back to its original state, we say that the object has gone through a complete cycle or complete oscillation.", "The amount of time it takes for one complete cycle to occur is called the period T of the motion. ", "While the period is one way to characterize the speed for the periodic motion, another way is through the frequency "],
-            "answer": "The amount of time it takes for one complete cycle to occur is called the period T of the motion. "
-        },
-        {
-            "question": "In simple harmonic motion, what is the restoring force proportional to?  ",
-            "options": ["Mass ", "Displacement", "Velocity", "Acceleration"],
-            "answer": "Displacement"
-        },
-        {
-            "question": "What is the relationship between the period and frequency of an oscillating system?",
-            "options": ["They are directly proportional.", "They are inversely proportional.", "They are equal", "They are not related."],
-            "answer": "They are inversely proportional."
-        },
-        {
-            "question": "What factor does the period of a simple pendulum depend on?  ",
-            "options": ["Mass of the pendulum", "Length of the string and value of gravity ", "Amplitude of the oscillation ", "Damping coefficient "],
-            "answer": "Length of the string and value of gravity "
-        },
-        {
-            "question": "What type of oscillations occur when the damping is so large that the motion no longer resembles simple harmonic motion?",
-            "options": ["Under-damped ", "Critically damped", "Over-damped ", "Driven oscillations"],
-            "answer": "Over-damped"
-        },
-        {
-            "question": "What type of wave requires a material medium for propagation?  ",
-            "options": ["Mechanical wave  ", "Electromagnetic wave ", "Longitudinal wave", "Transverse wave"],
-            "answer": "Mechanical wave  "
-        },
-        {
-            "question": "Which principle states that the total displacement at any point due to two or more travelling waves is equal to the vector sum of their individual displacements at that point?  ",
-            "options": ["Superposition principle ", " Interference principle", "Reflection principle", "Refraction principle"],
-            "answer": "Superposition principle "
-        },
-        {
-            "question": "What principle accurately describes the particle motion in a transverse wave?  ",
-            "options": ["Motion parallel to the direction of wave velocity", "Motion perpendicular to the direction of wave velocity ", "Motion in the same direction as the wave velocity ", "Motion in the opposite direction to the wave velocity "],
-            "answer": "Motion perpendicular to the direction of wave velocity "
-        },
-        {
-            "question": "What is the wave function for a sinusoidal wave given by equation (8)?",
-            "options": ["Y = A Sin (kx - ωt)", "Y = A Sin (kx + ωt) ", "Y = A Cos (kx - ωt) ", "Y = A Cos (kx + ωt)"],
-            "answer": "Y = A Sin (kx - ωt)"
-        },
-        {
-            "question": "What defines periodic motion in physics?",
-            "options": ["Motion that eventually comes to a stop", "Motion that occurs randomly", "Motion that repeats itself over and over again", "Motion that follows a linear path"],
-            "answer": "Motion that repeats itself over and over again"
-        },
-        {
-            "question": "What is the SI unit of frequency?",
-            "options": ["Seconds (s)", "Meters per second", "Inverse second", "Newton"],
-            "answer": "Inverse second"
-        },
-        {
-            "question": "According to Hooke's Law, what is the restoring force exerted by a spring when a mass is displaced by a distance x?",
-            "options": ["F=kx", "F=−kx", "F=k/x", "F=-k/x"],
-            "answer": "F=−kx"
-        },
-        {
-            "question": "For small angle oscillations, the period of a simple pendulum depends on which factors?",
-            "options": ["Mass of the pendulum bob and acceleration due to gravity", "Length of the string and mass of the pendulum bob", "Length of the string and acceleration due to gravity", "Angle of displacement and length of the string"],
-            "answer": "Length of the string and acceleration due to gravity"
-        },
-        {
-            "question": "What is the behavior of a critically damped oscillatory system?",
-            "options": ["The system oscillates with decreasing amplitude", "The system oscillates with increasing amplitude", "The system returns to equilibrium without oscillating", "The system returns to equilibrium without oscillating"],
-            "answer": "The system returns to equilibrium without oscillating"
-        },  
-        {
-            "question": "What type of motion does a mass attached to a spring exhibit when displaced from its equilibrium position and then released?",
-            "options": ["Uniform linear motion", "Circular motion", "Simple harmonic motion (SHM)", "Random motion"],
-            "answer": "Simple harmonic motion (SHM)"
         },
     ]
     clear_canvas()
@@ -1102,712 +809,252 @@ class QuizGame:
 
 current_question_index = 0 
 
-class QuestionsFC():
-    questions_ds =[
-        {
-            "question": "Which of the following is a fundamental building block of digital circuits?",
-            "answer": "Transistor"
-        },
-        {
-            "question": "What is the binary representation of the decimal number 10? ",
-            "answer": "1010"
-        },
-        {
-            "question": "Which logic gate outputs true only when both inputs are true? ",
-            "answer": "AND gate"
-        },
-        {
-            "question": "What type of signal is continuous and changes smoothly?",
-            "answer": "Analog"
-        },
-        {
-            "question": "Which is an advantage of digital systems?",
-            "answer": "More compact storage"
-        },
-        {
-            "question": "What is the result of the binary addition 110101102 +011110112 ?",
-            "answer": "101000012"
-        },
-        {
-            "question": "What is the primary characteristic of combinational logic circuits?  ",
-            "answer": "They produce outputs solely based on current input values"
-        },
-        {
-            "question": "What are the two standard forms of Boolean expressions used in combinational logic?  ",
-            "answer": "SOP and POS"
-        },
-        {
-            "question": "What is the primary purpose of a Karnaugh map (K-map) in digital logic design?  ",
-            "answer": "To simplify boolean expressions"
-        },
-        {
-            "question": "What determines the size of a K-map for a given boolean expression? ",
-            "answer": "The number of input variables"
-        },
-        {
-            "question": "What is the significance of gray code labeling in Karnaugh maps?",
-            "answer": "It ensures adjacent cells differ by only one variable"
-        },
-        {
-            "question": "What is the purpose of looping in K-map simplification?  ",
-            "answer": "To identify adjacent 1s for grouping"
-        },
-        {
-            "question": "What is the primary function of a half-adder?  ",
-            "answer": "Adds two single-bit binary digits"
-        },
-        {
-            "question": "Which type of adder eliminates ripple delays by anticipating output carry at each stage?",
-            "answer": "Look-ahead carry adder"
-        },
-        {
-            "question": "What is the main application of a decoder in digital circuits?",
-            "answer": "Detecting specific bit patterns on inputs"
-        },
-        {
-            "question": "How does a full adder differ from a half-adder?  ",
-            "answer": "Full adder has three binary inputs and two binary outputs"
-        },
-        {
-            "question": "What type of decoder is used for converting Binary Coded Decimal (BCD) to decimal?",
-            "answer": "1-of-10 decoder"
-        },
-        {
-            "question": "What is the primary purpose of a clock signal in digital systems?",
-            "answer": "To generate a periodic rectangular pulse train"
-        },
-        {
-            "question": "How do edge-triggered flip-flops differ from latches?",
-            "answer": "Flip-flops change states only at the clock edge"
-        },
-        {
-            "question": "What determines the exact timing of state changes in synchronous digital systems?",
-            "answer": "The clock signal"
-        },
-        {
-            "question": "How does the J-K flip-flop prevent invalid states?",
-            "answer": "By toggling outputs when both inputs are high"
-        },
-        {
-            "question": "What does the least significant bit (LSB) in a binary counter represent?",
-            "answer": "The first stage in the counter"
-        },
-        {
-            "question": "What is another name for an asynchronous counter? ",
-            "answer": "Ripple counter"
-        },
-        {
-            "question": "What is the main disadvantage of asynchronous counters? ",
-            "answer": "They have accumulated propagation delays"
-        },
-        {
-            "question": "What is the modulus of a 4-bit counter? ",
-            "answer": "16"
-        },
-        {
-            "question": "What is the primary function of a shift register in digital systems? ",
-            "answer": "Store and transfer data"
-        },
-        {
-            "question": "Which type of shift register allows data to be entered serially and read out in parallel? ",
-            "answer": "Serial-in Parallel-out (SIPO)"
-        },
-        {
-            "question": "How many states does a 4-bit Johnson counter have?",
-            "answer": "8"
-        },
-        {
-            "question": "In a ring counter, how is the output of the last flip-flop fed back?",
-            "answer": "To the data input of the first flip-flop"
-        },
-        {
-            "question": "Which shift register counter is sometimes referred to as a twisted-ring counter?",
-            "answer": "Johnson counter"
-        },
-        
-    ]
-    questions_physic = [
-    {
-        "question": "Which of the following statements best describes the importance of understanding physics in the field of information technology?",
-        "answer": "Understanding physics is crucial for improving and operating electronic devices in IT."
-    },
-    {
-        "question": "What is an example of an application where physics knowledge is crucial in IT?",
-        "answer": "Applying relativistic corrections in GPS receivers."
-    },
-    {
-        "question": "Which SI base unit is correctly matched with its quantity?",
-        "answer": "Time - second (s)"
-    },
-    {
-        "question": "Which of the following is a derived unit?",
-        "answer": "Newton (N)"
-    },
-    {
-        "question": "How would you express 2.9 x 10^-6 Hz using a standard prefix?",
-        "answer": "2.9 µHz"
-    },
-    {
-        "question": "Which of the following types of motion involves an object moving in a straight line?",
-        "answer": "Translational motion"
-    },
-    {
-        "question": "What is the primary difference between distance and displacement?",
-        "answer": "Distance is a scalar quantity, while displacement is a vector quantity."
-    },
-    {
-        "question": "What is the SI unit for speed?",
-        "answer": "m/s"
-    },
-    {
-        "question": "How is acceleration defined in physics?",
-        "answer": "The rate at which an object changes its velocity."
-    },
-    {
-        "question": "What does the slope of a position versus time graph represent?",
-        "answer": "Velocity"
-    },
-    {
-        "question": "Which of the following statements about force is correct?",
-        "answer": "Force is the cause of acceleration and is a vector quantity because it has both magnitude and direction."
-    },
-    {
-        "question": "What condition must be met for an object to accelerate?",
-        "answer": "The net force acting on the object must be greater than zero."
-    },
-    {
-        "question": "According to Newton's first law, if the net force on an object is zero, which of the following statements is true?",
-        "answer": "The object's velocity will remain constant, and its acceleration will be zero."
-    },
-    {
-        "question": "Which equation represents Newton's second law of motion?",
-        "answer": "F=ma"
-    },
-    {
-        "question": "What does Newton's third law of motion state?",
-        "answer": "For every action, there is an equal and opposite reaction."
-    },
-    {
-        "question": "Which of the following statements about periodic motion is true?",
-        "answer": "The amount of time it takes for one complete cycle to occur is called the period T of the motion."
-    },
-    {
-        "question": "In simple harmonic motion, what is the restoring force proportional to?",
-        "answer": "Displacement"
-    },
-    {
-        "question": "What is the relationship between the period and frequency of an oscillating system? a. They are directly proportional.",
-        "answer": "They are inversely proportional."
-    },
-    {
-        "question": "What factor does the period of a simple pendulum depend on?",
-        "answer": "Length of the string and value of gravity"
-    },
-    {
-        "question": "What type of oscillations occur when the damping is so large that the motion no longer resembles simple harmonic motion?",
-        "answer": "Over-damped"
-    },
-    {
-        "question": "What type of wave requires a material medium for propagation?",
-        "answer": "Mechanical wave"
-    },
-    {
-        "question": "Which principle states that the total displacement at any point due to two or more travelling waves is equal to the vector sum of their individual displacements at that point?",
-        "answer": "Superposition principle"
-    },
-    {
-        "question": "What principle accurately describes the particle motion in a transverse wave?",
-        "answer": "Motion perpendicular to the direction of wave velocity"
-    },
-    {
-        "question": "What is the wave function for a sinusoidal wave given by equation (8)?",
-        "answer": "Y = A Sin (kx - ωt)"
-    },
-    {
-        "question": "What are the positions of zero amplitude and maximum amplitude called, respectively, in standing waves?",
-        "answer": "Nodes and antinodes"
-    }
-]
-    questions_math = [
-        {
-            "question": "If a1=3a_1 = 3a1 =3 and an=2an−1+5a_n = 2a_{n-1} + 5an =2an−1 +5 for n≥2n \geq 2n≥2, what is a3a_3a3 ?",
-            "options": ["17", "21", "19", "23"],
-            "answer": "21"
-        },
-        {
-            "question": "What is 5! (5 factorial)?",
-            "options": ["60", "100", "120", "150"],
-            "answer": "120"
-        },
-        {
-            "question": "Expand and evaluate the sum ∑i=13 (2i−1)",
-            "options": ["6", "9", "12", "15"],
-            "answer": "9"
-        },
-        {
-            "question": "Find the ninth term of the arithmetic sequence whose first term is 6 and whose common difference is -5",
-            "options": ["-34", "-39", "-41", "-46"],
-            "answer": "-34"
-        },
-        {
-            "question": "Find the sum of the first 3 terms of the geometric sequence: 2, -6, 18",
-            "options": ["14", "-2", "10", "18"],
-            "answer": "14"
-        },
-        {
-            "question": "Which of the following is a system of linear equations?",
-            "options": ["x^2+y^2=1", "3x+2y=6 and x-y=4", "y=3x^2+4", "x^3+y=2"],
-            "answer": "3x+2y=6 and x-y=4"
-        },
-        {
-            "question": "Which method is used to eliminate one variable by adding or subtracting equations?",
-            "options": ["Substitution Method", "Elimination Method", "Graphical Method", "Matrix Method"],
-            "answer": "Elimination Method"
-        },
-        {
-            "question": "What is the solution to the system x+y=5 and 2x-y=1 using the substitution method?",
-            "options": ["(2,3)", "(3,2)", "(1,4)", "(4,1)"],
-            "answer": "(2,3)"
-        },
-        {
-            "question": "How many solutions does a system of linear equations have if the lines are parallel?",
-            "options": ["One solution", "Many solution", "Infinitely many solutions", "Cnnot be determined"],
-            "answer": "No solution"
-        },
-        {
-            "question": "What is the determinant of the matrix",
-            "options": ["10", "11", "8", "14"],
-            "answer": "10"
-        },
-        {
-            "question": "Which of the following quantities is a vector?",
-            "options": ["Speed", "Mass", "Temperature", "Velocity"],
-            "answer": "Velocity"
-        },
-        {
-            "question": "What is the magnitude of the vector v=(3,4)v = (3, 4)v=(3,4) in 2-dimensional space?",
-            "options": ["5", "7", "6", "8"],
-            "answer": "5"
-        },
-        {
-            "question": "Two vectors are considered equal if they have:",
-            "options": ["The same initial point", "The same magnitude and direction, regardless of their initial points ", "The same terminal point", "The same initial and terminal points"],
-            "answer": "The same magnitude and direction, regardless of their initial points"
-        },
-        {
-            "question": "If u=(1,2,3) and v=(4,5,6), what is their dot product u.v?",
-            "options": ["32", "38", "26", "42"],
-            "answer": "32"
-        },
-        {
-            "question": "Which of the following best describes statistics?",
-            "options": ["A branch of science that deals with the study of living organisms", " A branch of mathematics concerned with collecting, organizing, summarizing, and analyzing information", "A branch of literature that involves storytelling and poetry.", "A branch of history focusing on ancient civilizations."],
-            "answer": " A branch of mathematics concerned with collecting, organizing, summarizing, and analyzing information"
-        },
-        {
-            "question": "What is the main focus of inferential statistics?",
-            "options": ["Organizing and summarizing data using tables and graphs", "Making decisions about a population based on sample data.", "Collecting data from all members of a population.", "Describing data using numerical techniques."],
-            "answer": "Making decisions about a population based on sample data." 
-        },
-        {
-            "question": "Which of the following is an example of a population?",
-            "options": ["The heights of 100 secondary students in Malaysia", "The income taxes collected from 50 companies in Malaysia", "The prices of all houses sold by a developer", "The weights of 14 policemen in a country"],
-            "answer": "The prices of all houses sold by a developer"
-        },
-        {
-            "question": "Identify the type of variable: The weight of engineering students",
-            "options": ["Qualitative Variable", "Discrete Variable", "Continuous Variable", "Categorical Variable"],
-            "answer": "Continuous Variable"
-        },
-        {
-            "question": "Which of the following is an example of a quantitative variable?",
-            "options": ["Hair colors", "Types of product produced in a factory", "Height of policemen in a physical test", "Religious affiliation"],
-            "answer": "Height of policemen in a physical test"
-        },
-        {
-            "question": "What is the cross product of vectors u=(1,0,0) and v=(0,1,0) in 3-dimensional space?",
-            "options": ["(0,0,1)", "(0,0,-1) ", "(1,1,0)", "(1,0,1)"],
-            "answer": "(0,0,1)"
-        },
-        {
-            "question": "What is a set?",
-            "options": ["A collection of elements arranged in a specific order", "A collection whose members are specified by a list or a rule.", "A single element with no other elements.", "A collection of numbers arranged in ascending order"],
-            "answer": "A collection whose members are specified by a list or a rule"
-        },
-        {
-            "question": "Which symbol represents x is an element of a set X?",
-            "options": [" x ⊆ X", "x ∈ X ", "x ∉ X", "x ⊂ X"],
-            "answer": "x ∈ X "
-        },
-        {
-            "question": "What does the union of two sets A and B represent?",
-            "options": ["The intersection of set A and set B", "The combination of all elements in set A and set B. ", "The set of elements common to both set A and set B.", "The set of elements that are in either set A or set B or both."],
-            "answer": "The set of elements that are in either set A or set B or both."
-        },
-        {
-            "question": "If A = {2, 4, 6} and B = {3, 6, 9}, what is A ∩ B?",
-            "options": ["{2, 3, 4, 6, 9}", "{ } (empty set)", "{6}", "{2, 4}"],
-            "answer": "{6}"
-        },
-        {
-            "question": "What is the complement of set A, denoted as A'?",
-            "options": ["The set of all elements in A.", "The set of all elements not in set A.", "The set of elements common to set A and its complement.", "The set of elements in set A and its complement"],
-            "answer": "The set of all elements not in set A."
-        },
-        {
-            "question": "For a binomial distribution with parameters n=10 and p=0.5p = 0.5p=0.5, what is the mean (μ) of the distribution?",
-            "options": ["2.5", "5", "7.5", "10"],
-            "answer": "5"
-        },
-        {
-            "question": "For a standard normal distribution, what is the Z-score corresponding to the 95th percentile?",
-            "options": ["1.28", "1.65", "1.96", "2.33"],
-            "answer": "1.96"
-        },
-        {
-            "question": "In a binomial distribution with n=5 and p=0.2, what is the standard deviation (σ)?",
-            "options": ["0.4", "0.8", "1", "1.2"],
-            "answer": "0.8"
-        },
-        {
-            "question": "Which of the following is true for a normal distribution curve?",
-            "options": ["The total area under the curve is less than 1.", "The curve is skewed to the right. ", "The mean, median, and mode are all equal.", "The curve has a single peak at x=σ."],
-            "answer": "The mean, median, and mode are all equal."
-        },
-        {
-            "question": "In a normal distribution with mean μ=50 and standard deviation σ=5, what is the z-score corresponding to X=60?",
-            "options": ["1", "2", "8", "10"],
-            "answer": "2"
-        },    
-    ]
-
-# Main Flashcards 
-def gui0():
-    canvas = Canvas(
-        window,
-        bg="#D1EAF0",
-        height=801,
-        width=1474,
-        bd=0,
-        highlightthickness=0,
-        relief="ridge"
-    )
-    canvas.place(x=0, y=0)
-
-    buttons = [
-        ("button_1.png",show_frame0 ,687.0, 701.0, 153.0, 61.0),
-        ("button_2.png", gui3,545, 181.0, 416.2, 514.0),
-        ("button_3.png", gui1,84.8, 179.0, 416.18, 522.0),
-        ("button_4.png", gui2,1005.0, 179.0, 416.087646484375, 505.0),
-    ]
-
-  
-    for btn_img, btn_cmd, x, y, w, h in buttons:
-        images[btn_img] = load_image(f"./build/assets/nqa1/{btn_img}")
-        button = Button(
-        image=images[btn_img],
-            borderwidth=0,
-            highlightthickness=0,
-            relief="flat",
-            command =btn_cmd
-        )        
-        button.place(x=x, y=y, width=w, height=h)
-  
-    # Create buttons on the main window
- 
-
-    canvas.create_text(
-        282.0,
-        71.0,
-        anchor="nw",
-        text="Choose your selective subject !",
-        fill="#000000",
-        font=("Inter Bold", 64 * -1)
-    )
-    
-    images ["image_2"] = load_image("./build/assets/nqa3/image_2.png")
-    canvas.create_image(
-      81.0,
-      81.0,
-      image=images["image_2"]
-    )
-    
-
-
-
-# Fc physics            
-def gui1():
-    clear_canvas()
-
-    canvas = Canvas(
-    window,
-    bg = "#F7F1AF",
-    height = 801,
-    width = 1474,
-    bd = 0,
-    highlightthickness = 0,
-    relief = "ridge"
-    )
- 
-    canvas.place(x = 0, y = 0)
-
-    def load_image(image_path):
-        try:
-            image = PhotoImage(file=image_path)
-            return image
-        except:
-            print(f"Error loading image from {image_path}")
-            return None
-    
-    button_image_2 =load_image("./build/assets/nqa2/button_1.png")
-    button_11 = Button(
-        image=button_image_2,
-        borderwidth=0,
-        highlightthickness=0,
-        command=lambda: print("button_1 clicked"),
-        relief="flat",
-        state="disabled"
-    )
-    button_11.place(
-    x=260.0,
-    y=111.0,
-    width=931.9299926757812,
-    height=532.2999877929688
-    )
-
-    canvas.create_text(
-    660.0,
-    358.0,
-    anchor="nw",
-    text="Questions ",
-    fill="#000000",
-    font=("Inter SemiBold", 30 * -1)
-    )
-    
-    canvas.create_text(
-        630.0,
-        16.0,
-        anchor="nw",
-        text="Physics",
-        fill="#000000",
-        font=("Inter Bold", 64 * -1)
-    )
-
-    images ["image_2"] = load_image("./build/assets/nqa3/image_2.png")
-    canvas.create_image(
-      81.0,
-      81.0,
-      image=images["image_2"]
-    )
-
-   
-    button_12_image = load_image("./build/assets/nqa3/button_2.png")
-    button_12 = Button(
-        image=button_12_image,
-        borderwidth=0,
-        highlightthickness=0,
-
-        relief="flat"
-    )
-    button_12.place(
-        x=416.0,
-        y=688.0,
-        width=153.0,
-        height=61.0
-    )
-    button_image_3 =load_image("./build/assets/nqa3/button_3.png")
-    button_13 = Button(
-        image=button_image_3,
-        borderwidth=0,
-        highlightthickness=0,
-        relief="flat"
-    )
-
-    button_13.place(
-        x=928.0,
-        y=688.0,
-        width=153.0,
-        height=61.0
-    )
-
-    button_image_5 =load_image("./build/assets/nqa3/button_6.png")
-    button_15 = Button(
-        window,
-        image=button_image_5,
-        borderwidth=0,
-        highlightthickness=0,
-       # command=###
-        relief="flat"
-)
-    button_15.place(
-        x=600.0,
-        y=688.0,
-        width=297.0,
-        height=61.0
-    )
-
-
-    canvas.create_text(
-        630.0,
-        16.0,
-        anchor="nw",
-        text="Mathematics",
-        fill="#000000",
-        font=("Inter Bold", 64 * -1)
-    )
-
-    images ["image_2"] = load_image("./build/assets/nqa3/image_2.png")
-    canvas.create_image(
-      81.0,
-      81.0,
-      image=images["image_2"]
-    )
-
-
-# Fc maths            
-def gui2():
-
-    clear_canvas()
-
-    canvas = Canvas(
-    window,
-    bg = "#ECD5E3",
-    height = 801,
-    width = 1474,
-    bd = 0,
-    highlightthickness = 0,
-    relief = "ridge"
-    )
-    canvas.place(x = 0, y = 0)
-    
-    buttons = [
-        ("button_1.png",lambda: print("button_white clicked") ,622.0, 688.0, 243.0,61.0),
-        ("button_3.png", lambda: print("button_next clicked"),928.0, 688.0, 153.0, 61.0),
-        ("button_2.png",lambda: print("button_back clicked") ,416.0, 688.0,  153.0, 61.0),
-        ("button_6.png", gui0,605.0, 688.0, 300.0, 61.0),
-    ]
-    
-    for btn_img, btn_cmd, x, y, w, h in buttons:
-        images[btn_img] = load_image(f"./build/assets/nqa3/{btn_img}")
-        button = Button(
-        image=images[btn_img],
-            borderwidth=0,
-            highlightthickness=0,
-            relief="flat",
-            command =btn_cmd
-        )        
-        button.place(x=x, y=y, width=w, height=h)
- 
-    canvas.create_text(
-        630.0,
-        16.0,
-        anchor="nw",
-        text="Mathematics",
-        fill="#000000",
-        font=("Inter Bold", 64 * -1)
-    )
-
-    images ["image_2"] = load_image("./build/assets/nqa3/image_2.png")
-    canvas.create_image(
-      81.0,
-      81.0,
-      image=images["image_2"]
-    )
-          
-
-#flashcards digital system
-def gui3():
-    
-    clear_canvas()
-
-    canvas = Canvas(
-    window,
-    bg = "#D0F0C0",
-    height = 801,
-    width = 1474,
-    bd = 0,
-    highlightthickness = 0,
-    relief = "ridge"
-    )
-    canvas.place(x = 0, y = 0)
-
-    canvas.create_text(
-        window,
-        560.0,
-        16.0,
-        anchor="nw",
-        text="Digital System",
-        fill="#000000",
-        font=("Inter Bold", 64 * -1)
-    )
-
-    images ["image_2"] = load_image("./build/assets/nqa3/image_2.png")
-    canvas.create_image(
-      window,
-      81.0,
-      81.0,
-      image=images["image_2"]
-    )
-      
-   
-    button_2 ["image_2"] = load_image("./build/assets/nqa3/button_2.png")
-    button_2 = Button(
-        window,
-        image=button_2 ["image_2"],
-        borderwidth=0,
-        highlightthickness=0,
-   # command=previous_question,
-        relief="flat"
-    )
-    button_2.place(
-        x=416.0,
-        y=688.0,
-        width=153.0,
-        height=61.0
-    )
-
-    button_image_3 =  load_image("./build/assets/nqa3/button_3.png")
-    button_3 = Button(
-        window,
-        image=button_image_3,
-        borderwidth=0,
-        highlightthickness=0,
-    #command=next_question,
-        relief="flat"
-    )
-    button_3.place(
-        x=928.0,
-        y=688.0,
-        width=153.0,
-        height=61.0
-    )
-
-    button_image_5 = load_image("./build/assets/nqa3/button_5.png")
-    button_5 = Button(
-        window,
-        image=button_image_5,
-        borderwidth=0,
-        highlightthickness=0,
-        command=gui0,
-        relief="flat"
-    )
-    button_5.place(
-        x=622.0,
-        y=688.0,
-        width=243.0,
-        height=61.0
-    )
-    images ["image_2"] = load_image("./build/assets/nqa3/image_2.png")
-    canvas.create_image(
-      81.0,
-      81.0,
-      image=images["image_2"]
-    )
 
 # Start the application
 show_frame0()
 window.resizable(True, True)
 window.mainloop()
 
-                                  
+import os
+from tkinter import Tk, Canvas, Button, Text, Frame, PhotoImage
+
+def load_image(image_path):
+    try:
+        abs_path = os.path.abspath(image_path)
+        image = PhotoImage(file=abs_path)
+        return image
+    except Exception as e:
+        print(f"Failed to load image at {abs_path}: {e}")
+        return None
+
+def switch_frame(to_frame):
+    for frame in frames:
+        frame.pack_forget()
+    to_frame.pack(fill="both", expand=True)
+
+def gui0():
+    # Clear previous widgets if any
+    for widget in main_menu_frame.winfo_children():
+        widget.destroy()
+
+    # Create GUI0 content
+    canvas_main = Canvas(main_menu_frame, bg="#D0F0C0", height=801, width=1474, bd=0, highlightthickness=0, relief="ridge")
+    canvas_main.place(x=0, y=0)
+
+    images = {}
+    images['button_fc'] = load_image("./build/assets/frame0/button_fc.png")
+    button_fc = Button(main_menu_frame, image=images['button_fc'], borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(gui0))
+    button_fc.place(x=974.0, y=298.0, width=425.0, height=432.0)
+
+    canvas_main.create_text(282.0, 71.0, anchor="nw", text="Your New GUI0", fill="#000000", font=("Inter Bold", 64 * -1))
+
+# Initialize the main window
+root = Tk()
+root.geometry("1474x801")
+root.configure(bg="#D0F0C0")
+
+# Initialize frames
+main_menu_frame = Frame(root, bg="#D0F0C0")
+gui1_frame = Frame(root, bg="#D1EAF0")
+gui2_frame = Frame(root, bg="#D0F0C0")
+gui3_frame = Frame(root, bg="#D0F0C0")
+frames = [main_menu_frame, gui1_frame, gui2_frame, gui3_frame]
+
+# Main menu content (GUI0)
+canvas_main = Canvas(main_menu_frame, bg="#D1EAF0", height=801, width=1474, bd=0, highlightthickness=0, relief="ridge")
+canvas_main.place(x=0, y=0)
+
+images = {}
+images['button_image_1'] = load_image("./build/assets/nqa1/button_1.png")
+button_main_1 = Button(main_menu_frame, image=images['button_image_1'], borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(show_frame0))
+button_main_1.place(x=687.0, y=701.0, width=153.0, height=61.0)
+
+images['button_image_2'] = load_image("./build/assets/nqa1/button_2.png")
+button_main_2 = Button(main_menu_frame, image=images['button_image_2'], borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(gui3_frame))
+button_main_2.place(x=541.797, y=181.0, width=416.202, height=514.0)
+
+images['button_image_3'] = load_image("./build/assets/nqa1/button_3.png")
+button_main_3 = Button(main_menu_frame, image=images['button_image_3'], borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(gui1_frame))
+button_main_3.place(x=84.816, y=179.0, width=416.183, height=522.0)
+
+images['button_image_4'] = load_image("./build/assets/nqa1/button_4.png")
+button_main_4 = Button(main_menu_frame, image=images['button_image_4'], borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(gui2_frame))
+button_main_4.place(x=1004.912, y=179.0, width=416.087, height=505.0)
+
+canvas_main.create_text(282.0, 71.0, anchor="nw", text="Choose your selective subject !", fill="#000000", font=("Inter Bold", 64 * -1))
+
+images['image_image_1'] = load_image("./build/assets/nqa1/image_1.png")
+canvas_main.create_image(91.0, 81.0, image=images['image_image_1'])
+
+# GUI3 content 
+canvas_gui3 = Canvas(gui3_frame, bg="#D0F0C0", height=801, width=1474, bd=0, highlightthickness=0, relief="ridge")
+canvas_gui3.place(x=0, y=0)
+
+button_image_gui3_1 = load_image("./build/assets/nqa3/button_1.png")
+button_gui3_1 = Button(gui3_frame, image=button_image_gui3_1, borderwidth=0, highlightthickness=0, relief="flat")
+button_gui3_1.place(x=260.0, y=111.0, width=931.929, height=532.299)
+
+questions_ds_gui3 = [
+    {"question": "Which of the following statements best describes the importance of understanding physics in the field of information technology?", "answer": "Understanding physics is crucial for improving and operating electronic devices in IT"},
+    {"question": "Which SI base unit is correctly matched with its quantity?", "answer": "Time - second (s)"},
+    {"question": "Which of the following is a derived unit?", "answer": "Newton (N)"},
+    {"question": "How would you express 2.9 × 10^-6 Hz using a standard prefix? ", "answer": "2.9 µHz"},
+    {"question": "Which of the following types of motion involves an object moving in a straight line?", "answer": "Translational motion"},
+    {"question": "What is the primary difference between distance and displacement?", "answer": "Distance is a scalar quantity, while displacement is a vector quantity"},
+    {"question": "What is the SI unit for speed?", "answer": "m/s"},
+    {"question": "How is acceleration defined in physics?", "answer": "The rate at which an object changes its velocity."},
+    {"question": "What does the slope of a position versus time graph represent?", "answer": "Velocity"},
+    {"question": "Which of the following statements about force is correct?", "answer": "Force is the cause of acceleration and is a vector quantity because it has both magnitude and direction."},
+]
+
+current_question_index_gui3 = 0
+
+text_widget_gui3 = Text(button_gui3_1, wrap="word", relief="flat", bd=0, highlightthickness=0, font=("Inter Regular", 16), spacing1=5, spacing2=2)
+text_widget_gui3.pack(expand=True, fill="both")
+text_widget_gui3.insert("end", questions_ds_gui3[current_question_index_gui3]["question"] + "\n" + questions_ds_gui3[current_question_index_gui3]["answer"])
+text_widget_gui3.config(state="disabled")
+
+def next_question_gui3():
+    global current_question_index_gui3
+    current_question_index_gui3 = (current_question_index_gui3 + 1) % len(questions_ds_gui3)
+    update_question_gui3()
+
+def update_question_gui3():
+    text_widget_gui3.config(state="normal")
+    text_widget_gui3.delete(1.0, "end")
+    question = questions_ds_gui3[current_question_index_gui3]["question"]
+    answer = questions_ds_gui3[current_question_index_gui3]["answer"]
+    text_widget_gui3.insert("end", f" {question}\n\n {answer}\n\n")
+    text_widget_gui3.config(state="disabled")
+
+button_image_gui3_2 = load_image("build/assets/nqa2/nqa3/button_3.png")
+button_gui3_2 = Button(gui3_frame, image=button_image_gui3_2, borderwidth=0, highlightthickness=0, relief="flat", command=next_question_gui3)
+button_gui3_2.place(x=928.0, y=688.0, width=153.0, height=61.0)
+
+button_image_gui3_3 = load_image("build/assets/nqa2/nqa3/button_5.png")
+button_gui3_3 = Button(gui3_frame, image=button_image_gui3_3, borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(main_menu_frame))
+button_gui3_3.place(x=622.0, y=688.0, width=243.0, height=61.0)
+
+canvas_gui3.create_text(660.0, 358.0, anchor="nw", text="Questions", fill="#000000", font=("Inter SemiBold", 30 * -1))
+canvas_gui3.create_text(580.0, 16.0, anchor="nw", text="Digital System", fill="#000000", font=("Inter Bold", 64 * -1))
+
+image_gui3_2 = load_image("./build/assets/nqa3/image_2.png")
+canvas_gui3.create_image(81.0, 81.0, image=image_gui3_2)
+
+# GUI2 content
+canvas_gui2 = Canvas(gui2_frame, bg="#D0F0C0", height=801, width=1474, bd=0, highlightthickness=0, relief="ridge")
+canvas_gui2.place(x=0, y=0)
+
+button_image_gui2_1 = load_image("./build/assets/nqa3/button_1.png")
+button_gui2_1 = Button(gui2_frame, image=button_image_gui2_1, borderwidth=0, highlightthickness=0, relief="flat")
+button_gui2_1.place(x=260.0, y=111.0, width=931.929, height=532.299)
+
+questions_ds_gui2 = [
+    {"question": "What is 5! (5 factorial)?", "answer": "120"},
+    {"question": "Expand and evaluate the sum ∑i=13 (2i−1)", "answer": "9"},
+    {"question": "Find the ninth term of the arithmetic sequence whose first term is 6 and whose common difference is -5", "answer": "-34"},
+    {"question": "Find the sum of the first 3 terms of the geometric sequence: 2, -6, 18", "answer": "14"},
+    {"question": "Which of the following is a system of linear equations?", "answer": "3x+2y=6 and x-y=4"},
+    {"question": "Which method is used to eliminate one variable by adding or subtracting equations?", "answer": "Elimination Method"},
+    {"question": "What is the solution to the system x+y=5 and 2x-y=1 using the substitution method?", "answer": "(2,3)"},
+    {"question": "How many solutions does a system of linear equations have if the lines are parallel?", "answer": "No solution"},
+    {"question": "What is the determinant of the matrix", "answer": "10"},
+    {"question": "Which of the following quantities is a vector?", "answer": "Velocity"},
+]
+
+current_question_index_gui2 = 0
+
+text_widget_gui2 = Text(button_gui2_1, wrap="word", relief="flat", bd=0, highlightthickness=0, font=("Inter Regular", 16), spacing1=5, spacing2=2)
+text_widget_gui2.pack(expand=True, fill="both")
+text_widget_gui2.insert("end", questions_ds_gui2[current_question_index_gui2]["question"] + "\n" + questions_ds_gui2[current_question_index_gui2]["answer"])
+text_widget_gui2.config(state="disabled")
+
+def next_question_gui2():
+    global current_question_index_gui2
+    current_question_index_gui2 = (current_question_index_gui2 + 1) % len(questions_ds_gui2)
+    update_question_gui2()
+
+def update_question_gui2():
+    text_widget_gui2.config(state="normal")
+    text_widget_gui2.delete(1.0, "end")
+    question = questions_ds_gui2[current_question_index_gui2]["question"]
+    answer = questions_ds_gui2[current_question_index_gui2]["answer"]
+    text_widget_gui2.insert("end", f" {question}\n\n {answer}\n\n")
+    text_widget_gui2.config(state="disabled")
+
+button_image_gui2_2 = load_image("build/assets/nqa2/nqa3/button_3.png")
+button_gui2_2 = Button(gui2_frame, image=button_image_gui2_2, borderwidth=0, highlightthickness=0, relief="flat", command=next_question_gui2)
+button_gui2_2.place(x=928.0, y=688.0, width=153.0, height=61.0)
+
+button_image_gui2_3 = load_image("build/assets/nqa2/nqa3/button_5.png")
+button_gui2_3 = Button(gui2_frame, image=button_image_gui2_3, borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(main_menu_frame))
+button_gui2_3.place(x=622.0, y=688.0, width=243.0, height=61.0)
+
+canvas_gui2.create_text(660.0, 358.0, anchor="nw", text="Questions", fill="#000000", font=("Inter SemiBold", 30 * -1))
+canvas_gui2.create_text(580.0, 16.0, anchor="nw", text="Digital System", fill="#000000", font=("Inter Bold", 64 * -1))
+
+image_gui2_2 = load_image("./build/assets/nqa3/image_2.png")
+canvas_gui2.create_image(81.0, 81.0, image=image_gui2_2)
+
+
+# GUI1 content
+canvas_gui1 = Canvas(gui1_frame, bg="#D0F0C0", height=801, width=1474, bd=0, highlightthickness=0, relief="ridge")
+canvas_gui1.place(x=0, y=0)
+
+button_image_gui1_1 = load_image("./build/assets/nqa3/button_1.png")    #screen putih question
+button_gui1_1 = Button(gui1_frame, image=button_image_gui1_1, borderwidth=0, highlightthickness=0, relief="flat")
+button_gui1_1.place(x=260.0, y=111.0, width=931.929, height=532.299)
+
+questions_ds_gui1 = [
+    {"question": "Which of the following is a fundamental building block of digital circuits?", "answer": "Transistor"},
+    {"question": "What is the binary representation of the decimal number 10?", "answer": "1010"},
+    {"question": "Which logic gate outputs true only when both inputs are true?", "answer": "AND Gate"},
+    {"question": "What type of signal is continuous and changes smoothly?", "answer": "Analog"},
+    {"question": "Which is an advantage of digital systems?", "answer": "More compact storage"},
+    {"question": "What is the result of the binary addition 110101102 +011110112 ?", "answer": "101000012"},
+    {"question": "What is the primary characteristic of combinational logic circuits?", "answer": "They produce outputs solely based on current input values"},
+    {"question": "What are the two standard forms of Boolean expressions used in combinational logic?", "answer": "SOP and POS"},
+    {"question": "What is the primary purpose of a Karnaugh map (K-map) in digital logic design?", "answer": "To simplify boolean expressions"},
+    {"question": "What determines the size of a K-map for a given boolean expression?", "answer": "The number of input variables"},
+]
+
+current_question_index_gui1 = 0
+
+text_widget_gui1 = Text(button_gui1_1, wrap="word", relief="flat", bd=0, highlightthickness=0, font=("Inter Regular", 16), spacing1=5, spacing2=2)
+text_widget_gui1.pack(expand=True, fill="both")
+text_widget_gui1.insert("end", questions_ds_gui1[current_question_index_gui1]["question"] + "\n" + questions_ds_gui1[current_question_index_gui1]["answer"])
+text_widget_gui1.config(state="disabled")
+
+def next_question_gui1():
+    global current_question_index_gui1
+    current_question_index_gui1 = (current_question_index_gui1 + 1) % len(questions_ds_gui1)
+    update_question_gui1()
+
+def update_question_gui1():
+    text_widget_gui1.config(state="normal")
+    text_widget_gui1.delete(1.0, "end")
+    question = questions_ds_gui1[current_question_index_gui1]["question"]
+    answer = questions_ds_gui1[current_question_index_gui1]["answer"]
+    text_widget_gui1.insert("end", f" {question}\n\n {answer}\n\n")
+    text_widget_gui1.config(state="disabled")
+
+button_image_gui1_2 = load_image("build/assets/nqa2/nqa3/button_3.png")   #button next
+button_gui1_2 = Button(gui1_frame, image=button_image_gui1_2, borderwidth=0, highlightthickness=0, relief="flat", command=next_question_gui1)
+button_gui1_2.place(x=928.0, y=688.0, width=153.0, height=61.0)
+
+button_image_gui1_3 = load_image("build/assets/nqa2/nqa3/button_5.png")   #button main menu
+button_gui1_3 = Button(gui1_frame, image=button_image_gui1_3, borderwidth=0, highlightthickness=0, relief="flat", command=lambda: switch_frame(main_menu_frame))
+button_gui1_3.place(x=422, y=688.0, width=243.0, height=61.0)
+
+canvas_gui1.create_text(660.0, 358.0, anchor="nw", text="Questions", fill="#000000", font=("Inter SemiBold", 30 * -1))
+canvas_gui1.create_text(580.0, 16.0, anchor="nw", text="Digital System", fill="#000000", font=("Inter Bold", 64 * -1))
+
+image_gui1_2 = load_image("./build/assets/nqa3/image_2.png")
+canvas_gui1.create_image(81.0, 81.0, image=image_gui1_2)
+
+# Switch to the main menu frame initially
+switch_frame(main_menu_frame)
+
+# Main loop
+root.mainloop()                                   
 
